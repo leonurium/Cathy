@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AACF26CE2123EE9700ABA4AF /* FaceDetectionClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACF26CD2123EE9700ABA4AF /* FaceDetectionClass.swift */; };
 		AADA70F42122E4CF00F1B165 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADA70F32122E4CF00F1B165 /* AppDelegate.swift */; };
 		AADA70F62122E4CF00F1B165 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADA70F52122E4CF00F1B165 /* ViewController.swift */; };
 		AADA70F92122E4CF00F1B165 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AADA70F72122E4CF00F1B165 /* Main.storyboard */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AACF26CD2123EE9700ABA4AF /* FaceDetectionClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceDetectionClass.swift; sourceTree = "<group>"; };
 		AADA70F02122E4CF00F1B165 /* Cathy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cathy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AADA70F32122E4CF00F1B165 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AADA70F52122E4CF00F1B165 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -70,6 +72,14 @@
 			path = Support;
 			sourceTree = "<group>";
 		};
+		AACF26CC2123EE4600ABA4AF /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				AACF26CD2123EE9700ABA4AF /* FaceDetectionClass.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		AADA70E72122E4CF00F1B165 = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +99,7 @@
 		AADA70F22122E4CF00F1B165 /* Cathy */ = {
 			isa = PBXGroup;
 			children = (
+				AACF26CC2123EE4600ABA4AF /* Classes */,
 				AACF26CB2123E89800ABA4AF /* Support */,
 				AACF26CA2123E86D00ABA4AF /* View */,
 				AACF26C92123E86100ABA4AF /* Controller */,
@@ -173,6 +184,7 @@
 				AADA70F62122E4CF00F1B165 /* ViewController.swift in Sources */,
 				AADA70F42122E4CF00F1B165 /* AppDelegate.swift in Sources */,
 				AADA70FC2122E4CF00F1B165 /* Cathy.xcdatamodeld in Sources */,
+				AACF26CE2123EE9700ABA4AF /* FaceDetectionClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

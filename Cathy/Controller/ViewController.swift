@@ -9,9 +9,15 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    @IBOutlet weak var outletImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        let images = UIImage(named: "leo.jpg")
+        outletImageView.image = images
+        let face = FaceDetectionClass()
+        face.detect(image: images!)
         // Do any additional setup after loading the view, typically from a nib.
     }
 
