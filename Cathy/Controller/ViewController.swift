@@ -10,17 +10,41 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var outletImageView: UIImageView!
+    @IBOutlet weak var newGamelbl: UILabel!
+    @IBOutlet weak var optionlbl: UILabel!
+    @IBOutlet weak var tapAnywhere: UILabel!
+    @IBOutlet weak var cathy: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let images = UIImage(named: "leo.jpg")
-        outletImageView.image = images
-        let face = FaceDetectionClass()
-        face.detect(image: images!)
-        // Do any additional setup after loading the view, typically from a nib.
+        self.newGamelbl.alpha = 0
+        self.optionlbl.alpha = 0
     }
 
+    @IBAction func tapScreen(_ sender: Any) {
+        if(tapAnywhere.isHidden == false){
+            tapAnywhere.isHidden = true
+            
+            UIView.animate(withDuration: 2){
+                self.cathy.center.x -= 225
+                self.cathy.center.y -= 80
+            }
+            
+            UIView.animate(withDuration: 1, delay: 2, options: .beginFromCurrentState, animations: {
+                
+                
+                self.newGamelbl.center.y -= 30
+                self.optionlbl.center.y -= 30
+                self.newGamelbl.alpha = 1
+                self.optionlbl.alpha = 1
+            }, completion:
+                {
+                    (animate) in
+                }
+            )
+        }else{}
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
