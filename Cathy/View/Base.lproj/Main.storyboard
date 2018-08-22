@@ -36,7 +36,7 @@
                                 <attributedString key="attributedText">
                                     <fragment content="tap anywhere to continue">
                                         <attributes>
-                                            <font key="NSFont" size="25" name="PrimerPrint-Regular"/>
+                                            <font key="NSFont" metaFont="system" size="25"/>
                                         </attributes>
                                     </fragment>
                                 </attributedString>
@@ -97,7 +97,7 @@
                                 <attributedString key="attributedText">
                                     <fragment content="aaaaaaaa">
                                         <attributes>
-                                            <font key="NSFont" size="36" name="PrimerPrint-Regular"/>
+                                            <font key="NSFont" metaFont="system" size="36"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
