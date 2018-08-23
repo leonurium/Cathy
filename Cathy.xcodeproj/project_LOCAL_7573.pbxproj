@@ -7,11 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		30B8851F212EBCA5004D1870 /* textBoxDialogueController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B8851E212EBCA5004D1870 /* textBoxDialogueController.swift */; };
 		30FBEEEB212568D5007BF14E /* primer print.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30FBEEE9212568D5007BF14E /* primer print.ttf */; };
 		30FBEEEC212568D5007BF14E /* primer print bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30FBEEEA212568D5007BF14E /* primer print bold.ttf */; };
-		AA59DFD1212CFD8F0099C990 /* ChronologyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA59DFD0212CFD8F0099C990 /* ChronologyViewController.swift */; };
-		AA59DFD3212CFDD60099C990 /* ChronologyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA59DFD2212CFDD60099C990 /* ChronologyModel.swift */; };
+		30FBEEEE21256D97007BF14E /* textBoxDialogue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FBEEED21256D97007BF14E /* textBoxDialogue.swift */; };
 		AACF26CE2123EE9700ABA4AF /* FaceDetectionClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACF26CD2123EE9700ABA4AF /* FaceDetectionClass.swift */; };
 		AADA70F42122E4CF00F1B165 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADA70F32122E4CF00F1B165 /* AppDelegate.swift */; };
 		AADA70F62122E4CF00F1B165 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADA70F52122E4CF00F1B165 /* ViewController.swift */; };
@@ -22,11 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		30B8851E212EBCA5004D1870 /* textBoxDialogueController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = textBoxDialogueController.swift; sourceTree = "<group>"; };
 		30FBEEE9212568D5007BF14E /* primer print.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "primer print.ttf"; sourceTree = "<group>"; };
 		30FBEEEA212568D5007BF14E /* primer print bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "primer print bold.ttf"; sourceTree = "<group>"; };
-		AA59DFD0212CFD8F0099C990 /* ChronologyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChronologyViewController.swift; sourceTree = "<group>"; };
-		AA59DFD2212CFDD60099C990 /* ChronologyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChronologyModel.swift; sourceTree = "<group>"; };
+		30FBEEED21256D97007BF14E /* textBoxDialogue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = textBoxDialogue.swift; sourceTree = "<group>"; };
 		AACF26CD2123EE9700ABA4AF /* FaceDetectionClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceDetectionClass.swift; sourceTree = "<group>"; };
 		AADA70F02122E4CF00F1B165 /* Cathy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cathy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AADA70F32122E4CF00F1B165 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -58,10 +54,9 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		AA59DFCB212CFA880099C990 /* Model */ = {
+		AACF26C82123E83C00ABA4AF /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				AA59DFD2212CFDD60099C990 /* ChronologyModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -69,9 +64,8 @@
 		AACF26C92123E86100ABA4AF /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				30FBEEED21256D97007BF14E /* textBoxDialogue.swift */,
 				AADA70F52122E4CF00F1B165 /* ViewController.swift */,
-				AA59DFD0212CFD8F0099C990 /* ChronologyViewController.swift */,
-				30B8851E212EBCA5004D1870 /* textBoxDialogueController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -122,11 +116,11 @@
 		AADA70F22122E4CF00F1B165 /* Cathy */ = {
 			isa = PBXGroup;
 			children = (
-				AA59DFCB212CFA880099C990 /* Model */,
 				AACF26CC2123EE4600ABA4AF /* Classes */,
 				AACF26C92123E86100ABA4AF /* Controller */,
 				AACF26CA2123E86D00ABA4AF /* View */,
 				AACF26CB2123E89800ABA4AF /* Support */,
+				AACF26C82123E83C00ABA4AF /* Model */,
 				AADA71022122E4CF00F1B165 /* Info.plist */,
 				AADA70FA2122E4CF00F1B165 /* Cathy.xcdatamodeld */,
 			);
@@ -206,11 +200,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30FBEEEE21256D97007BF14E /* textBoxDialogue.swift in Sources */,
 				AADA70F62122E4CF00F1B165 /* ViewController.swift in Sources */,
 				AADA70F42122E4CF00F1B165 /* AppDelegate.swift in Sources */,
-				30B8851F212EBCA5004D1870 /* textBoxDialogueController.swift in Sources */,
-				AA59DFD1212CFD8F0099C990 /* ChronologyViewController.swift in Sources */,
-				AA59DFD3212CFDD60099C990 /* ChronologyModel.swift in Sources */,
 				AADA70FC2122E4CF00F1B165 /* Cathy.xcdatamodeld in Sources */,
 				AACF26CE2123EE9700ABA4AF /* FaceDetectionClass.swift in Sources */,
 			);
@@ -357,14 +349,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = W8T5R97US6;
+				DEVELOPMENT_TEAM = 4475UJGNX2;
 				INFOPLIST_FILE = Cathy/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Terre.Cathy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ranggaleoo.Cathy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -376,14 +367,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = W8T5R97US6;
+				DEVELOPMENT_TEAM = 4475UJGNX2;
 				INFOPLIST_FILE = Cathy/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Terre.Cathy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ranggaleoo.Cathy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

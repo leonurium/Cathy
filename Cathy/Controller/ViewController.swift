@@ -7,20 +7,15 @@
 //
 
 import UIKit
-
+ 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var newGamelbl: UILabel!
-    @IBOutlet weak var optionlbl: UILabel!
+    @IBOutlet weak var outNewGame: UIButton!
+    @IBOutlet weak var outOption: UIButton!
     @IBOutlet weak var tapAnywhere: UILabel!
     @IBOutlet weak var cathy: UILabel!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.newGamelbl.alpha = 0
-        self.optionlbl.alpha = 0
-    }
 
+    //animation awal
     @IBAction func tapScreen(_ sender: Any) {
         if(tapAnywhere.isHidden == false){
             tapAnywhere.isHidden = true
@@ -32,17 +27,31 @@ class ViewController: UIViewController {
             
             UIView.animate(withDuration: 1, delay: 2, options: .beginFromCurrentState, animations: {
                 
-                
-                self.newGamelbl.center.y -= 30
-                self.optionlbl.center.y -= 30
-                self.newGamelbl.alpha = 1
-                self.optionlbl.alpha = 1
+                self.outNewGame.center.y -= 30
+                self.outOption.center.y -= 30
+                self.outNewGame.alpha = 1
+                self.outOption.alpha = 1
             }, completion:
                 {
                     (animate) in
                 }
             )
         }else{}
+    }
+    
+    //animation
+    @IBAction func actionNewGame(_ sender: Any) {
+        print("ok")
+    }
+    
+    @IBAction func actionOption(_ sender: Any) {
+        print("ok")
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.outNewGame.alpha = 0
+        self.outOption.alpha = 0
     }
     
     override func didReceiveMemoryWarning() {
