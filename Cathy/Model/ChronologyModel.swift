@@ -26,17 +26,7 @@ class ChronologyModel {
     var chronologies = [Chronologies]()
     
     init() {
-        /*
-         chronologies.append(Chronologies(id: 1, title: "test", background: "leo.jpg", chronology: [
-         0 : ChronologyText(type: "text", subject: "cathy", text: "hay kamu", expression: "mad", target: 1),
-         1 : ChronologyText(type: "text", subject: "player", text: "hay juga", expression: "happy", target: 2),
-         2 : ChronologyOption(type: "option", subject: "cathy", optionText: ["to 0", "to 3", "to 4"], optionExpression: ["mad", "happy", "mad"], optionTarget: [0, 3, 4]),
-         3 : ChronologyNarator(type: "narator", text: "suatu hari", target: 4),
-         4 : ChronologyInteraction(type: "interaction", subtype: "face_detection", target: 0)
-         ]))
-         */
-        
-        chronologies.append(Chronologies(id: 1, title: "Test", background: "leo.jpg", chronology: [
+        chronologies.append(Chronologies(id: 1, title: "Test", background: "room", chronology: [
             0 : [
                 "type"          : "text",
                 "subject"       : "cathy",

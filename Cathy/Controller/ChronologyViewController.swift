@@ -11,15 +11,14 @@ import UIKit
 class ChronologyViewController: UIViewController {
     
     let chronologyModel = ChronologyModel()
+    var indexChronology: Int = 0
     
-    //Button option buat choice alur
+    //OUTLETS
+    //Outlet button option buat choice alur
     @IBOutlet weak var outletButtonOption1: UIButton!
     @IBOutlet weak var outletButtonOption2: UIButton!
     @IBOutlet weak var outletButtonOption3: UIButton!
     @IBOutlet weak var outletButtonOption4: UIButton!
-    
-    //Button buat next ke chronology berikutnya, bisa di ganti pake all view screen
-    @IBOutlet weak var outletButtonNext: UIButton!
     
     //Outlet image view buat charecter sama background
     @IBOutlet weak var outletImageViewBackgroud: UIImageView!
@@ -27,17 +26,37 @@ class ChronologyViewController: UIViewController {
     @IBOutlet weak var outletImageViewChar2: UIImageView!
     @IBOutlet weak var outletImageViewChar3: UIImageView!
     
-    //outlet label nama (subject) sama text conversation nya
+    //Outlet label nama (subject) sama text conversation nya
     @IBOutlet weak var outletLabelSubject: UILabel!
     @IBOutlet weak var outletLabelText: UILabel!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        startChronology(index: 0)
-        generateChronology(index: 0)
-        
+    //Outlet menu view pojok kanan atas
+    @IBOutlet weak var outletMenuChapter: UILabel!
+    @IBOutlet weak var outletMenuDay: UILabel!
+    @IBOutlet weak var outletMenuNoon: UILabel!
+    @IBOutlet weak var outletMenuPause: UIButton!
+    
+    
+    //BUTTONS
+    //Button buat next ke chronology berikutnya, bisa di ganti pake all view screen
+    @IBAction func tapAnywhere(_ sender: UIView) {
+        generateChronology(index: indexChronology)
     }
     
+    @IBAction func actionButtonOption(_ sender: UIButton) {
+        generateChronology(index: sender.tag)
+        animateButtonOption(button: sender)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        masks()
+        startChronology(index: 0)
+        generateChronology(index: 0)
+    }
+    
+    
+    //FUNCTIONS
     func startChronology(index : Int) {
         outletImageViewBackgroud.image = UIImage(named: chronologyModel.chronologies[index].background)
         
@@ -50,8 +69,6 @@ class ChronologyViewController: UIViewController {
         outletButtonOption3.isHidden = true
         outletButtonOption4.isHidden = true
         
-        outletButtonNext.isHidden = true
-        
         outletImageViewChar1.isHidden = true
         outletImageViewChar2.isHidden = true
         outletImageViewChar3.isHidden = true
@@ -60,29 +77,19 @@ class ChronologyViewController: UIViewController {
         outletLabelText.isHidden = true
     }
     
-    @IBAction func actionButtonNext(_ sender: UIButton) {
-        generateChronology(index: sender.tag)
-    }
-    
-    @IBAction func actionButtonOption(_ sender: UIButton) {
-        generateChronology(index: sender.tag)
-    }
-    
     func generateChronology(index : Int) -> Void {
         let nowChronology = chronologyModel.chronologies[0].chronology[index]!
         
         //filter type chronology
-        
         switch nowChronology["type"] as? String {
         case "text":
             hiddenAll()
             outletLabelSubject.isHidden = false
             outletLabelText.isHidden = false
-            outletButtonNext.isHidden = false
             
             outletLabelSubject.text = nowChronology["subject"] as? String
             outletLabelText.text = nowChronology["text"] as? String
-            outletButtonNext.tag = nowChronology["target"] as! Int
+            indexChronology = nowChronology["target"] as! Int
             break
             
         case "option":
@@ -145,9 +152,8 @@ class ChronologyViewController: UIViewController {
         case "narator":
             hiddenAll()
             outletLabelText.text = nowChronology["text"] as? String
-            outletButtonNext.tag = nowChronology["target"] as! Int
+            indexChronology = nowChronology["target"] as! Int
             outletLabelText.isHidden = false
-            outletButtonNext.isHidden = false
             break
             
         case "interaction":
@@ -158,6 +164,50 @@ class ChronologyViewController: UIViewController {
             print("something wrong with type chronology")
             break
         }
+    }
+    
+    func labelMask(label : UILabel){
+        label.layer.cornerRadius = 5
+        label.layer.masksToBounds = true
+    }
+    
+    func buttonMask(button : UIButton){
+        button.layer.cornerRadius = 15
+        button.layer.masksToBounds = true
+    }
+    
+    //MASKS
+    func masks(){
+        // MENU MASKS
+        //Menu
+        labelMask(label: outletMenuChapter)
+        labelMask(label: outletMenuNoon)
+        labelMask(label: outletMenuDay)
+        outletMenuPause.layer.cornerRadius = 5
+        outletMenuPause.layer.masksToBounds = true
+    
+        
+        //CHOOSE BOX MASKS
+        buttonMask(button: outletButtonOption1)
+        buttonMask(button: outletButtonOption2)
+        buttonMask(button: outletButtonOption3)
+        buttonMask(button: outletButtonOption4)
+
+    }
+    
+    //ANIMATION
+    func animateButtonOption(button: UIButton)
+    {
+        UIView.animate(withDuration: 0.5, animations: {
+            button.alpha = 0
+            
+        }, completion: {
+            (Completed : Bool) -> Void in
+            UIView.animate (withDuration: 0.5, delay:0, options: UIViewAnimationOptions.curveLinear, animations: {
+                button.alpha = 1
+                
+            })
+        })
     }
     
     override func didReceiveMemoryWarning() {
