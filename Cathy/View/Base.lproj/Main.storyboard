@@ -39,7 +39,7 @@
                                 <attributedString key="attributedText">
                                     <fragment content="tap anywhere to continue">
                                         <attributes>
-                                            <font key="NSFont" size="25" name="PrimerPrint-Regular"/>
+                                            <font key="NSFont" metaFont="system" size="25"/>
                                         </attributes>
                                     </fragment>
                                 </attributedString>
