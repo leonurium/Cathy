@@ -7,8 +7,10 @@
 //
 
 import Foundation
+import UIKit
+import CoreData
 
-struct Chronologies {
+struct Chronologies: NSObject {
     let id : Int
     let title : String
     let background : String
@@ -26,16 +28,6 @@ class ChronologyModel {
     var chronologies = [Chronologies]()
     
     init() {
-        /*
-         chronologies.append(Chronologies(id: 1, title: "test", background: "leo.jpg", chronology: [
-         0 : ChronologyText(type: "text", subject: "cathy", text: "hay kamu", expression: "mad", target: 1),
-         1 : ChronologyText(type: "text", subject: "player", text: "hay juga", expression: "happy", target: 2),
-         2 : ChronologyOption(type: "option", subject: "cathy", optionText: ["to 0", "to 3", "to 4"], optionExpression: ["mad", "happy", "mad"], optionTarget: [0, 3, 4]),
-         3 : ChronologyNarator(type: "narator", text: "suatu hari", target: 4),
-         4 : ChronologyInteraction(type: "interaction", subtype: "face_detection", target: 0)
-         ]))
-         */
-        
         chronologies.append(Chronologies(id: 1, title: "Test", background: "leo.jpg", chronology: [
             0 : [
                 "type"          : "text",
@@ -88,5 +80,94 @@ class ChronologyModel {
             ],
             
             ]))
+    }
+    
+    private class func getContext() -> NSManagedObjectContext
+    {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        return appDelegate.persistentContainer.viewContext
+    }
+    
+    class func saveObject(username: String, id: Int, idChronology: Int) -> Bool
+    {
+        let context = getContext()
+        let entity = NSEntityDescription.entity(forEntityName: "Checkpoint", in: context)
+        let manageObject = NSManagedObject(entity: entity!, insertInto: context)
+        
+        manageObject.setValue(username, forKey: "username")
+        manageObject.setValue(id, forKey: "id")
+        manageObject.setValue(idChronology, forKey: "id_chronology")
+        
+        do {
+            try context.save()
+            return true
+        } catch {
+            return false
+        }
+    }
+    
+    class func updateObject(id: Int, idChronology: Int) -> Bool {
+        let context = getContext()
+        
+        var fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Checkpoint")
+        fetchRequest.predicate = NSPredicate(format: "username = %@", username)
+        
+        if let fetchResults = context.execute(fetchRequest) as? [NSManagedObject] {
+            if fetchResults.count != 0 {
+                
+                var managedObject = fetchResults[0]
+                managedObject.setValue(id, forKey: "id")
+                managedObject.setValue(idChronology, forKey: "id_chronology")
+                
+                do {
+                    try context.save()
+                    return true
+                } catch {
+                    return false
+                }
+            
+            } else {
+                self.saveObject(username: username, id: id, idChronology: idChronology)
+            }
+        }
+    }
+    
+    class func fetchObject() -> [Checkpoint]?
+    {
+        let context = getContext()
+        var checkpoint: [Checkpoint]? = nil
+        do {
+            checkpoint = try context.fetch(Checkpoint.fetchRequest())
+            return checkpoint
+        } catch {
+            return checkpoint
+        }
+    }
+    
+    class func deleteObject(checkpoint: Checkpoint) -> Bool
+    {
+        let context = getContext()
+        context.delete(checkpoint)
+        
+        do {
+            try context.save()
+            return true
+        } catch {
+            return false
+        }
+    }
+    
+    class func cleanAll() -> Bool
+    {
+        let context = getContext()
+        let cleaning = NSBatchDeleteRequest(fetchRequest: Checkpoint.fetchRequest())
+        
+        do {
+            try context.execute(cleaning)
+            return true
+        } catch {
+            return false
+        }
     }
 }
