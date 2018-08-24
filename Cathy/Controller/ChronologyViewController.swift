@@ -55,7 +55,7 @@ class ChronologyViewController: UIViewController {
         generateChronology(index: 0)
     }
     
-    
+
     //FUNCTIONS
     func startChronology(index : Int) {
         outletImageViewBackgroud.image = UIImage(named: chronologyModel.chronologies[index].background)

@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import CoreData
 
-struct Chronologies: NSObject {
+struct Chronologies {
     let id : Int
     let title : String
     let background : String
@@ -24,11 +24,11 @@ struct Chronologies: NSObject {
     }
 }
 
-class ChronologyModel {
+class ChronologyModel: NSObject {
     var chronologies = [Chronologies]()
     
-    init() {
-        chronologies.append(Chronologies(id: 1, title: "Test", background: "leo.jpg", chronology: [
+    override init() {
+        chronologies.append(Chronologies(id: 1, title: "Test", background: "room", chronology: [
             0 : [
                 "type"          : "text",
                 "subject"       : "cathy",
@@ -108,28 +108,35 @@ class ChronologyModel {
     }
     
     class func updateObject(id: Int, idChronology: Int) -> Bool {
+        
         let context = getContext()
         
-        var fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Checkpoint")
-        fetchRequest.predicate = NSPredicate(format: "username = %@", username)
+        let username = "C4THY"
+        let predicate = NSPredicate(format: "username == %@", username)
         
-        if let fetchResults = context.execute(fetchRequest) as? [NSManagedObject] {
-            if fetchResults.count != 0 {
-                
-                var managedObject = fetchResults[0]
-                managedObject.setValue(id, forKey: "id")
-                managedObject.setValue(idChronology, forKey: "id_chronology")
-                
+        let fetchRequest = NSFetchRequest<Checkpoint>(entityName: "Checkpoint")
+        fetchRequest.predicate = predicate
+        fetchRequest.returnsObjectsAsFaults = false
+        
+        do {
+            let fetchedEntities = try context.fetch(fetchRequest)
+            fetchedEntities.first?.id = Int32(id)
+            fetchedEntities.first?.id_chronology = Int32(idChronology)
+            
+            if fetchedEntities.count > 0 {
                 do {
                     try context.save()
                     return true
                 } catch {
+                    print("GAGAL SAVE UPDATE")
                     return false
                 }
-            
             } else {
-                self.saveObject(username: username, id: id, idChronology: idChronology)
+                return saveObject(username: username, id: id, idChronology: idChronology)
             }
+        } catch {
+            print("GAGAL SAVE UPDATE")
+            return false
         }
     }
     
