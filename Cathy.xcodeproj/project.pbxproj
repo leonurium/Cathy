@@ -10,12 +10,12 @@
 		30B8851F212EBCA5004D1870 /* textBoxDialogueController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B8851E212EBCA5004D1870 /* textBoxDialogueController.swift */; };
 		30FBEEEB212568D5007BF14E /* primer print.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30FBEEE9212568D5007BF14E /* primer print.ttf */; };
 		30FBEEEC212568D5007BF14E /* primer print bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30FBEEEA212568D5007BF14E /* primer print bold.ttf */; };
+		5DFE9EB1212ED7BE00CB7CAC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DFE9EAF212ED7BE00CB7CAC /* Main.storyboard */; };
 		AA59DFD1212CFD8F0099C990 /* ChronologyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA59DFD0212CFD8F0099C990 /* ChronologyViewController.swift */; };
 		AA59DFD3212CFDD60099C990 /* ChronologyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA59DFD2212CFDD60099C990 /* ChronologyModel.swift */; };
 		AACF26CE2123EE9700ABA4AF /* FaceDetectionClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACF26CD2123EE9700ABA4AF /* FaceDetectionClass.swift */; };
 		AADA70F42122E4CF00F1B165 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADA70F32122E4CF00F1B165 /* AppDelegate.swift */; };
 		AADA70F62122E4CF00F1B165 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADA70F52122E4CF00F1B165 /* ViewController.swift */; };
-		AADA70F92122E4CF00F1B165 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AADA70F72122E4CF00F1B165 /* Main.storyboard */; };
 		AADA70FC2122E4CF00F1B165 /* Cathy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AADA70FA2122E4CF00F1B165 /* Cathy.xcdatamodeld */; };
 		AADA70FE2122E4CF00F1B165 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AADA70FD2122E4CF00F1B165 /* Assets.xcassets */; };
 		AADA71012122E4CF00F1B165 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AADA70FF2122E4CF00F1B165 /* LaunchScreen.storyboard */; };
@@ -25,13 +25,13 @@
 		30B8851E212EBCA5004D1870 /* textBoxDialogueController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = textBoxDialogueController.swift; sourceTree = "<group>"; };
 		30FBEEE9212568D5007BF14E /* primer print.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "primer print.ttf"; sourceTree = "<group>"; };
 		30FBEEEA212568D5007BF14E /* primer print bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "primer print bold.ttf"; sourceTree = "<group>"; };
+		5DFE9EB0212ED7BE00CB7CAC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AA59DFD0212CFD8F0099C990 /* ChronologyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChronologyViewController.swift; sourceTree = "<group>"; };
 		AA59DFD2212CFDD60099C990 /* ChronologyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChronologyModel.swift; sourceTree = "<group>"; };
 		AACF26CD2123EE9700ABA4AF /* FaceDetectionClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceDetectionClass.swift; sourceTree = "<group>"; };
 		AADA70F02122E4CF00F1B165 /* Cathy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cathy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AADA70F32122E4CF00F1B165 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AADA70F52122E4CF00F1B165 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		AADA70F82122E4CF00F1B165 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AADA70FB2122E4CF00F1B165 /* Cathy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Cathy.xcdatamodel; sourceTree = "<group>"; };
 		AADA70FD2122E4CF00F1B165 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AADA71002122E4CF00F1B165 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -79,7 +79,7 @@
 		AACF26CA2123E86D00ABA4AF /* View */ = {
 			isa = PBXGroup;
 			children = (
-				AADA70F72122E4CF00F1B165 /* Main.storyboard */,
+				5DFE9EAF212ED7BE00CB7CAC /* Main.storyboard */,
 				AADA70FF2122E4CF00F1B165 /* LaunchScreen.storyboard */,
 			);
 			path = View;
@@ -192,9 +192,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				30FBEEEB212568D5007BF14E /* primer print.ttf in Resources */,
+				5DFE9EB1212ED7BE00CB7CAC /* Main.storyboard in Resources */,
 				AADA71012122E4CF00F1B165 /* LaunchScreen.storyboard in Resources */,
 				AADA70FE2122E4CF00F1B165 /* Assets.xcassets in Resources */,
-				AADA70F92122E4CF00F1B165 /* Main.storyboard in Resources */,
 				30FBEEEC212568D5007BF14E /* primer print bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -219,10 +219,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		AADA70F72122E4CF00F1B165 /* Main.storyboard */ = {
+		5DFE9EAF212ED7BE00CB7CAC /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				AADA70F82122E4CF00F1B165 /* Base */,
+				5DFE9EB0212ED7BE00CB7CAC /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

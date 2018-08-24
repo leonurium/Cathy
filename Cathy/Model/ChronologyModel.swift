@@ -245,9 +245,301 @@ class ChronologyModel {
             ],
             
             17 : [
-                "type"      : "
-            ]
+                "type"      : "narator",
+                "text"      : "Hmmm that girl again, somehow definetely she is someone... Nghhh, I don't really wan to think about it",
+                "target"    :
+            ],
             
+            18 : [
+                "type"      : "narator",
+                "text"      : "Anyway I must go...",
+                "target"    : 002
+            
+            
+            ]
+            ]))
+        
+        chronologies.append(Chronologies(id: 4, title: "Bab 3 New Star", background: "leo.jpg", chronology: [
+            0 : [
+                "type"      : "text",
+                "subject"   : "gabriel",
+                "text"      : "Hey kid watcha doin’?",
+                "target"    : 1
+            ],
+            
+            1 : [
+                "type"              : "option",
+                "subject"           : "Gabriel",
+                "optionText"        : [
+                    "Nothing much",
+                    "Stop that"
+                ],
+                "optionTarget"      : [
+                    2,
+                    3
+                ]
+            ],
+            
+            2 : [
+                "type"          : "text",
+                "subject"       : "Gabriel",
+                "expression"    : "happy",
+                "text"          : "Ohhh you have been busy lately haha...?"
+                "target"        : 4
+            ],
+            
+            3 : [
+                "type"          : "text",
+                "subject"       : "Gabriel",
+                "expression"    : "happy",
+                "text"          : "Take it easy boy haha",
+                "target"        : 4
+            ],
+            
+            4 : [
+                "type"          : "text",
+                "subject"       : "Gabriel",
+                "expression"    : "normal",
+                "text"          : "Oh yea, did you hear what is the new? He said we gonna do some another community service huh...",
+                "target"        : 5
+            ],
+            
+            5 : [
+                "type"          : "narator",
+                "text"          : "Oh yea?",
+                "target"        : 6
+            ],
+            
+            6 : [
+                "type"          : "narator",
+                "text"          : "What is the point anyway doing this…? Why can’t they leave us in peace?",
+                "target"        : 7
+            ],
+            
+            7 : [
+                "type"          : "text",
+                "subject"       : "Gabriel",
+                "expression"    : "happy",
+                "text"          : "Ahhh you should happy man, the opportunity to help each other… hahahaha.",
+                "target"        : 8
+            ],
+            
+            8 : [
+                "type"          : "narator",
+                "text"          : "Yeah whatever",
+                "target"        : 9
+            ],
+            
+            9 : [
+                "type"          : "text",
+                "subject"       : "Gabriel",
+                "expression"    : "normal",
+                "text"          : "Eyyy man, what’s wrong? please tell me it ain’t that your wife again huh?",
+                "target"        : 10
+            ],
+            
+            10 : [
+                "type"          : "text",
+                "subject"       : "Protagonist",
+                "text"          : "No it isn’t and never was. I already told you to not bring it up right?",
+                "target"        : 11
+            ],
+            
+            11 : [
+                "type"          : "text",
+                "subject"       : "Gabriel",
+                "expression"    : "normal",
+                "text"          : "Yeah, that’s right.. but I watchin’ you lately, and you seem back to your “was”",
+                "target"        : 12
+            ],
+            
+            12 : [
+                "type"          : "option",
+                "subject"       : "Gabriel",
+                "optionText"    : [
+                    "Maybe you just imagining it",
+                    "What if you wrong?"
+                ],
+                "optionTarget"  : [
+                    13,
+                    14
+                ]
+            ],
+            
+            13 : [
+                "type"          : "text",
+                "subject"       : "Gabriel",
+                "expression"    : "normal",
+                "text"          : "Huh…? I’m not your typical designer or big picture thinking m8...",
+                "target"        : 15
+            ],
+            
+            14 : [
+                "type"          : "text",
+                "subject"       : "Gabriel",
+                "expression"    : "angry",
+                "text"          : "And if not?",
+                "target"        : 15
+            ],
+            
+            15 : [
+                "type"          : "text",
+                "subject"       : "Gabriel",
+                "expression"    : "normal",
+                "text"          : "Anyway m8, about the community service, I heard it going to the same place as before... Man… I’m sensing we getting new sponsor right now, hahahaha.",
+                "target"        : 16
+            ],
+            
+            16 : [
+                "type"          : "narator",
+                "text"          : "Same place again...",
+                "target"        : 17
+            ],
+            
+            17 : [
+                "type"          : "interaction",
+                "subtype"       : "pop-up scene",
+                "target"        : 18
+            ],
+            
+            18 : [
+                "type"          : "narator",
+                "text"          : "Arghh, Why that memory always cross over my mind this lately...?! I don’t want to remember it again, but it always come...",
+                "target"        : 19
+            ],
+            
+            19 : [
+                "type"          : "text",
+                "subject"       : "Gabriel",
+                "expression"    : "normal",
+                "text"          : "Hey are you alrigt m8?",
+                "target"        : 20
+            ],
+            
+            20 : [
+                "type"          : "narator",
+                "subject"       : "protagonist",
+                "text"          : "I’m fine, just being overthinking...",
+                "target"        : 21
+            ],
+            
+            21 : [
+                "type"          : "narator",
+                "text"          : "That Girl...",
+                "target"        : 22
+            ],
+            
+            22 : [
+                "type"          : "text",
+                "subject"       : "Gabriel",
+                "expression"    : "happy",
+                "text"          : "Anyway man, don’t let your feeling letting down your performance m8. It just not me thingking ‘bout that, but everyone else does think the same way.",
+            ],
+            
+            23 : [
+                "type"          : "narator",
+                "subject"       : "Protagonist",
+                "text"          : "yeah noted",
+                "target"        : 24
+            ],
+            
+            24 : [
+                "type"          : "narator",
+                "text"          : "I hate to admit, but I remembered my dream with her… A dream that we can enjoy together",
+                "target"        : 25
+            ],
+            
+            25 : [
+                "type"          : "interaction",
+                "subtype"       : "cathy_scene",
+                "target"        : 26
+            ],
+            
+            26 : [
+                "type"          : "narator",
+                "text"          : "No! I won’t let that feeling happen again. I promise!",
+                "target"        : 002
+            ]
+            ]))
+        
+        chronologies.append(Chronologies(id: 5, title: "Bab 3 New Star Part 2", background: "leo.jpg", chronology: [
+            
+            0 : [
+                "type"      : "narator",
+                "text"      : "The day of community service has come. I and other member of company have prepared to do the community service. we are going to the same place as before. Now I’m ready to do it again... let’s go.",
+                "target"    : 1
+            ],
+            
+            1 : [
+                "type"      : "text",
+                "subject"   : "Childrens",
+                "text"      : "Waaaaaa!!",
+                "target"    : 2
+            ],
+            
+            2 : [
+                "type"      : "narator",
+                "text"      : "The children welcome us happiliy",
+                "target"    : 3
+            ],
+            
+            3 : [
+                "type"          : "text",
+                "subject"       : "Gabriel",
+                "expression"    : "happy",
+                "text"          : "Hehey… watcha’ think eh? guess we back.",
+                "target"        : 4
+            ],
+            
+            4 : [
+                "type"          : "text",
+                "subject"       : "Protagonist",
+                "text"          : "Hmmm, yeah",
+                "target"        : 5
+            ],
+            
+            5 : [
+                "type"          : "text",
+                "subject"       : "Childrens",
+                "text"          : "Mister! Mister!",
+                "target"        : 6
+            ],
+            
+            6 : [
+                "type"          : "text",
+                "subject"       : "Children",
+                "text"          : "We miss you misters!",
+                "target"        : 7
+            ],
+            
+            7 : [
+                "type"          : "text",
+                "subject"       : "Gabriel",
+                "expression"    : "happy",
+                "text"          : "Woooow! Easy kids!",
+                "target"        : 8
+            ],
+            
+            8 : [
+                "type"          : "narator",
+                "text"          : "t seem they are all happy. Childrens always happy right, they always innocent, don’t know the real world… just thiking if I was become a boy again...",
+                "target"        : 9
+            ],
+            
+            9 : [
+                "type"          : "text",
+                "subject"       : "Gabriel",
+                "expression"    : "normal",
+                "text"          : "Ayy man, what are you doing there? Lets go inside!",
+                "target"        : 10
+            ],
+            
+            10 : [
+                "type"          : "text",
+                "subject"       : "Player",
+                "text"          : "Let's Go!",
+                "target"        : 002
+            ]
             ]))
         
         /*chronologies.append(Chronologies(id: 2, title: "Bocah Nangis", background: "leo.jpg", chronology: [
@@ -278,7 +570,7 @@ class ChronologyModel {
             
             ]))
         */
-        chronologies.append(Chronologies(id: 1, title: "Test", background: "leo.jpg", chronology: [
+        /*chronologies.append(Chronologies(id: 1, title: "Test", background: "leo.jpg", chronology: [
             0 : [
                 "type"          : "text",
                 "subject"       : "cathy",
@@ -329,6 +621,6 @@ class ChronologyModel {
                 "target"    : 0
             ],
             
-            ]))
+            ]))*/
     }
 }
