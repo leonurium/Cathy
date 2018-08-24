@@ -79,7 +79,7 @@ class ChronologyModel: NSObject {
                 "target"    : 0
             ],
             
-            ]))
+            ]))*/
     }
     
     private class func getContext() -> NSManagedObjectContext
