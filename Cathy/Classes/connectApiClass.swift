@@ -11,42 +11,59 @@ import UIKit
 
 class connectApiClass {
     let endpoint: String = "https://ranggaleo3.000webhostapp.com/cathy/"
-    var isSaved : Bool = false
+    let superClassUserDefault = UserDefaults.standard
     
-    init(id: Int) {
+    init() {
+        print("inisiasi class connectApiClass")
+    }
+    
+    func getData(id: Int) {
         guard let url = URL(string: "\(endpoint)chronology_\(id).php") else {return}
         
         let task = URLSession.shared.dataTask(with: url) { (data, response, err) in
-            guard let data = data, err == nil else {return}
             
             if let response = response as? HTTPURLResponse {
                 
                 switch response.statusCode {
-                    case 200:
+                case 200:
+                    guard let data = data, err == nil else {return}
+                    if data.count > 0 {
                         do {
                             let jsonResponse = try JSONDecoder().decode(Chronologies.self, from: data)
-                            if self.saveToDisk(chronologies: jsonResponse) {
-                                self.isSaved = true
-                                print("SAVED")
+                            if self.saveToDisk(chronologies: jsonResponse, id: id) {
+                                self.getData(id: id+1)
+                                return
                             }
                             
                         } catch let e {
                             print("Error", e)
                         }
-                        break
+                    }
+                    break
                     
-                    case 404:
-                        print(404, "not found data")
-                        break
+                case 404:
+                    self.superClassUserDefault.set(Int(id+1), forKey: "UPDATE_CHRONOLOGY")
+                    print(404, "not found data")
+                    return
+                    break
                     
-                    default:
-                        print("response code:", response.statusCode)
-                        break
+                default:
+                    print("response code:", response.statusCode)
+                    break
                 }
             }
         }
         
         task.resume()
+    }
+    
+    func autoUpdateData() {
+        if let updateData = superClassUserDefault.object(forKey: "UPDATE_CHRONOLOGY") {
+            getData(id: updateData as! Int)
+        
+        } else {
+            getData(id: ChronologyModel().idCheckpoint)
+        }
     }
     
     func getDocumentsURL() -> URL {
@@ -58,8 +75,8 @@ class connectApiClass {
         }
     }
     
-    func saveToDisk(chronologies: Chronologies) -> Bool {
-        let url = getDocumentsURL().appendingPathComponent("chronologies.json")
+    func saveToDisk(chronologies: Chronologies, id: Int) -> Bool {
+        let url = getDocumentsURL().appendingPathComponent("chronologies_\(id).json")
         do {
             let data = try JSONEncoder().encode(chronologies)
             try data.write(to: url, options: [])
@@ -70,22 +87,16 @@ class connectApiClass {
         }
     }
     
-    func getFromDisk() -> [Chronologies] {
+    func getFromDisk(id: Int) -> [Chronologies] {
         let error = [Chronologies]()
-        
-//        if isSaved {
-            let url = getDocumentsURL().appendingPathComponent("chronologies.json")
-            do {
-                let data = try Data(contentsOf: url, options: [])
-                let result = try JSONDecoder().decode(Chronologies.self, from: data)
-                return [result]
-            } catch let e {
-                print("Error", e)
-                return error
-            }
-        
-//        } else {
-//            return error
-//        }
+        let url = getDocumentsURL().appendingPathComponent("chronologies_\(id).json")
+        do {
+            let data = try Data(contentsOf: url, options: [])
+            let result = try JSONDecoder().decode(Chronologies.self, from: data)
+            return [result]
+        } catch let e {
+            print("Error", e)
+            return error
+        }
     }
 }

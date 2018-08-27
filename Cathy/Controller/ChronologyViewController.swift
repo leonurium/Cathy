@@ -41,12 +41,10 @@ class ChronologyViewController: UIViewController {
     //BUTTONS
     //Button buat next ke chronology berikutnya, bisa di ganti pake all view screen
     @IBAction func tapAnywhere(_ sender: UIView) {
-        endChronology(index: indexChronology)
         generateChronology(index: indexChronology)
     }
     
     @IBAction func actionButtonOption(_ sender: UIButton) {
-        endChronology(index: sender.tag)
         generateChronology(index: sender.tag)
         animateButtonOption(button: sender)
     }
@@ -68,6 +66,7 @@ class ChronologyViewController: UIViewController {
         if chronologyModel.chronologies.count > 0 {
             outletImageViewBackgroud.image = UIImage(named: chronologyModel.chronologies[0].background)
         } else {
+            chronologyModel.api.autoUpdateData()
             relaunch()
         }
         
@@ -81,10 +80,19 @@ class ChronologyViewController: UIViewController {
             if checkpointModel.updateObject(id: chronologyModel.idCheckpoint, idChronology: 0) {
                 print("Update checkpoint new chronology")
                 indexChronology = 0
-                chronologyModel.chronologies.removeAll()
-                chronologyModel.reload()
-                relaunch()
-                print("END Chronology")
+                
+                chronologyModel.api.autoUpdateData()
+                let newChronology = chronologyModel.api.getFromDisk(id: chronologyModel.idCheckpoint)
+                
+                if newChronology.count > 0 {
+                    chronologyModel.chronologies.removeAll()
+                    chronologyModel.chronologies = newChronology
+                    generateChronology(index: 0)
+                    print("END Chronology")
+                    
+                } else {
+                    print("To be continued")
+                }
             }
         }
     }
@@ -104,7 +112,6 @@ class ChronologyViewController: UIViewController {
     }
     
     func generateChronology(index : Int) -> Void {
-        endChronology(index: index)
         
         if chronologyModel.chronologies.count > 0 {
             
@@ -123,6 +130,7 @@ class ChronologyViewController: UIViewController {
                 outletLabelSubject.text = nowChronology.subject
                 outletLabelText.text = nowChronology.text
                 indexChronology = nowChronology.target!
+                endChronology(index: nowChronology.target!)
                 break
                 
             case "option":
@@ -142,6 +150,7 @@ class ChronologyViewController: UIViewController {
                         outletButtonOption1.setTitle(i, for: .normal)
                         outletButtonOption1.isHidden = false
                         outletButtonOption1.tag = optionTarget[0]
+                        endChronology(index: optionTarget[0])
                         optionTextUsed.append(i)
                         
                         for j in optionText {
@@ -151,6 +160,7 @@ class ChronologyViewController: UIViewController {
                                 outletButtonOption2.setTitle(j, for: .normal)
                                 outletButtonOption2.isHidden = false
                                 outletButtonOption2.tag = optionTarget[1]
+                                endChronology(index: optionTarget[1])
                                 optionTextUsed.append(j)
                                 
                                 for k in optionText {
@@ -160,6 +170,7 @@ class ChronologyViewController: UIViewController {
                                         outletButtonOption3.setTitle(k, for: .normal)
                                         outletButtonOption3.isHidden = false
                                         outletButtonOption3.tag = optionTarget[2]
+                                        endChronology(index: optionTarget[2])
                                         optionTextUsed.append(k)
                                         
                                         for l in optionText {
@@ -169,6 +180,7 @@ class ChronologyViewController: UIViewController {
                                                 outletButtonOption4.setTitle(l, for: .normal)
                                                 outletButtonOption4.isHidden = false
                                                 outletButtonOption4.tag = optionTarget[3]
+                                                endChronology(index: optionTarget[3])
                                                 optionTextUsed.append(l)
                                                 break
                                             }
@@ -186,6 +198,7 @@ class ChronologyViewController: UIViewController {
                 hiddenAll()
                 outletLabelText.text = nowChronology.text
                 indexChronology = nowChronology.target!
+                endChronology(index: nowChronology.target!)
                 outletLabelText.isHidden = false
                 break
                 
