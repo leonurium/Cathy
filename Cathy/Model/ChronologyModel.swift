@@ -8,26 +8,99 @@
 
 import Foundation
 
-struct Chronologies {
+struct Chronologies : Decodable, Encodable {
     let id : Int
     let title : String
     let background : String
-    let chronology : [Int : [String : Any]]
+    let chronology : [Chronology]
+}
+
+struct Chronology: Decodable, Encodable {
+    let type: String
+    let subject: String?
+    let text: String?
+    let expression: String?
+    let target: Int?
     
-    init(id: Int, title: String, background: String, chronology: [Int : [String : Any]]) {
-        self.id = id
-        self.title = title
-        self.background = background
-        self.chronology = chronology
-    }
+    let optionText: [String]?
+    let optionExpression: [String]?
+    let optionTarget: [Int]?
+    
+    let subtype: String?
 }
 
 class ChronologyModel {
     var chronologies = [Chronologies]()
-    var playerName = deviceName.current.name
-    
+    let checkpoint = CheckpointModel()
+    var idCheckpoint: Int = 0
+    var idChronologyCheckpoint: Int = 0
     
     init() {
+        if chronologies.count > 0 {
+            if let dataCheckpoint = checkpoint.fetchObject() {
+                
+                if dataCheckpoint.count > 0 {
+                    idCheckpoint = Int(dataCheckpoint[0].id)
+                    idChronologyCheckpoint = Int(dataCheckpoint[0].id_chronology)
+                    
+                    if idCheckpoint == chronologies[0].id {
+                        //not need update
+                    } else {
+                        chronologies.removeAll()
+                        let api = connectApiClass(id: idCheckpoint)
+                        chronologies = api.getFromDisk()
+                    }
+                    
+                } else {
+                    if checkpoint.updateObject(id: 0, idChronology: 0) {
+                        if let dataCheckpoint2 = checkpoint.fetchObject() {
+                            chronologies.removeAll()
+                            let api = connectApiClass(id: Int(dataCheckpoint2[0].id))
+                            chronologies = api.getFromDisk()
+                            
+                        } else {
+                            print("failed fetchObject")
+                        }
+                        
+                    } else {
+                        print("failed update")
+                    }
+                }
+                
+            } else {
+                print("not found data")
+            }
+
+        } else {
+            if let dataCheckpoint = checkpoint.fetchObject() {
+                
+                if dataCheckpoint.count > 0 {
+                    idCheckpoint = Int(dataCheckpoint[0].id)
+                    idChronologyCheckpoint = Int(dataCheckpoint[0].id_chronology)
+                    
+                    let api = connectApiClass(id: idCheckpoint)
+                    chronologies = api.getFromDisk()
+                } else {
+                    if checkpoint.updateObject(id: 0, idChronology: 0) {
+                        if let dataCheckpoint2 = checkpoint.fetchObject() {
+                            let api = connectApiClass(id: Int(dataCheckpoint2[0].id))
+                            chronologies = api.getFromDisk()
+                        
+                        } else {
+                            print("failed fetchObject")
+                        }
+                        
+                    } else {
+                        print("failed update")
+                    }
+                }
+                
+            } else {
+                print("failed fetchObject")
+            }
+        }
+        
+        /*
         chronologies.append(Chronologies(id: 1, title: "Awal-Awal", background: "none", chronology:[
             0 : [
                 "type"      : "narator",
@@ -131,7 +204,6 @@ class ChronologyModel {
                 "type"      : "interaction",
                 "subtype"   : "mini_game",
                 "target"    : 2
-            
             ],
             
             2 : [
@@ -679,7 +751,8 @@ class ChronologyModel {
             
             ]))
         */
-        /*chronologies.append(Chronologies(id: 1, title: "Test", background: "leo.jpg", chronology: [
+        /*
+        chronologies.append(Chronologies(id: 1, title: "Test", background: "room", chronology: [
             0 : [
                 "type"          : "text",
                 "subject"       : "cathy",
@@ -730,6 +803,11 @@ class ChronologyModel {
                 "target"    : 0
             ],
             
-            ]))*/
+            ]))
+ */
+    }
+    
+    func reload() {
+        ChronologyModel()
     }
 }
