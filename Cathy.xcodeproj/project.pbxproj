@@ -11,6 +11,9 @@
 		30FBEEEB212568D5007BF14E /* primer print.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30FBEEE9212568D5007BF14E /* primer print.ttf */; };
 		30FBEEEC212568D5007BF14E /* primer print bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30FBEEEA212568D5007BF14E /* primer print bold.ttf */; };
 		5DFE9EB1212ED7BE00CB7CAC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DFE9EAF212ED7BE00CB7CAC /* Main.storyboard */; };
+		5DFE9EF62133BF1200CB7CAC /* debugging.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DFE9EF52133BF1200CB7CAC /* debugging.storyboard */; };
+		5DFE9EF82133BF8C00CB7CAC /* deviceName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFE9EF72133BF8C00CB7CAC /* deviceName.swift */; };
+		5DFE9EFA2133C05300CB7CAC /* deviceNameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFE9EF92133C05300CB7CAC /* deviceNameController.swift */; };
 		AA59DFD1212CFD8F0099C990 /* ChronologyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA59DFD0212CFD8F0099C990 /* ChronologyViewController.swift */; };
 		AA59DFD3212CFDD60099C990 /* ChronologyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA59DFD2212CFDD60099C990 /* ChronologyModel.swift */; };
 		AACF26CE2123EE9700ABA4AF /* FaceDetectionClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACF26CD2123EE9700ABA4AF /* FaceDetectionClass.swift */; };
@@ -26,6 +29,9 @@
 		30FBEEE9212568D5007BF14E /* primer print.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "primer print.ttf"; sourceTree = "<group>"; };
 		30FBEEEA212568D5007BF14E /* primer print bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "primer print bold.ttf"; sourceTree = "<group>"; };
 		5DFE9EB0212ED7BE00CB7CAC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5DFE9EF52133BF1200CB7CAC /* debugging.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = debugging.storyboard; sourceTree = "<group>"; };
+		5DFE9EF72133BF8C00CB7CAC /* deviceName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = deviceName.swift; sourceTree = "<group>"; };
+		5DFE9EF92133C05300CB7CAC /* deviceNameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = deviceNameController.swift; sourceTree = "<group>"; };
 		AA59DFD0212CFD8F0099C990 /* ChronologyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChronologyViewController.swift; sourceTree = "<group>"; };
 		AA59DFD2212CFDD60099C990 /* ChronologyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChronologyModel.swift; sourceTree = "<group>"; };
 		AACF26CD2123EE9700ABA4AF /* FaceDetectionClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceDetectionClass.swift; sourceTree = "<group>"; };
@@ -62,6 +68,7 @@
 			isa = PBXGroup;
 			children = (
 				AA59DFD2212CFDD60099C990 /* ChronologyModel.swift */,
+				5DFE9EF72133BF8C00CB7CAC /* deviceName.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -69,6 +76,7 @@
 		AACF26C92123E86100ABA4AF /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				5DFE9EF92133C05300CB7CAC /* deviceNameController.swift */,
 				AADA70F52122E4CF00F1B165 /* ViewController.swift */,
 				AA59DFD0212CFD8F0099C990 /* ChronologyViewController.swift */,
 				30B8851E212EBCA5004D1870 /* textBoxDialogueController.swift */,
@@ -81,6 +89,7 @@
 			children = (
 				5DFE9EAF212ED7BE00CB7CAC /* Main.storyboard */,
 				AADA70FF2122E4CF00F1B165 /* LaunchScreen.storyboard */,
+				5DFE9EF52133BF1200CB7CAC /* debugging.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -194,6 +203,7 @@
 				30FBEEEB212568D5007BF14E /* primer print.ttf in Resources */,
 				5DFE9EB1212ED7BE00CB7CAC /* Main.storyboard in Resources */,
 				AADA71012122E4CF00F1B165 /* LaunchScreen.storyboard in Resources */,
+				5DFE9EF62133BF1200CB7CAC /* debugging.storyboard in Resources */,
 				AADA70FE2122E4CF00F1B165 /* Assets.xcassets in Resources */,
 				30FBEEEC212568D5007BF14E /* primer print bold.ttf in Resources */,
 			);
@@ -207,9 +217,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				AADA70F62122E4CF00F1B165 /* ViewController.swift in Sources */,
+				5DFE9EFA2133C05300CB7CAC /* deviceNameController.swift in Sources */,
 				AADA70F42122E4CF00F1B165 /* AppDelegate.swift in Sources */,
 				30B8851F212EBCA5004D1870 /* textBoxDialogueController.swift in Sources */,
 				AA59DFD1212CFD8F0099C990 /* ChronologyViewController.swift in Sources */,
+				5DFE9EF82133BF8C00CB7CAC /* deviceName.swift in Sources */,
 				AA59DFD3212CFDD60099C990 /* ChronologyModel.swift in Sources */,
 				AADA70FC2122E4CF00F1B165 /* Cathy.xcdatamodeld in Sources */,
 				AACF26CE2123EE9700ABA4AF /* FaceDetectionClass.swift in Sources */,
