@@ -7,27 +7,100 @@
 //
 
 import Foundation
-import UIKit
-import CoreData
 
-struct Chronologies {
+struct Chronologies : Decodable, Encodable {
     let id : Int
     let title : String
     let background : String
-    let chronology : [Int : [String : Any]]
-    
-    init(id: Int, title: String, background: String, chronology: [Int : [String : Any]]) {
-        self.id = id
-        self.title = title
-        self.background = background
-        self.chronology = chronology
-    }
+    let chronology : [Chronology]
 }
 
-class ChronologyModel: NSObject {
-    var chronologies = [Chronologies]()
+struct Chronology: Decodable, Encodable {
+    let type: String
+    let subject: String?
+    let text: String?
+    let expression: String?
+    let target: Int?
     
-    override init() {
+    let optionText: [String]?
+    let optionExpression: [String]?
+    let optionTarget: [Int]?
+    
+    let subtype: String?
+}
+
+class ChronologyModel {
+    var chronologies = [Chronologies]()
+    let checkpoint = CheckpointModel()
+    var idCheckpoint: Int = 0
+    var idChronologyCheckpoint: Int = 0
+    
+    init() {
+        if chronologies.count > 0 {
+            if let dataCheckpoint = checkpoint.fetchObject() {
+                
+                if dataCheckpoint.count > 0 {
+                    idCheckpoint = Int(dataCheckpoint[0].id)
+                    idChronologyCheckpoint = Int(dataCheckpoint[0].id_chronology)
+                    
+                    if idCheckpoint == chronologies[0].id {
+                        //not need update
+                    } else {
+                        chronologies.removeAll()
+                        let api = connectApiClass(id: idCheckpoint)
+                        chronologies = api.getFromDisk()
+                    }
+                    
+                } else {
+                    if checkpoint.updateObject(id: 0, idChronology: 0) {
+                        if let dataCheckpoint2 = checkpoint.fetchObject() {
+                            chronologies.removeAll()
+                            let api = connectApiClass(id: Int(dataCheckpoint2[0].id))
+                            chronologies = api.getFromDisk()
+                            
+                        } else {
+                            print("failed fetchObject")
+                        }
+                        
+                    } else {
+                        print("failed update")
+                    }
+                }
+                
+            } else {
+                print("not found data")
+            }
+
+        } else {
+            if let dataCheckpoint = checkpoint.fetchObject() {
+                
+                if dataCheckpoint.count > 0 {
+                    idCheckpoint = Int(dataCheckpoint[0].id)
+                    idChronologyCheckpoint = Int(dataCheckpoint[0].id_chronology)
+                    
+                    let api = connectApiClass(id: idCheckpoint)
+                    chronologies = api.getFromDisk()
+                } else {
+                    if checkpoint.updateObject(id: 0, idChronology: 0) {
+                        if let dataCheckpoint2 = checkpoint.fetchObject() {
+                            let api = connectApiClass(id: Int(dataCheckpoint2[0].id))
+                            chronologies = api.getFromDisk()
+                        
+                        } else {
+                            print("failed fetchObject")
+                        }
+                        
+                    } else {
+                        print("failed update")
+                    }
+                }
+                
+            } else {
+                print("failed fetchObject")
+            }
+        }
+        
+        /*
         chronologies.append(Chronologies(id: 1, title: "Awal-Awal", background: "none", chronology:[
             0 : [
                 "type"      : "narator",
@@ -543,7 +616,7 @@ class ChronologyModel: NSObject {
             ]
             ]))
         
-        /*chronologies.append(Chronologies(id: 2, title: "Bocah Nangis", background: "leo.jpg", chronology: [
+        chronologies.append(Chronologies(id: 2, title: "Bocah Nangis", background: "leo.jpg", chronology: [
             0 : [
                 "type"      : "narator",
                 "text"      : "suatu hari..",
@@ -571,7 +644,8 @@ class ChronologyModel: NSObject {
             
             ]))
         */
-        /*chronologies.append(Chronologies(id: 1, title: "Test", background: "leo.jpg", chronology: [
+        /*
+        chronologies.append(Chronologies(id: 1, title: "Test", background: "room", chronology: [
             0 : [
                 "type"          : "text",
                 "subject"       : "cathy",
@@ -622,102 +696,11 @@ class ChronologyModel: NSObject {
                 "target"    : 0
             ],
             
-            ]))*/
+            ]))
+ */
     }
     
-    private class func getContext() -> NSManagedObjectContext
-    {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        
-        return appDelegate.persistentContainer.viewContext
-    }
-    
-    class func saveObject(username: String, id: Int, idChronology: Int) -> Bool
-    {
-        let context = getContext()
-        let entity = NSEntityDescription.entity(forEntityName: "Checkpoint", in: context)
-        let manageObject = NSManagedObject(entity: entity!, insertInto: context)
-        
-        manageObject.setValue(username, forKey: "username")
-        manageObject.setValue(id, forKey: "id")
-        manageObject.setValue(idChronology, forKey: "id_chronology")
-        
-        do {
-            try context.save()
-            return true
-        } catch {
-            return false
-        }
-    }
-    
-    class func updateObject(id: Int, idChronology: Int) -> Bool {
-        
-        let context = getContext()
-        
-        let username = "C4THY"
-        let predicate = NSPredicate(format: "username == %@", username)
-        
-        let fetchRequest = NSFetchRequest<Checkpoint>(entityName: "Checkpoint")
-        fetchRequest.predicate = predicate
-        fetchRequest.returnsObjectsAsFaults = false
-        
-        do {
-            let fetchedEntities = try context.fetch(fetchRequest)
-            fetchedEntities.first?.id = Int32(id)
-            fetchedEntities.first?.id_chronology = Int32(idChronology)
-            
-            if fetchedEntities.count > 0 {
-                do {
-                    try context.save()
-                    return true
-                } catch {
-                    print("GAGAL SAVE UPDATE")
-                    return false
-                }
-            } else {
-                return saveObject(username: username, id: id, idChronology: idChronology)
-            }
-        } catch {
-            print("GAGAL SAVE UPDATE")
-            return false
-        }
-    }
-    
-    class func fetchObject() -> [Checkpoint]?
-    {
-        let context = getContext()
-        var checkpoint: [Checkpoint]? = nil
-        do {
-            checkpoint = try context.fetch(Checkpoint.fetchRequest())
-            return checkpoint
-        } catch {
-            return checkpoint
-        }
-    }
-    
-    class func deleteObject(checkpoint: Checkpoint) -> Bool
-    {
-        let context = getContext()
-        context.delete(checkpoint)
-        
-        do {
-            try context.save()
-            return true
-        } catch {
-            return false
-        }
-    }
-    
-    class func cleanAll() -> Bool
-    {
-        let context = getContext()
-        let cleaning = NSBatchDeleteRequest(fetchRequest: Checkpoint.fetchRequest())
-        
-        do {
-            try context.execute(cleaning)
-            return true
-        } catch {
-            return false
-        }
+    func reload() {
+        ChronologyModel()
     }
 }

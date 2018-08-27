@@ -13,12 +13,14 @@
 		5DFE9EB1212ED7BE00CB7CAC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DFE9EAF212ED7BE00CB7CAC /* Main.storyboard */; };
 		AA59DFD1212CFD8F0099C990 /* ChronologyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA59DFD0212CFD8F0099C990 /* ChronologyViewController.swift */; };
 		AA59DFD3212CFDD60099C990 /* ChronologyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA59DFD2212CFDD60099C990 /* ChronologyModel.swift */; };
+		AA623F15213313D500420C61 /* CheckpointModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA623F14213313D500420C61 /* CheckpointModel.swift */; };
 		AACF26CE2123EE9700ABA4AF /* FaceDetectionClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACF26CD2123EE9700ABA4AF /* FaceDetectionClass.swift */; };
 		AADA70F42122E4CF00F1B165 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADA70F32122E4CF00F1B165 /* AppDelegate.swift */; };
 		AADA70F62122E4CF00F1B165 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADA70F52122E4CF00F1B165 /* ViewController.swift */; };
 		AADA70FC2122E4CF00F1B165 /* Cathy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AADA70FA2122E4CF00F1B165 /* Cathy.xcdatamodeld */; };
 		AADA70FE2122E4CF00F1B165 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AADA70FD2122E4CF00F1B165 /* Assets.xcassets */; };
 		AADA71012122E4CF00F1B165 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AADA70FF2122E4CF00F1B165 /* LaunchScreen.storyboard */; };
+		AAFB72C121300FB700E57247 /* connectApiClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFB72C021300FB700E57247 /* connectApiClass.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,7 @@
 		5DFE9EB0212ED7BE00CB7CAC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AA59DFD0212CFD8F0099C990 /* ChronologyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChronologyViewController.swift; sourceTree = "<group>"; };
 		AA59DFD2212CFDD60099C990 /* ChronologyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChronologyModel.swift; sourceTree = "<group>"; };
+		AA623F14213313D500420C61 /* CheckpointModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckpointModel.swift; sourceTree = "<group>"; };
 		AACF26CD2123EE9700ABA4AF /* FaceDetectionClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceDetectionClass.swift; sourceTree = "<group>"; };
 		AADA70F02122E4CF00F1B165 /* Cathy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cathy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AADA70F32122E4CF00F1B165 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +39,7 @@
 		AADA70FD2122E4CF00F1B165 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AADA71002122E4CF00F1B165 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AADA71022122E4CF00F1B165 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AAFB72C021300FB700E57247 /* connectApiClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = connectApiClass.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +66,7 @@
 			isa = PBXGroup;
 			children = (
 				AA59DFD2212CFDD60099C990 /* ChronologyModel.swift */,
+				AA623F14213313D500420C61 /* CheckpointModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -99,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				AACF26CD2123EE9700ABA4AF /* FaceDetectionClass.swift */,
+				AAFB72C021300FB700E57247 /* connectApiClass.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -208,8 +214,10 @@
 			files = (
 				AADA70F62122E4CF00F1B165 /* ViewController.swift in Sources */,
 				AADA70F42122E4CF00F1B165 /* AppDelegate.swift in Sources */,
+				AAFB72C121300FB700E57247 /* connectApiClass.swift in Sources */,
 				30B8851F212EBCA5004D1870 /* textBoxDialogueController.swift in Sources */,
 				AA59DFD1212CFD8F0099C990 /* ChronologyViewController.swift in Sources */,
+				AA623F15213313D500420C61 /* CheckpointModel.swift in Sources */,
 				AA59DFD3212CFDD60099C990 /* ChronologyModel.swift in Sources */,
 				AADA70FC2122E4CF00F1B165 /* Cathy.xcdatamodeld in Sources */,
 				AACF26CE2123EE9700ABA4AF /* FaceDetectionClass.swift in Sources */,

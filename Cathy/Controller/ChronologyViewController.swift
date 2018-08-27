@@ -11,6 +11,7 @@ import UIKit
 class ChronologyViewController: UIViewController {
     
     let chronologyModel = ChronologyModel()
+    let checkpointModel = CheckpointModel()
     var indexChronology: Int = 0
     
     //OUTLETS
@@ -40,27 +41,52 @@ class ChronologyViewController: UIViewController {
     //BUTTONS
     //Button buat next ke chronology berikutnya, bisa di ganti pake all view screen
     @IBAction func tapAnywhere(_ sender: UIView) {
+        endChronology(index: indexChronology)
         generateChronology(index: indexChronology)
     }
     
     @IBAction func actionButtonOption(_ sender: UIButton) {
+        endChronology(index: sender.tag)
         generateChronology(index: sender.tag)
         animateButtonOption(button: sender)
     }
     
     override func viewDidLoad() {
-        super.viewDidLoad()
         masks()
         startChronology(index: 0)
-        generateChronology(index: 0)
+        generateChronology(index: chronologyModel.idChronologyCheckpoint)
     }
-    
 
     //FUNCTIONS
+    func relaunch() {
+        let controller: UIWindow = ((UIApplication.shared.delegate?.window)!)!
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        controller.rootViewController = storyboard.instantiateInitialViewController()
+    }
+    
     func startChronology(index : Int) {
-        outletImageViewBackgroud.image = UIImage(named: chronologyModel.chronologies[index].background)
+        if chronologyModel.chronologies.count > 0 {
+            outletImageViewBackgroud.image = UIImage(named: chronologyModel.chronologies[0].background)
+        } else {
+            relaunch()
+        }
         
         hiddenAll()
+    }
+    
+    func endChronology(index: Int) {
+        if(index == 999) {
+            chronologyModel.idCheckpoint = chronologyModel.idCheckpoint + 1
+            chronologyModel.idChronologyCheckpoint = 0
+            if checkpointModel.updateObject(id: chronologyModel.idCheckpoint, idChronology: 0) {
+                print("Update checkpoint new chronology")
+                indexChronology = 0
+                chronologyModel.chronologies.removeAll()
+                chronologyModel.reload()
+                relaunch()
+                print("END Chronology")
+            }
+        }
     }
     
     func hiddenAll() {
@@ -78,66 +104,74 @@ class ChronologyViewController: UIViewController {
     }
     
     func generateChronology(index : Int) -> Void {
-        let nowChronology = chronologyModel.chronologies[0].chronology[index]!
+        endChronology(index: index)
         
-        //filter type chronology
-        switch nowChronology["type"] as? String {
-        case "text":
-            hiddenAll()
-            outletLabelSubject.isHidden = false
-            outletLabelText.isHidden = false
+        if chronologyModel.chronologies.count > 0 {
             
-            outletLabelSubject.text = nowChronology["subject"] as? String
-            outletLabelText.text = nowChronology["text"] as? String
-            indexChronology = nowChronology["target"] as! Int
-            break
-            
-        case "option":
-            hiddenAll()
-            outletLabelSubject.isHidden = false
-            outletLabelSubject.text = nowChronology["subject"] as? String
-            
-            let optionText = nowChronology["optionText"] as! [String]
-            let optionTarget = nowChronology["optionTarget"] as! [Int]
-            
-            var optionTextUsed : [String] = []
-            
-            for i in optionText {
-                if (optionTextUsed.contains(i)) {
-                    //do nothing
-                } else {
-                    outletButtonOption1.setTitle(i, for: .normal)
-                    outletButtonOption1.isHidden = false
-                    outletButtonOption1.tag = optionTarget[0]
-                    optionTextUsed.append(i)
-                    
-                    for j in optionText {
-                        if optionTextUsed.contains(j) {
-                            //do nothing
-                        } else {
-                            outletButtonOption2.setTitle(j, for: .normal)
-                            outletButtonOption2.isHidden = false
-                            outletButtonOption2.tag = optionTarget[1]
-                            optionTextUsed.append(j)
-                            
-                            for k in optionText {
-                                if optionTextUsed.contains(k) {
-                                    //do nothing
-                                } else {
-                                    outletButtonOption3.setTitle(k, for: .normal)
-                                    outletButtonOption3.isHidden = false
-                                    outletButtonOption3.tag = optionTarget[2]
-                                    optionTextUsed.append(k)
-                                    
-                                    for l in optionText {
-                                        if optionTextUsed.contains(l) {
-                                            //do nothing
-                                        } else {
-                                            outletButtonOption4.setTitle(l, for: .normal)
-                                            outletButtonOption4.isHidden = false
-                                            outletButtonOption4.tag = optionTarget[3]
-                                            optionTextUsed.append(l)
-                                            break
+            if checkpointModel.updateObject(id: chronologyModel.idCheckpoint, idChronology: index) {
+                print("checkpoint updated")
+            }
+            let nowChronology = chronologyModel.chronologies[0].chronology[index]
+        
+            //filter type chronology
+            switch nowChronology.type {
+            case "text":
+                hiddenAll()
+                outletLabelSubject.isHidden = false
+                outletLabelText.isHidden = false
+                
+                outletLabelSubject.text = nowChronology.subject
+                outletLabelText.text = nowChronology.text
+                indexChronology = nowChronology.target!
+                break
+                
+            case "option":
+                hiddenAll()
+                outletLabelSubject.isHidden = false
+                outletLabelSubject.text = nowChronology.subject
+                
+                let optionText = nowChronology.optionText!
+                let optionTarget = nowChronology.optionTarget!
+                
+                var optionTextUsed : [String] = []
+                
+                for i in optionText {
+                    if (optionTextUsed.contains(i)) {
+                        //do nothing
+                    } else {
+                        outletButtonOption1.setTitle(i, for: .normal)
+                        outletButtonOption1.isHidden = false
+                        outletButtonOption1.tag = optionTarget[0]
+                        optionTextUsed.append(i)
+                        
+                        for j in optionText {
+                            if optionTextUsed.contains(j) {
+                                //do nothing
+                            } else {
+                                outletButtonOption2.setTitle(j, for: .normal)
+                                outletButtonOption2.isHidden = false
+                                outletButtonOption2.tag = optionTarget[1]
+                                optionTextUsed.append(j)
+                                
+                                for k in optionText {
+                                    if optionTextUsed.contains(k) {
+                                        //do nothing
+                                    } else {
+                                        outletButtonOption3.setTitle(k, for: .normal)
+                                        outletButtonOption3.isHidden = false
+                                        outletButtonOption3.tag = optionTarget[2]
+                                        optionTextUsed.append(k)
+                                        
+                                        for l in optionText {
+                                            if optionTextUsed.contains(l) {
+                                                //do nothing
+                                            } else {
+                                                outletButtonOption4.setTitle(l, for: .normal)
+                                                outletButtonOption4.isHidden = false
+                                                outletButtonOption4.tag = optionTarget[3]
+                                                optionTextUsed.append(l)
+                                                break
+                                            }
                                         }
                                     }
                                 }
@@ -145,24 +179,27 @@ class ChronologyViewController: UIViewController {
                         }
                     }
                 }
+                
+                break
+                
+            case "narator":
+                hiddenAll()
+                outletLabelText.text = nowChronology.text
+                indexChronology = nowChronology.target!
+                outletLabelText.isHidden = false
+                break
+                
+            case "interaction":
+                print("OK ini interaksi")
+                break
+                
+            default:
+                print("something wrong with type chronology")
+                break
             }
-            
-            break
-            
-        case "narator":
-            hiddenAll()
-            outletLabelText.text = nowChronology["text"] as? String
-            indexChronology = nowChronology["target"] as! Int
-            outletLabelText.isHidden = false
-            break
-            
-        case "interaction":
-            print("OK ini interaksi")
-            break
-            
-        default:
-            print("something wrong with type chronology")
-            break
+        
+        } else {
+            relaunch()
         }
     }
     
