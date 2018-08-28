@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		30B8851F212EBCA5004D1870 /* textBoxDialogueController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B8851E212EBCA5004D1870 /* textBoxDialogueController.swift */; };
 		30FBEEEB212568D5007BF14E /* primer print.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30FBEEE9212568D5007BF14E /* primer print.ttf */; };
 		30FBEEEC212568D5007BF14E /* primer print bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30FBEEEA212568D5007BF14E /* primer print bold.ttf */; };
 		5D739C8F213428650069A909 /* deviceNameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D739C8E213428650069A909 /* deviceNameModel.swift */; };
@@ -26,7 +25,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		30B8851E212EBCA5004D1870 /* textBoxDialogueController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = textBoxDialogueController.swift; sourceTree = "<group>"; };
 		30FBEEE9212568D5007BF14E /* primer print.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "primer print.ttf"; sourceTree = "<group>"; };
 		30FBEEEA212568D5007BF14E /* primer print bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "primer print bold.ttf"; sourceTree = "<group>"; };
 		5D739C8E213428650069A909 /* deviceNameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = deviceNameModel.swift; sourceTree = "<group>"; };
@@ -89,7 +87,6 @@
 			children = (
 				AADA70F52122E4CF00F1B165 /* ViewController.swift */,
 				AA59DFD0212CFD8F0099C990 /* ChronologyViewController.swift */,
-				30B8851E212EBCA5004D1870 /* textBoxDialogueController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -231,7 +228,6 @@
 				5D739C9121351E990069A909 /* shakeGestureModel.swift in Sources */,
 				AADA70F42122E4CF00F1B165 /* AppDelegate.swift in Sources */,
 				AAFB72C121300FB700E57247 /* connectApiClass.swift in Sources */,
-				30B8851F212EBCA5004D1870 /* textBoxDialogueController.swift in Sources */,
 				AA59DFD1212CFD8F0099C990 /* ChronologyViewController.swift in Sources */,
 				AA623F15213313D500420C61 /* CheckpointModel.swift in Sources */,
 				AA59DFD3212CFDD60099C990 /* ChronologyModel.swift in Sources */,
