@@ -10,8 +10,6 @@ import Foundation
 import UIKit
 
 public class deviceNameModel: UIDevice {
-    
     var deviceName = deviceNameModel.current.name
-    
     
 }
