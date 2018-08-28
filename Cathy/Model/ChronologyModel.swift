@@ -35,7 +35,7 @@ class ChronologyModel {
     let api = connectApiClass()
     var idCheckpoint: Int = 0
     var idChronologyCheckpoint: Int = 0
-    
+    let playerName: String = deviceNameModel.current.name
     
     init() {
         if chronologies.count > 0 {
@@ -78,6 +78,7 @@ class ChronologyModel {
                     idCheckpoint = Int(dataCheckpoint[0].id)
                     idChronologyCheckpoint = Int(dataCheckpoint[0].id_chronology)
                     chronologies = api.getFromDisk(id: idCheckpoint)
+
                 } else {
                     
                     if checkpoint.updateObject(id: 0, idChronology: 0) {
