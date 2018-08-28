@@ -264,7 +264,7 @@ class ChronologyViewController: UIViewController {
     
     //ANIMATION
     func animateButtonOption(button: UIButton)
-    {
+    {   
         UIView.animate(withDuration: 0.5, animations: {
             button.alpha = 0
             

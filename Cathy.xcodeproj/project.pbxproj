@@ -11,6 +11,7 @@
 		30FBEEEB212568D5007BF14E /* primer print.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30FBEEE9212568D5007BF14E /* primer print.ttf */; };
 		30FBEEEC212568D5007BF14E /* primer print bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30FBEEEA212568D5007BF14E /* primer print bold.ttf */; };
 		5D739C8F213428650069A909 /* deviceNameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D739C8E213428650069A909 /* deviceNameModel.swift */; };
+		5D739C9121351E990069A909 /* shakeGestureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D739C9021351E990069A909 /* shakeGestureModel.swift */; };
 		5DFE9EB1212ED7BE00CB7CAC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DFE9EAF212ED7BE00CB7CAC /* Main.storyboard */; };
 		AA59DFD1212CFD8F0099C990 /* ChronologyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA59DFD0212CFD8F0099C990 /* ChronologyViewController.swift */; };
 		AA59DFD3212CFDD60099C990 /* ChronologyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA59DFD2212CFDD60099C990 /* ChronologyModel.swift */; };
@@ -31,6 +32,7 @@
 		30FBEEE9212568D5007BF14E /* primer print.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "primer print.ttf"; sourceTree = "<group>"; };
 		30FBEEEA212568D5007BF14E /* primer print bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "primer print bold.ttf"; sourceTree = "<group>"; };
 		5D739C8E213428650069A909 /* deviceNameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = deviceNameModel.swift; sourceTree = "<group>"; };
+		5D739C9021351E990069A909 /* shakeGestureModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shakeGestureModel.swift; sourceTree = "<group>"; };
 		5DFE9EB0212ED7BE00CB7CAC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AA59DFD0212CFD8F0099C990 /* ChronologyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChronologyViewController.swift; sourceTree = "<group>"; };
 		AA59DFD2212CFDD60099C990 /* ChronologyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChronologyModel.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				5D739C8E213428650069A909 /* deviceNameModel.swift */,
+				5D739C9021351E990069A909 /* shakeGestureModel.swift */,
 			);
 			path = "Punya Terre";
 			sourceTree = "<group>";
@@ -232,6 +235,7 @@
 			files = (
 				5D739C8F213428650069A909 /* deviceNameModel.swift in Sources */,
 				AADA70F62122E4CF00F1B165 /* ViewController.swift in Sources */,
+				5D739C9121351E990069A909 /* shakeGestureModel.swift in Sources */,
 				AADA70F42122E4CF00F1B165 /* AppDelegate.swift in Sources */,
 				AA9D43A62134B7490010E736 /* FaceDetectViewController.swift in Sources */,
 				AAFB72C121300FB700E57247 /* connectApiClass.swift in Sources */,
