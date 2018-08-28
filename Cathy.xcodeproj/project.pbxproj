@@ -14,6 +14,8 @@
 		AA59DFD1212CFD8F0099C990 /* ChronologyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA59DFD0212CFD8F0099C990 /* ChronologyViewController.swift */; };
 		AA59DFD3212CFDD60099C990 /* ChronologyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA59DFD2212CFDD60099C990 /* ChronologyModel.swift */; };
 		AA623F15213313D500420C61 /* CheckpointModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA623F14213313D500420C61 /* CheckpointModel.swift */; };
+		AA9D43A42134B6FF0010E736 /* Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA9D43A32134B6FF0010E736 /* Screen.storyboard */; };
+		AA9D43A62134B7490010E736 /* FaceDetectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9D43A52134B7490010E736 /* FaceDetectViewController.swift */; };
 		AACF26CE2123EE9700ABA4AF /* FaceDetectionClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACF26CD2123EE9700ABA4AF /* FaceDetectionClass.swift */; };
 		AADA70F42122E4CF00F1B165 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADA70F32122E4CF00F1B165 /* AppDelegate.swift */; };
 		AADA70F62122E4CF00F1B165 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADA70F52122E4CF00F1B165 /* ViewController.swift */; };
@@ -31,6 +33,8 @@
 		AA59DFD0212CFD8F0099C990 /* ChronologyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChronologyViewController.swift; sourceTree = "<group>"; };
 		AA59DFD2212CFDD60099C990 /* ChronologyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChronologyModel.swift; sourceTree = "<group>"; };
 		AA623F14213313D500420C61 /* CheckpointModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckpointModel.swift; sourceTree = "<group>"; };
+		AA9D43A32134B6FF0010E736 /* Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Screen.storyboard; sourceTree = "<group>"; };
+		AA9D43A52134B7490010E736 /* FaceDetectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceDetectViewController.swift; sourceTree = "<group>"; };
 		AACF26CD2123EE9700ABA4AF /* FaceDetectionClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceDetectionClass.swift; sourceTree = "<group>"; };
 		AADA70F02122E4CF00F1B165 /* Cathy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cathy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AADA70F32122E4CF00F1B165 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +81,7 @@
 				AADA70F52122E4CF00F1B165 /* ViewController.swift */,
 				AA59DFD0212CFD8F0099C990 /* ChronologyViewController.swift */,
 				30B8851E212EBCA5004D1870 /* textBoxDialogueController.swift */,
+				AA9D43A52134B7490010E736 /* FaceDetectViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -86,6 +91,7 @@
 			children = (
 				5DFE9EAF212ED7BE00CB7CAC /* Main.storyboard */,
 				AADA70FF2122E4CF00F1B165 /* LaunchScreen.storyboard */,
+				AA9D43A32134B6FF0010E736 /* Screen.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -197,6 +203,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA9D43A42134B6FF0010E736 /* Screen.storyboard in Resources */,
 				30FBEEEB212568D5007BF14E /* primer print.ttf in Resources */,
 				5DFE9EB1212ED7BE00CB7CAC /* Main.storyboard in Resources */,
 				AADA71012122E4CF00F1B165 /* LaunchScreen.storyboard in Resources */,
@@ -214,6 +221,7 @@
 			files = (
 				AADA70F62122E4CF00F1B165 /* ViewController.swift in Sources */,
 				AADA70F42122E4CF00F1B165 /* AppDelegate.swift in Sources */,
+				AA9D43A62134B7490010E736 /* FaceDetectViewController.swift in Sources */,
 				AAFB72C121300FB700E57247 /* connectApiClass.swift in Sources */,
 				30B8851F212EBCA5004D1870 /* textBoxDialogueController.swift in Sources */,
 				AA59DFD1212CFD8F0099C990 /* ChronologyViewController.swift in Sources */,
@@ -365,14 +373,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = W8T5R97US6;
+				DEVELOPMENT_TEAM = VC83XAQ3UM;
 				INFOPLIST_FILE = Cathy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Terre.Cathy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ranggaleo.Cathy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -384,14 +392,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = W8T5R97US6;
+				DEVELOPMENT_TEAM = VC83XAQ3UM;
 				INFOPLIST_FILE = Cathy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Terre.Cathy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ranggaleo.Cathy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

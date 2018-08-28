@@ -194,7 +194,7 @@ class ChronologyViewController: UIViewController {
                 
                 break
                 
-            case "narator":
+            case "narator" :
                 hiddenAll()
                 outletLabelText.text = nowChronology.text
                 indexChronology = nowChronology.target!
@@ -203,7 +203,15 @@ class ChronologyViewController: UIViewController {
                 break
                 
             case "interaction":
-                print("OK ini interaksi")
+                switch nowChronology.subtype {
+                    case "face_detection":
+                        faceDetect()
+                        break
+                    
+                    default:
+                        print("do something in interaction")
+                        break
+                }
                 break
                 
             default:
@@ -214,6 +222,15 @@ class ChronologyViewController: UIViewController {
         } else {
             relaunch()
         }
+    }
+    
+    func faceDetect() {
+        let controller = UIStoryboard(name: "Screen", bundle: nil).instantiateViewController(withIdentifier: "FaceDetect") as! FaceDetectViewController
+        self.addChildViewController(controller)
+        
+        controller.view.frame = self.view.frame
+        self.view.addSubview(controller.view)
+        controller.didMove(toParentViewController: self)
     }
     
     func labelMask(label : UILabel){
