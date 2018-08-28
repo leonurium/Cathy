@@ -32,6 +32,7 @@ struct Chronology: Decodable, Encodable {
 class ChronologyModel {
     var chronologies = [Chronologies]()
     let checkpoint = CheckpointModel()
+    let api = connectApiClass()
     var idCheckpoint: Int = 0
     var idChronologyCheckpoint: Int = 0
     
@@ -48,16 +49,14 @@ class ChronologyModel {
                         //not need update
                     } else {
                         chronologies.removeAll()
-                        let api = connectApiClass(id: idCheckpoint)
-                        chronologies = api.getFromDisk()
+                        chronologies = api.getFromDisk(id: idCheckpoint)
                     }
                     
                 } else {
                     if checkpoint.updateObject(id: 0, idChronology: 0) {
                         if let dataCheckpoint2 = checkpoint.fetchObject() {
                             chronologies.removeAll()
-                            let api = connectApiClass(id: Int(dataCheckpoint2[0].id))
-                            chronologies = api.getFromDisk()
+                            chronologies = api.getFromDisk(id: Int(dataCheckpoint2[0].id))
                             
                         } else {
                             print("failed fetchObject")
@@ -78,15 +77,13 @@ class ChronologyModel {
                 if dataCheckpoint.count > 0 {
                     idCheckpoint = Int(dataCheckpoint[0].id)
                     idChronologyCheckpoint = Int(dataCheckpoint[0].id_chronology)
-                    
-                    let api = connectApiClass(id: idCheckpoint)
-                    chronologies = api.getFromDisk()
+                    chronologies = api.getFromDisk(id: idCheckpoint)
                 } else {
+                    
                     if checkpoint.updateObject(id: 0, idChronology: 0) {
                         if let dataCheckpoint2 = checkpoint.fetchObject() {
-                            let api = connectApiClass(id: Int(dataCheckpoint2[0].id))
-                            chronologies = api.getFromDisk()
-                        
+                            chronologies = api.getFromDisk(id: Int(dataCheckpoint2[0].id))
+                            
                         } else {
                             print("failed fetchObject")
                         }
