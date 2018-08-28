@@ -36,6 +36,7 @@ class ChronologyModel {
     var idCheckpoint: Int = 0
     var idChronologyCheckpoint: Int = 0
     
+    
     init() {
         if chronologies.count > 0 {
             if let dataCheckpoint = checkpoint.fetchObject() {
@@ -101,7 +102,7 @@ class ChronologyModel {
         chronologies.append(Chronologies(id: 1, title: "Awal-Awal", background: "none", chronology:[
             0 : [
                 "type"      : "narator",
-                "text"      : "Hi… Welcome to our interactive storytelling, in this story you will play the main character part so, lets begin…",
+                "text"      : "in this story you will play the main character part so, lets begin, your name is \(playerName), right?",
                 "target"    : 1
             ],
             
@@ -124,7 +125,7 @@ class ChronologyModel {
             ],
             4 : [
                 "type"      : "narrator",
-                "text"      : " but one day a disaster came, my wife was killed in a car accident, suddenly I lost myself, I could not accept this happening to me.",
+                "text"      : "But one day a disaster came, my wife was killed in a car accident, suddenly I lost myself, I could not accept this happening to me.",
                 "target"    : 5
                 ]
             ]))
@@ -613,7 +614,114 @@ class ChronologyModel {
             ]
             ]))
         
-        chronologies.append(Chronologies(id: 2, title: "Bocah Nangis", background: "leo.jpg", chronology: [
+        chronologies.append(Chronologies(id: 6, title: "Bab 3 New Star Part 3", background: "leo.jpg", chronology: [
+            
+            0 : [
+                "type"             : "text",
+                "subject"          : "Children",
+                "text"             : "Hey-hey mister! Mister! what you brought up today? hei?! hei?!",
+                "target"           :  1
+            ],
+            
+            1 : [
+                "type"          : "text",
+                "subject"       : "Gabriel",
+                "expression"    : "happy",
+                "text"          : "Hohohoho, you’all see! Hiyaahhhh!",
+                "target"        : 2
+            ],
+            
+            2 : [
+                "type"          : "narator",
+                "text"          : "Gabriel play his role as a pirate… well at least the children likes it",
+                "target"        : 3
+            ],
+            
+            3 : [
+                "type"          : "interaction",
+                "subtype"       : "mini_games2",
+                "target"        : 4
+            ],
+            
+            4 : [
+                "type"          : "text",
+                "subject"       : "Gabriel",
+                "expression"    : "sad",
+                "text"          : "Hoooh man... I’m beat..."
+            ],
+            
+            5 : [
+                "type"          : "narator",
+                "text"          : "Gabriel is riden by 5 children",
+                "target"        : 6
+            ],
+            
+            6 : [
+                "type"          : "narator",
+                "text"          : ". . . . .",
+                "target"        : 7
+            ],
+            
+            7 : [
+                "type"          : "narator",
+                "text"          : "Yeah, I'm beat too.",
+                "target"        : 8
+            ],
+            
+            8 : [
+                "type"          : "narator",
+                "text"          : ". . . . Still that girl",
+                "target"        : 9
+            ],
+            
+            9 : [
+                "type"          : "interaction",
+                "subtype"       : "remember past scene",
+                "target"        : 10
+            ],
+            
+            10 : [
+                "type"          : "narator",
+                "text"          : "Again?! Why that Girl is somehow bring back that memories?",
+                "target"        : 11
+            ],
+            
+            11 : [
+                "type"          : "interaction",
+                "subtype"       : "remember_past_scene",
+                "target"        : 12
+            ],
+            
+            12 : [
+                "type"          : "narator",
+                "text"          : "Later that day...",
+                "target"        : 13
+            ],
+            
+            13 : [
+                "type"          : "text",
+                "subject"       : "Gabriel",
+                "expression"    : "normal",
+                "text"          : "Hey pal, sorry but we gotta go...",
+                "target"        : 14
+            ],
+            
+            14 : [
+                "type"          : "text",
+                "subject"       : "Player",
+                "text"          : "Let's go",
+                "target"        : 15
+            ],
+            
+            15 : [
+                "type"          : "narator",
+                "subject"       : "Player"
+            
+            ]
+            
+            ]))
+        
+        /*chronologies.append(Chronologies(id: 2, title: "Bocah Nangis", background: "leo.jpg", chronology: [
             0 : [
                 "type"      : "narator",
                 "text"      : "suatu hari..",
@@ -693,11 +801,13 @@ class ChronologyModel {
                 "target"    : 0
             ],
             
-            ]))
+            ]))*/
  */
+ 
     }
     
     func reload() {
         ChronologyModel()
     }
 }
+
