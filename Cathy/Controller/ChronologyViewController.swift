@@ -74,6 +74,7 @@ class ChronologyViewController: UIViewController {
     }
     
     func endChronology(index: Int) {
+        //change chronology
         if(index == 999) {
             chronologyModel.idCheckpoint = chronologyModel.idCheckpoint + 1
             chronologyModel.idChronologyCheckpoint = 0
@@ -89,6 +90,28 @@ class ChronologyViewController: UIViewController {
                     chronologyModel.chronologies = newChronology
                     generateChronology(index: 0)
                     print("END Chronology")
+                    
+                } else {
+                    print("To be continued")
+                }
+            }
+            
+            //change chapter
+        } else if(index == 1000) {
+            chronologyModel.idCheckpoint = chronologyModel.idCheckpoint + 1
+            chronologyModel.idChronologyCheckpoint = 0
+            if checkpointModel.updateObject(id: chronologyModel.idCheckpoint, idChronology: 0) {
+                print("Update checkpoint new Chapter")
+                indexChronology = 0
+                
+                chronologyModel.api.autoUpdateData()
+                let newChronology = chronologyModel.api.getFromDisk(id: chronologyModel.idCheckpoint)
+                
+                if newChronology.count > 0 {
+                    chronologyModel.chronologies.removeAll()
+                    chronologyModel.chronologies = newChronology
+                    generateChronology(index: 0)
+                    print("END chapter")
                     
                 } else {
                     print("To be continued")
