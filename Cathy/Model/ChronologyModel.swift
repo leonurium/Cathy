@@ -35,6 +35,7 @@ class ChronologyModel {
     var idCheckpoint: Int = 0
     var idChronologyCheckpoint: Int = 0
     
+    
     init() {
         if chronologies.count > 0 {
             if let dataCheckpoint = checkpoint.fetchObject() {
@@ -803,11 +804,13 @@ class ChronologyModel {
                 "target"    : 0
             ],
             
-            ]))
+            ]))*/
  */
+ 
     }
     
     func reload() {
         ChronologyModel()
     }
 }
+
