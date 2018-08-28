@@ -74,6 +74,7 @@ class ChronologyViewController: UIViewController {
     }
     
     func endChronology(index: Int) {
+        //change chronology
         if(index == 999) {
             chronologyModel.idCheckpoint = chronologyModel.idCheckpoint + 1
             chronologyModel.idChronologyCheckpoint = 0
@@ -89,6 +90,28 @@ class ChronologyViewController: UIViewController {
                     chronologyModel.chronologies = newChronology
                     generateChronology(index: 0)
                     print("END Chronology")
+                    
+                } else {
+                    print("To be continued")
+                }
+            }
+            
+            //change chapter
+        } else if(index == 1000) {
+            chronologyModel.idCheckpoint = chronologyModel.idCheckpoint + 1
+            chronologyModel.idChronologyCheckpoint = 0
+            if checkpointModel.updateObject(id: chronologyModel.idCheckpoint, idChronology: 0) {
+                print("Update checkpoint new Chapter")
+                indexChronology = 0
+                
+                chronologyModel.api.autoUpdateData()
+                let newChronology = chronologyModel.api.getFromDisk(id: chronologyModel.idCheckpoint)
+                
+                if newChronology.count > 0 {
+                    chronologyModel.chronologies.removeAll()
+                    chronologyModel.chronologies = newChronology
+                    generateChronology(index: 0)
+                    print("END chapter")
                     
                 } else {
                     print("To be continued")
@@ -194,7 +217,7 @@ class ChronologyViewController: UIViewController {
                 
                 break
                 
-            case "narator":
+            case "narator" :
                 hiddenAll()
                 outletLabelText.text = nowChronology.text
                 indexChronology = nowChronology.target!
@@ -203,7 +226,15 @@ class ChronologyViewController: UIViewController {
                 break
                 
             case "interaction":
-                print("OK ini interaksi")
+                switch nowChronology.subtype {
+                    case "face_detection":
+                        faceDetect()
+                        break
+                    
+                    default:
+                        print("do something in interaction")
+                        break
+                }
                 break
                 
             default:
@@ -214,6 +245,15 @@ class ChronologyViewController: UIViewController {
         } else {
             relaunch()
         }
+    }
+    
+    func faceDetect() {
+        let controller = UIStoryboard(name: "Screen", bundle: nil).instantiateViewController(withIdentifier: "FaceDetect") as! FaceDetectViewController
+        self.addChildViewController(controller)
+        
+        controller.view.frame = self.view.frame
+        self.view.addSubview(controller.view)
+        controller.didMove(toParentViewController: self)
     }
     
     func labelMask(label : UILabel){

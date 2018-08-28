@@ -11,6 +11,7 @@ import ARKit
 import CoreImage
 
 class FaceDetectionClass {
+    
     func detect(image: UIImage) {
         let images = CIImage(image: image)
         let faceDetector = CIDetector(ofType: CIDetectorTypeFace, context: nil, options: [CIDetectorAccuracy : CIDetectorAccuracyHigh])

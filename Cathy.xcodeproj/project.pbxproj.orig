@@ -9,31 +9,43 @@
 /* Begin PBXBuildFile section */
 		30FBEEEB212568D5007BF14E /* primer print.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30FBEEE9212568D5007BF14E /* primer print.ttf */; };
 		30FBEEEC212568D5007BF14E /* primer print bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30FBEEEA212568D5007BF14E /* primer print bold.ttf */; };
+		5D739C8F213428650069A909 /* deviceNameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D739C8E213428650069A909 /* deviceNameModel.swift */; };
+		5D739C9121351E990069A909 /* shakeGestureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D739C9021351E990069A909 /* shakeGestureModel.swift */; };
+		5DFE9EB1212ED7BE00CB7CAC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DFE9EAF212ED7BE00CB7CAC /* Main.storyboard */; };
 		AA59DFD1212CFD8F0099C990 /* ChronologyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA59DFD0212CFD8F0099C990 /* ChronologyViewController.swift */; };
 		AA59DFD3212CFDD60099C990 /* ChronologyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA59DFD2212CFDD60099C990 /* ChronologyModel.swift */; };
+		AA623F15213313D500420C61 /* CheckpointModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA623F14213313D500420C61 /* CheckpointModel.swift */; };
+		AA9D43A42134B6FF0010E736 /* Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA9D43A32134B6FF0010E736 /* Screen.storyboard */; };
+		AA9D43A62134B7490010E736 /* FaceDetectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9D43A52134B7490010E736 /* FaceDetectViewController.swift */; };
 		AACF26CE2123EE9700ABA4AF /* FaceDetectionClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACF26CD2123EE9700ABA4AF /* FaceDetectionClass.swift */; };
 		AADA70F42122E4CF00F1B165 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADA70F32122E4CF00F1B165 /* AppDelegate.swift */; };
 		AADA70F62122E4CF00F1B165 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADA70F52122E4CF00F1B165 /* ViewController.swift */; };
-		AADA70F92122E4CF00F1B165 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AADA70F72122E4CF00F1B165 /* Main.storyboard */; };
 		AADA70FC2122E4CF00F1B165 /* Cathy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AADA70FA2122E4CF00F1B165 /* Cathy.xcdatamodeld */; };
 		AADA70FE2122E4CF00F1B165 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AADA70FD2122E4CF00F1B165 /* Assets.xcassets */; };
 		AADA71012122E4CF00F1B165 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AADA70FF2122E4CF00F1B165 /* LaunchScreen.storyboard */; };
+		AAFB72C121300FB700E57247 /* connectApiClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFB72C021300FB700E57247 /* connectApiClass.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		30FBEEE9212568D5007BF14E /* primer print.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "primer print.ttf"; sourceTree = "<group>"; };
 		30FBEEEA212568D5007BF14E /* primer print bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "primer print bold.ttf"; sourceTree = "<group>"; };
+		5D739C8E213428650069A909 /* deviceNameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = deviceNameModel.swift; sourceTree = "<group>"; };
+		5D739C9021351E990069A909 /* shakeGestureModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shakeGestureModel.swift; sourceTree = "<group>"; };
+		5DFE9EB0212ED7BE00CB7CAC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AA59DFD0212CFD8F0099C990 /* ChronologyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChronologyViewController.swift; sourceTree = "<group>"; };
 		AA59DFD2212CFDD60099C990 /* ChronologyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChronologyModel.swift; sourceTree = "<group>"; };
+		AA623F14213313D500420C61 /* CheckpointModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckpointModel.swift; sourceTree = "<group>"; };
+		AA9D43A32134B6FF0010E736 /* Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Screen.storyboard; sourceTree = "<group>"; };
+		AA9D43A52134B7490010E736 /* FaceDetectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceDetectViewController.swift; sourceTree = "<group>"; };
 		AACF26CD2123EE9700ABA4AF /* FaceDetectionClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceDetectionClass.swift; sourceTree = "<group>"; };
 		AADA70F02122E4CF00F1B165 /* Cathy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cathy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AADA70F32122E4CF00F1B165 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AADA70F52122E4CF00F1B165 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		AADA70F82122E4CF00F1B165 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AADA70FB2122E4CF00F1B165 /* Cathy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Cathy.xcdatamodel; sourceTree = "<group>"; };
 		AADA70FD2122E4CF00F1B165 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AADA71002122E4CF00F1B165 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AADA71022122E4CF00F1B165 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AAFB72C021300FB700E57247 /* connectApiClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = connectApiClass.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,10 +68,20 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		5D739C8D2134283D0069A909 /* Punya Terre */ = {
+			isa = PBXGroup;
+			children = (
+				5D739C8E213428650069A909 /* deviceNameModel.swift */,
+				5D739C9021351E990069A909 /* shakeGestureModel.swift */,
+			);
+			path = "Punya Terre";
+			sourceTree = "<group>";
+		};
 		AA59DFCB212CFA880099C990 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				AA59DFD2212CFDD60099C990 /* ChronologyModel.swift */,
+				AA623F14213313D500420C61 /* CheckpointModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -67,9 +89,9 @@
 		AACF26C92123E86100ABA4AF /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				30FBEEED21256D97007BF14E /* textBoxDialogue.swift */,
 				AADA70F52122E4CF00F1B165 /* ViewController.swift */,
 				AA59DFD0212CFD8F0099C990 /* ChronologyViewController.swift */,
+				AA9D43A52134B7490010E736 /* FaceDetectViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -77,8 +99,9 @@
 		AACF26CA2123E86D00ABA4AF /* View */ = {
 			isa = PBXGroup;
 			children = (
-				AADA70F72122E4CF00F1B165 /* Main.storyboard */,
+				5DFE9EAF212ED7BE00CB7CAC /* Main.storyboard */,
 				AADA70FF2122E4CF00F1B165 /* LaunchScreen.storyboard */,
+				AA9D43A32134B6FF0010E736 /* Screen.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -97,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				AACF26CD2123EE9700ABA4AF /* FaceDetectionClass.swift */,
+				AAFB72C021300FB700E57247 /* connectApiClass.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -120,6 +144,7 @@
 		AADA70F22122E4CF00F1B165 /* Cathy */ = {
 			isa = PBXGroup;
 			children = (
+				5D739C8D2134283D0069A909 /* Punya Terre */,
 				AA59DFCB212CFA880099C990 /* Model */,
 				AACF26CC2123EE4600ABA4AF /* Classes */,
 				AACF26C92123E86100ABA4AF /* Controller */,
@@ -189,10 +214,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA9D43A42134B6FF0010E736 /* Screen.storyboard in Resources */,
 				30FBEEEB212568D5007BF14E /* primer print.ttf in Resources */,
+				5DFE9EB1212ED7BE00CB7CAC /* Main.storyboard in Resources */,
 				AADA71012122E4CF00F1B165 /* LaunchScreen.storyboard in Resources */,
 				AADA70FE2122E4CF00F1B165 /* Assets.xcassets in Resources */,
-				AADA70F92122E4CF00F1B165 /* Main.storyboard in Resources */,
 				30FBEEEC212568D5007BF14E /* primer print bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -204,10 +230,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30FBEEEE21256D97007BF14E /* textBoxDialogue.swift in Sources */,
+				5D739C8F213428650069A909 /* deviceNameModel.swift in Sources */,
 				AADA70F62122E4CF00F1B165 /* ViewController.swift in Sources */,
+				5D739C9121351E990069A909 /* shakeGestureModel.swift in Sources */,
 				AADA70F42122E4CF00F1B165 /* AppDelegate.swift in Sources */,
+				AA9D43A62134B7490010E736 /* FaceDetectViewController.swift in Sources */,
+				AAFB72C121300FB700E57247 /* connectApiClass.swift in Sources */,
 				AA59DFD1212CFD8F0099C990 /* ChronologyViewController.swift in Sources */,
+				AA623F15213313D500420C61 /* CheckpointModel.swift in Sources */,
 				AA59DFD3212CFDD60099C990 /* ChronologyModel.swift in Sources */,
 				AADA70FC2122E4CF00F1B165 /* Cathy.xcdatamodeld in Sources */,
 				AACF26CE2123EE9700ABA4AF /* FaceDetectionClass.swift in Sources */,
@@ -217,10 +247,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		AADA70F72122E4CF00F1B165 /* Main.storyboard */ = {
+		5DFE9EAF212ED7BE00CB7CAC /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				AADA70F82122E4CF00F1B165 /* Base */,
+				5DFE9EB0212ED7BE00CB7CAC /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -355,13 +385,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = VC83XAQ3UM;
 				INFOPLIST_FILE = Cathy/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ranggaleoo.Cathy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ranggaleo.Cathy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -373,13 +404,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = VC83XAQ3UM;
 				INFOPLIST_FILE = Cathy/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ranggaleoo.Cathy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ranggaleo.Cathy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
