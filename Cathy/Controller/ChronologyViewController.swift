@@ -13,7 +13,6 @@ class ChronologyViewController: UIViewController {
     let chronologyModel = ChronologyModel()
     let checkpointModel = CheckpointModel()
     var indexChronology: Int = 0
-    
     var sessionShake = false
     
     //OUTLETS
@@ -107,6 +106,7 @@ class ChronologyViewController: UIViewController {
                     print("To be continued")
                 }
             }
+        
             
             //change chapter
         } else if(index == 1000) {
@@ -159,9 +159,14 @@ class ChronologyViewController: UIViewController {
             switch nowChronology.type {
             case "text":
                 hiddenAll()
+                var gambarCharacter: String  = " "
+                var ekspresiCharacter: String = " "
+                gambarCharacter = (nowChronology.subject)!
+                ekspresiCharacter = (nowChronology.expression)!
                 outletLabelSubject.isHidden = false
                 outletLabelText.isHidden = false
-                
+                outletImageViewChar2.isHidden = false
+                outletImageViewChar2.image = UIImage(named: "\(ekspresiCharacter)\(gambarCharacter)")
                 outletLabelSubject.text = nowChronology.subject
                 outletLabelText.text = nowChronology.text
                 indexChronology = nowChronology.target!
