@@ -248,12 +248,16 @@ class ChronologyViewController: UIViewController {
     }
     
     func faceDetect() {
+        let vc = FaceDetectViewController()
+        self.present(vc, animated: false)
+        /*
         let controller = UIStoryboard(name: "Screen", bundle: nil).instantiateViewController(withIdentifier: "FaceDetect") as! FaceDetectViewController
         self.addChildViewController(controller)
         
         controller.view.frame = self.view.frame
         self.view.addSubview(controller.view)
         controller.didMove(toParentViewController: self)
+ */
     }
     
     func labelMask(label : UILabel){
