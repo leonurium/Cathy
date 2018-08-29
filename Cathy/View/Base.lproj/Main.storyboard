@@ -246,7 +246,7 @@
                                         <size key="shadowOffset" width="0.0" height="0.0"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gabriel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ima-81-k5K" userLabel="subject">
-                                        <rect key="frame" x="40" y="22" width="579" height="42"/>
+                                        <rect key="frame" x="40" y="22" width="579" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="PrimerPrint-Bold" family="Primer" pointSize="30"/>
                                         <color key="textColor" red="0.90980392160000001" green="0.23137254900000001" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -24,6 +24,8 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
     var permissionCameraGranted = false
     var resultFaceDetect = false
     
+    var data = [iconData(iconImage: UIImage(named: "mapsMenu")), iconData(iconImage: UIImage(named: "aboutMenu")), iconData(iconImage: UIImage(named: "galleryMenu")), iconData(iconImage: UIImage(named: "miniGamesMenu")), iconData(iconImage: UIImage(named: "settingsMenu")), iconData(iconImage: UIImage(named: "exitMenu"))]
+    
     //OUTLETS
     //Outlet button option buat choice alur
     @IBOutlet weak var outletButtonOption1: UIButton!
@@ -56,9 +58,10 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
     }
     
     @IBAction func actionButtonMenu(_ sender: Any) {
-        if outletGridMenu.isHidden == true{
-        outletGridMenu.isHidden = false
-        }else{
+        if outletGridMenu.isHidden == true {
+            outletGridMenu.isHidden = false
+            
+        } else {
             outletGridMenu.isHidden = true
         }
     }
@@ -66,19 +69,19 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
     //BUTTONS
     //Button buat next ke chronology berikutnya, bisa di ganti pake all view screen
     @IBAction func tapAnywhere(_ sender: UIView) {
-        if outletGridMenu.isHidden == true{
-        generateChronology(index: indexChronology)
-        }else{
+        if outletGridMenu.isHidden == true {
+            generateChronology(index: indexChronology)
+        } else {
             
         }
     }
     
     @IBAction func actionButtonOption(_ sender: UIButton) {
-        if outletGridMenu.isHidden == true{
-        generateChronology(index: sender.tag)
-        animateButtonOption(button: sender)
-        }else{
-            
+        if outletGridMenu.isHidden == true {
+            generateChronology(index: sender.tag)
+            animateButtonOption(button: sender)
+        } else {
+            //Do something
         }
     }
     
