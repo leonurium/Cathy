@@ -38,11 +38,14 @@ class ViewController: UIViewController {
                     (animate) in
                 }
             )
-        }else{}
+        }else{
+            
+        }
     }
     
     //animation
     @IBAction func actionNewGame(_ sender: Any) {
+        
     }
     
     @IBAction func actionOption(_ sender: Any) {

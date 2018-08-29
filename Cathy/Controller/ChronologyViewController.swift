@@ -181,10 +181,15 @@ class ChronologyViewController: UIViewController {
             //filter type chronology
             switch nowChronology.type {
             case "text":
+                var gambarCharacter: String = " "
+                var ekspresiCharacter: String = " "
+                ekspresiCharacter = nowChronology.expression!
+                gambarCharacter = nowChronology.subject!
+                
                 hiddenAll()
+                outletImageViewChar2.image = UIImage(named: "\(nowChronology.expression)\(nowChronology.subject)")
                 outletLabelSubject.isHidden = false
                 outletLabelText.isHidden = false
-                
                 outletLabelSubject.text = nowChronology.subject
                 outletLabelText.text = nowChronology.text
                 indexChronology = nowChronology.target!
