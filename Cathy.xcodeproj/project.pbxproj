@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		30AE671F213650A200C9939F /* menuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AE671E213650A200C9939F /* menuCollectionViewCell.swift */; };
 		30FBEEEB212568D5007BF14E /* primer print.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30FBEEE9212568D5007BF14E /* primer print.ttf */; };
 		30FBEEEC212568D5007BF14E /* primer print bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30FBEEEA212568D5007BF14E /* primer print bold.ttf */; };
 		5D739C8F213428650069A909 /* deviceNameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D739C8E213428650069A909 /* deviceNameModel.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		30AE671E213650A200C9939F /* menuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = menuCollectionViewCell.swift; sourceTree = "<group>"; };
 		30FBEEE9212568D5007BF14E /* primer print.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "primer print.ttf"; sourceTree = "<group>"; };
 		30FBEEEA212568D5007BF14E /* primer print bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "primer print bold.ttf"; sourceTree = "<group>"; };
 		5D739C8E213428650069A909 /* deviceNameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = deviceNameModel.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 			children = (
 				AACF26CD2123EE9700ABA4AF /* FaceDetectionClass.swift */,
 				AAFB72C021300FB700E57247 /* connectApiClass.swift */,
+				30AE671E213650A200C9939F /* menuCollectionViewCell.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30AE671F213650A200C9939F /* menuCollectionViewCell.swift in Sources */,
 				5D739C8F213428650069A909 /* deviceNameModel.swift in Sources */,
 				AADA70F62122E4CF00F1B165 /* ViewController.swift in Sources */,
 				5D739C9121351E990069A909 /* shakeGestureModel.swift in Sources */,
@@ -385,7 +389,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VC83XAQ3UM;
+				DEVELOPMENT_TEAM = 4475UJGNX2;
 				INFOPLIST_FILE = Cathy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -404,7 +408,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VC83XAQ3UM;
+				DEVELOPMENT_TEAM = 4475UJGNX2;
 				INFOPLIST_FILE = Cathy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (

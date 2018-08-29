@@ -37,11 +37,30 @@ class ChronologyViewController: UIViewController {
     @IBOutlet weak var outletMenuNoon: UILabel!
     @IBOutlet weak var outletMenuPause: UIButton!
     
+    //Outlet Grid Menu
+    @IBOutlet weak var outletGridMenu: UIView!
+    @IBOutlet weak var outletMenuCollectionView: UICollectionView!
+    
+    @IBAction func actionButtonCloseMenu(_ sender: Any) {
+        outletGridMenu.isHidden = true
+    }
+    
+    @IBAction func actionButtonMenu(_ sender: Any) {
+        if outletGridMenu.isHidden == true{
+        outletGridMenu.isHidden = false
+        }else{
+            outletGridMenu.isHidden = true
+        }
+    }
     
     //BUTTONS
     //Button buat next ke chronology berikutnya, bisa di ganti pake all view screen
     @IBAction func tapAnywhere(_ sender: UIView) {
+        if outletGridMenu.isHidden == true{
         generateChronology(index: indexChronology)
+        }else{
+            
+        }
     }
     
     @IBAction func actionButtonOption(_ sender: UIButton) {
@@ -53,6 +72,8 @@ class ChronologyViewController: UIViewController {
         masks()
         startChronology(index: 0)
         generateChronology(index: chronologyModel.idChronologyCheckpoint)
+        outletMenuCollectionView.delegate = self
+        outletMenuCollectionView.dataSource = self
     }
 
     //FUNCTIONS
@@ -302,6 +323,42 @@ class ChronologyViewController: UIViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        
     }
 }
+
+extension ChronologyViewController: UICollectionViewDataSource{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 6
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "testMenu", for: indexPath) as! menuCollectionViewCell
+        cell.menuImageCell.image = (UIImage(named: "happyTerre"))
+        return cell
+    }
+}
+
+extension ChronologyViewController: UICollectionViewDelegate{
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if(indexPath.row == 0){
+            performSegue(withIdentifier: "map", sender: self)
+        }else if(indexPath.row == 1){
+            performSegue(withIdentifier: "about", sender: self)
+        }else if(indexPath.row == 2){
+            performSegue(withIdentifier: "gallery", sender: self)
+        }else if(indexPath.row == 3){
+            performSegue(withIdentifier: "miniGames", sender: self)
+        }else if(indexPath.row == 4){
+            performSegue(withIdentifier: "option", sender: self)
+        }else if(indexPath.row == 5){
+            performSegue(withIdentifier: "exit", sender: self)
+        }
+    }
+}
+
+
+
