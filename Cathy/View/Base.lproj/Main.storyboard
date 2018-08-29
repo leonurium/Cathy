@@ -159,7 +159,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DPy-AI-eQt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="918.4729064039409" y="1700"/>
+            <point key="canvasLocation" x="831" y="868"/>
         </scene>
         <!--Chronology View Controller-->
         <scene sceneID="WPd-G2-DfW">
@@ -307,6 +307,11 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GnF-RZ-rWr" userLabel="previewView">
+                                <rect key="frame" x="651" y="197" width="3" height="2"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="6ZN-v9-Jf8"/>
@@ -329,6 +334,7 @@
                         <outlet property="outletMenuDay" destination="ffD-lp-TIr" id="tSK-Hw-ek3"/>
                         <outlet property="outletMenuNoon" destination="CVb-Lu-wc1" id="j8p-Wl-MS6"/>
                         <outlet property="outletMenuPause" destination="q5n-0b-je3" id="faV-X7-FgQ"/>
+                        <outlet property="outletViewKamera" destination="GnF-RZ-rWr" id="NqX-86-yqV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6IL-LG-HsC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -338,7 +344,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="177" y="1761"/>
+            <point key="canvasLocation" x="176.60098522167488" y="1760.8"/>
         </scene>
     </scenes>
     <resources>

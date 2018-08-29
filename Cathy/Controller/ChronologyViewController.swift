@@ -37,6 +37,8 @@ class ChronologyViewController: UIViewController {
     @IBOutlet weak var outletMenuNoon: UILabel!
     @IBOutlet weak var outletMenuPause: UIButton!
     
+    //Outlet view kamera
+    @IBOutlet weak var outletViewKamera: UIView!
     
     //BUTTONS
     //Button buat next ke chronology berikutnya, bisa di ganti pake all view screen
@@ -228,7 +230,13 @@ class ChronologyViewController: UIViewController {
             case "interaction":
                 switch nowChronology.subtype {
                     case "face_detection":
-                        faceDetect()
+                        
+                        hiddenAll()
+                        outletLabelText.text = nowChronology.text
+                        indexChronology = nowChronology.target!
+                        endChronology(index: nowChronology.target!)
+                        outletLabelText.isHidden = false
+                        
                         break
                     
                     default:
@@ -248,16 +256,12 @@ class ChronologyViewController: UIViewController {
     }
     
     func faceDetect() {
-        let vc = FaceDetectViewController()
-        self.present(vc, animated: false)
-        /*
         let controller = UIStoryboard(name: "Screen", bundle: nil).instantiateViewController(withIdentifier: "FaceDetect") as! FaceDetectViewController
         self.addChildViewController(controller)
         
         controller.view.frame = self.view.frame
         self.view.addSubview(controller.view)
         controller.didMove(toParentViewController: self)
- */
     }
     
     func labelMask(label : UILabel){
