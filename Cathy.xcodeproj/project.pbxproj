@@ -11,16 +11,12 @@
 		30AE671F213650A200C9939F /* menuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AE671E213650A200C9939F /* menuCollectionViewCell.swift */; };
 		30FBEEEB212568D5007BF14E /* primer print.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30FBEEE9212568D5007BF14E /* primer print.ttf */; };
 		30FBEEEC212568D5007BF14E /* primer print bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30FBEEEA212568D5007BF14E /* primer print bold.ttf */; };
-		5D739C8F213428650069A909 /* deviceNameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D739C8E213428650069A909 /* deviceNameModel.swift */; };
-		5D739C9121351E990069A909 /* shakeGestureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D739C9021351E990069A909 /* shakeGestureModel.swift */; };
 		5DFE9EB1212ED7BE00CB7CAC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DFE9EAF212ED7BE00CB7CAC /* Main.storyboard */; };
 		AA59DFD1212CFD8F0099C990 /* ChronologyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA59DFD0212CFD8F0099C990 /* ChronologyViewController.swift */; };
 		AA59DFD3212CFDD60099C990 /* ChronologyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA59DFD2212CFDD60099C990 /* ChronologyModel.swift */; };
 		AA623F15213313D500420C61 /* CheckpointModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA623F14213313D500420C61 /* CheckpointModel.swift */; };
 		AA9D43A42134B6FF0010E736 /* Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA9D43A32134B6FF0010E736 /* Screen.storyboard */; };
-		AA9D43A62134B7490010E736 /* FaceDetectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9D43A52134B7490010E736 /* FaceDetectViewController.swift */; };
 		AA9D43A821368CF20010E736 /* TransitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9D43A721368CF20010E736 /* TransitionViewController.swift */; };
-		AACF26CE2123EE9700ABA4AF /* FaceDetectionClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACF26CD2123EE9700ABA4AF /* FaceDetectionClass.swift */; };
 		AADA70F42122E4CF00F1B165 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADA70F32122E4CF00F1B165 /* AppDelegate.swift */; };
 		AADA70F62122E4CF00F1B165 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADA70F52122E4CF00F1B165 /* ViewController.swift */; };
 		AADA70FC2122E4CF00F1B165 /* Cathy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AADA70FA2122E4CF00F1B165 /* Cathy.xcdatamodeld */; };
@@ -34,16 +30,12 @@
 		30AE671E213650A200C9939F /* menuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = menuCollectionViewCell.swift; sourceTree = "<group>"; };
 		30FBEEE9212568D5007BF14E /* primer print.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "primer print.ttf"; sourceTree = "<group>"; };
 		30FBEEEA212568D5007BF14E /* primer print bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "primer print bold.ttf"; sourceTree = "<group>"; };
-		5D739C8E213428650069A909 /* deviceNameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = deviceNameModel.swift; sourceTree = "<group>"; };
-		5D739C9021351E990069A909 /* shakeGestureModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shakeGestureModel.swift; sourceTree = "<group>"; };
 		5DFE9EB0212ED7BE00CB7CAC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AA59DFD0212CFD8F0099C990 /* ChronologyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChronologyViewController.swift; sourceTree = "<group>"; };
 		AA59DFD2212CFDD60099C990 /* ChronologyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChronologyModel.swift; sourceTree = "<group>"; };
 		AA623F14213313D500420C61 /* CheckpointModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckpointModel.swift; sourceTree = "<group>"; };
 		AA9D43A32134B6FF0010E736 /* Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Screen.storyboard; sourceTree = "<group>"; };
-		AA9D43A52134B7490010E736 /* FaceDetectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceDetectViewController.swift; sourceTree = "<group>"; };
 		AA9D43A721368CF20010E736 /* TransitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionViewController.swift; sourceTree = "<group>"; };
-		AACF26CD2123EE9700ABA4AF /* FaceDetectionClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceDetectionClass.swift; sourceTree = "<group>"; };
 		AADA70F02122E4CF00F1B165 /* Cathy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cathy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AADA70F32122E4CF00F1B165 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AADA70F52122E4CF00F1B165 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -74,15 +66,6 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		5D739C8D2134283D0069A909 /* Punya Terre */ = {
-			isa = PBXGroup;
-			children = (
-				5D739C8E213428650069A909 /* deviceNameModel.swift */,
-				5D739C9021351E990069A909 /* shakeGestureModel.swift */,
-			);
-			path = "Punya Terre";
-			sourceTree = "<group>";
-		};
 		AA59DFCB212CFA880099C990 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -98,7 +81,6 @@
 			children = (
 				AADA70F52122E4CF00F1B165 /* ViewController.swift */,
 				AA59DFD0212CFD8F0099C990 /* ChronologyViewController.swift */,
-				AA9D43A52134B7490010E736 /* FaceDetectViewController.swift */,
 				AA9D43A721368CF20010E736 /* TransitionViewController.swift */,
 			);
 			path = Controller;
@@ -127,7 +109,6 @@
 		AACF26CC2123EE4600ABA4AF /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				AACF26CD2123EE9700ABA4AF /* FaceDetectionClass.swift */,
 				AAFB72C021300FB700E57247 /* connectApiClass.swift */,
 				30AE671E213650A200C9939F /* menuCollectionViewCell.swift */,
 			);
@@ -153,7 +134,6 @@
 		AADA70F22122E4CF00F1B165 /* Cathy */ = {
 			isa = PBXGroup;
 			children = (
-				5D739C8D2134283D0069A909 /* Punya Terre */,
 				AA59DFCB212CFA880099C990 /* Model */,
 				AACF26CC2123EE4600ABA4AF /* Classes */,
 				AACF26C92123E86100ABA4AF /* Controller */,
@@ -241,18 +221,14 @@
 			files = (
 				3023107A2136B67000BFC557 /* iconModel.swift in Sources */,
 				30AE671F213650A200C9939F /* menuCollectionViewCell.swift in Sources */,
-				5D739C8F213428650069A909 /* deviceNameModel.swift in Sources */,
 				AADA70F62122E4CF00F1B165 /* ViewController.swift in Sources */,
-				5D739C9121351E990069A909 /* shakeGestureModel.swift in Sources */,
 				AADA70F42122E4CF00F1B165 /* AppDelegate.swift in Sources */,
-				AA9D43A62134B7490010E736 /* FaceDetectViewController.swift in Sources */,
 				AAFB72C121300FB700E57247 /* connectApiClass.swift in Sources */,
 				AA59DFD1212CFD8F0099C990 /* ChronologyViewController.swift in Sources */,
 				AA9D43A821368CF20010E736 /* TransitionViewController.swift in Sources */,
 				AA623F15213313D500420C61 /* CheckpointModel.swift in Sources */,
 				AA59DFD3212CFDD60099C990 /* ChronologyModel.swift in Sources */,
 				AADA70FC2122E4CF00F1B165 /* Cathy.xcdatamodeld in Sources */,
-				AACF26CE2123EE9700ABA4AF /* FaceDetectionClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

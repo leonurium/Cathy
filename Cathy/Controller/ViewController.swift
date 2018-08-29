@@ -14,8 +14,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var outOption: UIButton!
     @IBOutlet weak var tapAnywhere: UILabel!
     @IBOutlet weak var cathy: UIImageView!
-    
-    var deviceName = deviceNameModel.current.name
 
     //animation awal
     @IBAction func tapScreen(_ sender: Any) {

@@ -83,7 +83,7 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
     }
     
     override func viewDidLoad() {
-        cleanApp()
+//        cleanApp()
         masks()
         startChronology(index: 0)
         generateChronology(index: chronologyModel.idChronologyCheckpoint)
