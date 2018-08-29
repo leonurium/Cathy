@@ -7,14 +7,23 @@
 //
 
 import UIKit
+import AVFoundation
+import CoreImage
 
-class ChronologyViewController: UIViewController {
+class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
     
     let chronologyModel = ChronologyModel()
     let checkpointModel = CheckpointModel()
     var indexChronology: Int = 0
     
     var sessionShake = false
+    var sessionFaceDetect = false
+    
+    //PROPERTY UNTUK faceDetect
+    var captureSession = AVCaptureSession()
+    var previewFaceDetect: CALayer!
+    var permissionCameraGranted = false
+    var resultFaceDetect = false
     
     //OUTLETS
     //Outlet button option buat choice alur
@@ -62,6 +71,10 @@ class ChronologyViewController: UIViewController {
     {
         if checkpointModel.cleanAll() {
             UserDefaults.standard.removeObject(forKey: "UPDATE_CHRONOLOGY")
+            stopCaptureSession()
+            sessionShake = false
+            sessionFaceDetect = false
+            resultFaceDetect = false
         }
     }
 
@@ -238,7 +251,8 @@ class ChronologyViewController: UIViewController {
             case "interaction":
                 switch nowChronology.subtype {
                     case "face_detection":
-                        faceDetect()
+                        sessionFaceDetect = true
+                        runFaceDetect()
                         break
                     
                     case "shake":
@@ -274,18 +288,104 @@ class ChronologyViewController: UIViewController {
         }
     }
     
-    func faceDetect() {
-        let vc = FaceDetectViewController()
-        self.present(vc, animated: false)
-        /*
-        let controller = UIStoryboard(name: "Screen", bundle: nil).instantiateViewController(withIdentifier: "FaceDetect") as! FaceDetectViewController
-        self.addChildViewController(controller)
-        
-        controller.view.frame = self.view.frame
-        self.view.addSubview(controller.view)
-        controller.didMove(toParentViewController: self)
- */
+    //FACE DETECT
+    func runFaceDetect() {
+        if sessionFaceDetect {
+            checkPermission()
+            do {
+                guard let captureDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front) else {return}
+                
+                let captureDeviceIput = try AVCaptureDeviceInput(device: captureDevice)
+                
+                captureSession.addInput(captureDeviceIput)
+                
+                let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+                self.previewFaceDetect = previewLayer
+                
+                captureSession.startRunning()
+                let dataOutput = AVCaptureVideoDataOutput()
+                
+                if captureSession.canAddOutput(dataOutput) {
+                    captureSession.addOutput(dataOutput)
+                }
+                
+                captureSession.commitConfiguration()
+                dataOutput.setSampleBufferDelegate(self, queue: DispatchQueue(label: "faceDetect"))
+                
+                print("face detect start running")
+                
+            } catch let e {
+                print("Error", e)
+            }
+        }
     }
+    
+    func stopCaptureSession() {
+        captureSession.stopRunning()
+        
+        if let input = captureSession.inputs as? [AVCaptureDeviceInput] {
+            
+            for i in input {
+                captureSession.removeInput(i)
+            }
+        }
+    }
+    
+    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+        let context = CIContext()
+        guard let imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
+        let ciImage = CIImage(cvPixelBuffer: imageBuffer)
+        guard let cgImage = context.createCGImage(ciImage, from: ciImage.extent) else { return }
+        
+        let images = UIImage(cgImage: cgImage)
+        
+        if sessionFaceDetect {
+            faceDetectSmile(image: images)
+            
+            if resultFaceDetect {
+                stopCaptureSession()
+                generateChronology(index: indexChronology + 1)
+                resultFaceDetect = false
+                sessionFaceDetect = false
+            }
+        }
+    }
+    
+    private func checkPermission() {
+        switch AVCaptureDevice.authorizationStatus(for: AVMediaType.video) {
+        case .authorized:
+            permissionCameraGranted = true
+            break
+        case .notDetermined:
+            requestPermission()
+            break
+        default:
+            permissionCameraGranted = false
+            break
+        }
+    }
+    
+    private func requestPermission() {
+        AVCaptureDevice.requestAccess(for: AVMediaType.video, completionHandler: {
+            (granted) in
+            self.permissionCameraGranted = granted
+        })
+    }
+    
+    func faceDetectSmile(image: UIImage) {
+        let images = CIImage(image: image)
+        let faceDetector = CIDetector(ofType: CIDetectorTypeFace, context: nil, options: [CIDetectorAccuracy : CIDetectorAccuracyHigh])
+        
+        if let faces = faceDetector?.features(in: images!, options: [CIDetectorSmile: true]) {
+            
+            for face in faces as! [CIFaceFeature] {
+                
+                print(face.hasSmile)
+                resultFaceDetect = face.hasSmile
+            }
+        }
+    }
+    //END FACE DETECT
     
     func labelMask(label : UILabel){
         label.layer.cornerRadius = 5

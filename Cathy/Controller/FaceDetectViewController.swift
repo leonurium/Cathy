@@ -14,12 +14,12 @@ import CoreImage
 class FaceDetectViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
     
     var permissionGranted = false
+    var preview: CALayer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         checkPermission()
         let captureSession = AVCaptureSession()
-//        captureSession.sessionPreset = .photo
         
         guard let captureDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: AVMediaType.video, position: .front) else {return}
         
@@ -30,16 +30,12 @@ class FaceDetectViewController: UIViewController, AVCaptureVideoDataOutputSample
         captureSession.startRunning()
         
         let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        view.layer.addSublayer(previewLayer)
-//        previewLayer.frame = view.frame
+        preview = previewLayer
+//        view.layer.addSublayer(previewLayer)
         
         let dataOutput = AVCaptureVideoDataOutput()
         dataOutput.setSampleBufferDelegate(self, queue: DispatchQueue(label: "videoQ"))
         captureSession.addOutput(dataOutput)
-//        guard let connect = dataOutput.connection(with: .video) else {return}
-//        guard connect.isVideoOrientationSupported else {return}
-//        guard connect.isVideoMirroringSupported else {return}
-//        connect.videoOrientation = .portrait
         
         // Do any additional setup after loading the view.
     }
