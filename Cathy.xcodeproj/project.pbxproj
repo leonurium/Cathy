@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3023107A2136B67000BFC557 /* iconModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302310792136B67000BFC557 /* iconModel.swift */; };
+		30AE671F213650A200C9939F /* menuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AE671E213650A200C9939F /* menuCollectionViewCell.swift */; };
 		30FBEEEB212568D5007BF14E /* primer print.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30FBEEE9212568D5007BF14E /* primer print.ttf */; };
 		30FBEEEC212568D5007BF14E /* primer print bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30FBEEEA212568D5007BF14E /* primer print bold.ttf */; };
 		5D739C8F213428650069A909 /* deviceNameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D739C8E213428650069A909 /* deviceNameModel.swift */; };
@@ -28,6 +30,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		302310792136B67000BFC557 /* iconModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iconModel.swift; sourceTree = "<group>"; };
+		30AE671E213650A200C9939F /* menuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = menuCollectionViewCell.swift; sourceTree = "<group>"; };
 		30FBEEE9212568D5007BF14E /* primer print.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "primer print.ttf"; sourceTree = "<group>"; };
 		30FBEEEA212568D5007BF14E /* primer print bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "primer print bold.ttf"; sourceTree = "<group>"; };
 		5D739C8E213428650069A909 /* deviceNameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = deviceNameModel.swift; sourceTree = "<group>"; };
@@ -84,6 +88,7 @@
 			children = (
 				AA59DFD2212CFDD60099C990 /* ChronologyModel.swift */,
 				AA623F14213313D500420C61 /* CheckpointModel.swift */,
+				302310792136B67000BFC557 /* iconModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -124,6 +129,7 @@
 			children = (
 				AACF26CD2123EE9700ABA4AF /* FaceDetectionClass.swift */,
 				AAFB72C021300FB700E57247 /* connectApiClass.swift */,
+				30AE671E213650A200C9939F /* menuCollectionViewCell.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -233,6 +239,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3023107A2136B67000BFC557 /* iconModel.swift in Sources */,
+				30AE671F213650A200C9939F /* menuCollectionViewCell.swift in Sources */,
 				5D739C8F213428650069A909 /* deviceNameModel.swift in Sources */,
 				AADA70F62122E4CF00F1B165 /* ViewController.swift in Sources */,
 				5D739C9121351E990069A909 /* shakeGestureModel.swift in Sources */,
@@ -389,14 +397,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = W8T5R97US6;
+				DEVELOPMENT_TEAM = 4475UJGNX2;
 				INFOPLIST_FILE = Cathy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Terre.Cathy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.victor.Cathy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -408,14 +416,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = W8T5R97US6;
+				DEVELOPMENT_TEAM = 4475UJGNX2;
 				INFOPLIST_FILE = Cathy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Terre.Cathy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.victor.Cathy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -14,6 +14,7 @@ class ChronologyViewController: UIViewController {
     let checkpointModel = CheckpointModel()
     var indexChronology: Int = 0
     var sessionShake = false
+    var data = [iconData(iconImage: UIImage(named: "mapsMenu")), iconData(iconImage: UIImage(named: "aboutMenu")), iconData(iconImage: UIImage(named: "galleryMenu")), iconData(iconImage: UIImage(named: "miniGamesMenu")), iconData(iconImage: UIImage(named: "settingsMenu")), iconData(iconImage: UIImage(named: "exitMenu"))]
     
     //OUTLETS
     //Outlet button option buat choice alur
@@ -38,18 +39,39 @@ class ChronologyViewController: UIViewController {
     @IBOutlet weak var outletMenuNoon: UILabel!
     @IBOutlet weak var outletMenuPause: UIButton!
     
-    //Outlet view kamera
-    @IBOutlet weak var outletViewKamera: UIView!
+    //Outlet Grid Menu
+    @IBOutlet weak var outletGridMenu: UIView!
+    @IBOutlet weak var outletMenuCollectionView: UICollectionView!
+    
+    @IBAction func actionButtonCloseMenu(_ sender: Any) {
+        outletGridMenu.isHidden = true
+    }
+    
+    @IBAction func actionButtonMenu(_ sender: Any) {
+        if outletGridMenu.isHidden == true{
+        outletGridMenu.isHidden = false
+        }else{
+            outletGridMenu.isHidden = true
+        }
+    }
     
     //BUTTONS
     //Button buat next ke chronology berikutnya, bisa di ganti pake all view screen
     @IBAction func tapAnywhere(_ sender: UIView) {
+        if outletGridMenu.isHidden == true{
         generateChronology(index: indexChronology)
+        }else{
+            
+        }
     }
     
     @IBAction func actionButtonOption(_ sender: UIButton) {
+        if outletGridMenu.isHidden == true{
         generateChronology(index: sender.tag)
         animateButtonOption(button: sender)
+        }else{
+            
+        }
     }
     
     override func viewDidLoad() {
@@ -57,6 +79,8 @@ class ChronologyViewController: UIViewController {
         masks()
         startChronology(index: 0)
         generateChronology(index: chronologyModel.idChronologyCheckpoint)
+        outletMenuCollectionView.delegate = self
+        outletMenuCollectionView.dataSource = self
     }
     
     func cleanApp()
@@ -106,7 +130,6 @@ class ChronologyViewController: UIViewController {
                     print("To be continued")
                 }
             }
-        
             
             //change chapter
         } else if(index == 1000) {
@@ -159,14 +182,9 @@ class ChronologyViewController: UIViewController {
             switch nowChronology.type {
             case "text":
                 hiddenAll()
-                var gambarCharacter: String  = " "
-                var ekspresiCharacter: String = " "
-                gambarCharacter = (nowChronology.subject)!
-                ekspresiCharacter = (nowChronology.expression)!
                 outletLabelSubject.isHidden = false
                 outletLabelText.isHidden = false
-                outletImageViewChar2.isHidden = false
-                outletImageViewChar2.image = UIImage(named: "\(ekspresiCharacter)\(gambarCharacter)")
+                
                 outletLabelSubject.text = nowChronology.subject
                 outletLabelText.text = nowChronology.text
                 indexChronology = nowChronology.target!
@@ -245,13 +263,7 @@ class ChronologyViewController: UIViewController {
             case "interaction":
                 switch nowChronology.subtype {
                     case "face_detection":
-                        
-                        hiddenAll()
-                        outletLabelText.text = nowChronology.text
-                        indexChronology = nowChronology.target!
-                        endChronology(index: nowChronology.target!)
-                        outletLabelText.isHidden = false
-                        
+                        faceDetect()
                         break
                     
                     case "shake":
@@ -288,12 +300,16 @@ class ChronologyViewController: UIViewController {
     }
     
     func faceDetect() {
+        let vc = FaceDetectViewController()
+        self.present(vc, animated: false)
+        /*
         let controller = UIStoryboard(name: "Screen", bundle: nil).instantiateViewController(withIdentifier: "FaceDetect") as! FaceDetectViewController
         self.addChildViewController(controller)
         
         controller.view.frame = self.view.frame
         self.view.addSubview(controller.view)
         controller.didMove(toParentViewController: self)
+ */
     }
     
     func labelMask(label : UILabel){
@@ -340,8 +356,67 @@ class ChronologyViewController: UIViewController {
         })
     }
     
+    var timer = Timer()
+    public func typeOn(textView: UITextView ,string: String) {
+        let characterArray = string.characterArray
+        var characterIndex = 0
+        timer = Timer.scheduledTimer(withTimeInterval: 0.05, repeats: true) { (timer) in
+            if characterIndex != characterArray.count{
+                textView.text.append(characterArray[characterIndex])
+                characterIndex += 1
+            }
+            else if characterIndex == characterArray.count {
+                timer.invalidate()
+            }
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        
     }
 }
+
+extension ChronologyViewController: UICollectionViewDataSource{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 6
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "testMenu", for: indexPath) as! menuCollectionViewCell
+        cell.menuImageCell.image = data[indexPath.row].iconImage
+        return cell
+    }
+}
+
+extension ChronologyViewController: UICollectionViewDelegate{
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if(indexPath.row == 0){
+            performSegue(withIdentifier: "map", sender: self)
+        }else if(indexPath.row == 1){
+            performSegue(withIdentifier: "about", sender: self)
+        }else if(indexPath.row == 2){
+            performSegue(withIdentifier: "gallery", sender: self)
+        }else if(indexPath.row == 3){
+            performSegue(withIdentifier: "miniGames", sender: self)
+        }else if(indexPath.row == 4){
+            performSegue(withIdentifier: "option", sender: self)
+        }else if(indexPath.row == 5){
+            performSegue(withIdentifier: "exit", sender: self)
+        }
+    }
+}
+
+extension String {
+    var characterArray: [Character]{
+        var characterArray = [Character]()
+        for character in self.characters {
+            characterArray.append(character)
+        }
+        return characterArray
+    }
+}
+
