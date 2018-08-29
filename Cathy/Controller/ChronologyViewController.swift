@@ -13,8 +13,8 @@ class ChronologyViewController: UIViewController {
     let chronologyModel = ChronologyModel()
     let checkpointModel = CheckpointModel()
     var indexChronology: Int = 0
-    
     var sessionShake = false
+    var data = [iconData(iconImage: UIImage(named: "mapsMenu")), iconData(iconImage: UIImage(named: "aboutMenu")), iconData(iconImage: UIImage(named: "galleryMenu")), iconData(iconImage: UIImage(named: "miniGamesMenu")), iconData(iconImage: UIImage(named: "settingsMenu")), iconData(iconImage: UIImage(named: "exitMenu"))]
     
     //OUTLETS
     //Outlet button option buat choice alur
@@ -66,8 +66,12 @@ class ChronologyViewController: UIViewController {
     }
     
     @IBAction func actionButtonOption(_ sender: UIButton) {
+        if outletGridMenu.isHidden == true{
         generateChronology(index: sender.tag)
         animateButtonOption(button: sender)
+        }else{
+            
+        }
     }
     
     override func viewDidLoad() {
@@ -352,6 +356,21 @@ class ChronologyViewController: UIViewController {
         })
     }
     
+    var timer = Timer()
+    public func typeOn(textView: UITextView ,string: String) {
+        let characterArray = string.characterArray
+        var characterIndex = 0
+        timer = Timer.scheduledTimer(withTimeInterval: 0.05, repeats: true) { (timer) in
+            if characterIndex != characterArray.count{
+                textView.text.append(characterArray[characterIndex])
+                characterIndex += 1
+            }
+            else if characterIndex == characterArray.count {
+                timer.invalidate()
+            }
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -368,7 +387,7 @@ extension ChronologyViewController: UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "testMenu", for: indexPath) as! menuCollectionViewCell
-        cell.menuImageCell.image = (UIImage(named: "happyTerre"))
+        cell.menuImageCell.image = data[indexPath.row].iconImage
         return cell
     }
 }
@@ -391,5 +410,13 @@ extension ChronologyViewController: UICollectionViewDelegate{
     }
 }
 
-
+extension String {
+    var characterArray: [Character]{
+        var characterArray = [Character]()
+        for character in self.characters {
+            characterArray.append(character)
+        }
+        return characterArray
+    }
+}
 

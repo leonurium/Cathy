@@ -13,7 +13,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var outNewGame: UIButton!
     @IBOutlet weak var outOption: UIButton!
     @IBOutlet weak var tapAnywhere: UILabel!
-    @IBOutlet weak var cathy: UILabel!
+    @IBOutlet weak var cathy: UIImageView!
+    
     var deviceName = deviceNameModel.current.name
 
     //animation awal
@@ -42,7 +43,6 @@ class ViewController: UIViewController {
     
     //animation
     @IBAction func actionNewGame(_ sender: Any) {
-        print("ok")
     }
     
     @IBAction func actionOption(_ sender: Any) {
