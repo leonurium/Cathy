@@ -183,6 +183,8 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
         
         outletLabelSubject.isHidden = true
         outletLabelText.isHidden = true
+        
+        outletGridMenu.isHidden = true
     }
     
     func generateChronology(index : Int) -> Void {
@@ -321,16 +323,24 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
         if sessionFaceDetect {
             checkPermission()
             do {
+                captureSession.startRunning()
                 guard let captureDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front) else {return}
                 
                 let captureDeviceIput = try AVCaptureDeviceInput(device: captureDevice)
                 
-                captureSession.addInput(captureDeviceIput)
+                if let inputs = captureSession.inputs as? [AVCaptureDeviceInput] {
+                    for input in inputs {
+                        captureSession.removeInput(input)
+                    }
+                }
+                
+                if captureSession.inputs.isEmpty {
+                    captureSession.addInput(captureDeviceIput)
+                }
                 
                 let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
                 self.previewFaceDetect = previewLayer
                 
-                captureSession.startRunning()
                 let dataOutput = AVCaptureVideoDataOutput()
                 
                 if captureSession.canAddOutput(dataOutput) {
