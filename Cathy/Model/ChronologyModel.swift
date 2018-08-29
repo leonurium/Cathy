@@ -35,7 +35,6 @@ class ChronologyModel {
     let api = connectApiClass()
     var idCheckpoint: Int = 0
     var idChronologyCheckpoint: Int = 0
-    let playerName: String = deviceNameModel.current.name
     
     init() {
         if chronologies.count > 0 {

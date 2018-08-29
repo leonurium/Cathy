@@ -17,9 +17,26 @@
                     <view key="view" contentMode="scaleToFill" id="JSQ-Y5-uZE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aXW-hc-GiR">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BpV-Ga-tTA">
+                                <rect key="frame" x="146" y="687" width="82" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Flip Camera"/>
+                                <connections>
+                                    <action selector="actionButtonFlipCamera:" destination="0Jr-JR-kPw" eventType="touchUpInside" id="wNP-Si-DHD"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="jlH-yF-boT"/>
                     </view>
+                    <connections>
+                        <outlet property="outletImageViewPreviewCamera" destination="aXW-hc-GiR" id="4aC-BQ-tC4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Ef-El-6ib" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
