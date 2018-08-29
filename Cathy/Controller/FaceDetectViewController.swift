@@ -14,14 +14,14 @@ import CoreImage
 class FaceDetectViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
     
     var permissionGranted = false
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         checkPermission()
         let captureSession = AVCaptureSession()
-        captureSession.sessionPreset = .photo
+//        captureSession.sessionPreset = .photo
         
-        guard let captureDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: AVCaptureDevice.Position.front) else {return}
+        guard let captureDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: AVMediaType.video, position: .front) else {return}
         
         guard let input = try? AVCaptureDeviceInput(device: captureDevice) else {return}
         
@@ -31,12 +31,16 @@ class FaceDetectViewController: UIViewController, AVCaptureVideoDataOutputSample
         
         let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         view.layer.addSublayer(previewLayer)
-        previewLayer.frame = view.frame
+//        previewLayer.frame = view.frame
         
         let dataOutput = AVCaptureVideoDataOutput()
         dataOutput.setSampleBufferDelegate(self, queue: DispatchQueue(label: "videoQ"))
         captureSession.addOutput(dataOutput)
-
+//        guard let connect = dataOutput.connection(with: .video) else {return}
+//        guard connect.isVideoOrientationSupported else {return}
+//        guard connect.isVideoMirroringSupported else {return}
+//        connect.videoOrientation = .portrait
+        
         // Do any additional setup after loading the view.
     }
     
@@ -45,7 +49,11 @@ class FaceDetectViewController: UIViewController, AVCaptureVideoDataOutputSample
         guard let imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
         let ciImage = CIImage(cvPixelBuffer: imageBuffer)
         guard let cgImage = context.createCGImage(ciImage, from: ciImage.extent) else { return }
-        print(detect(image: UIImage(cgImage: cgImage)))
+        
+        let images = UIImage(cgImage: cgImage)
+//        outletImageViewPreviewCamera.image = images
+        
+        print(detect(image: images))
     }
     
     private func checkPermission() {
