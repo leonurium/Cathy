@@ -14,6 +14,8 @@ class ChronologyViewController: UIViewController {
     let checkpointModel = CheckpointModel()
     var indexChronology: Int = 0
     
+    var sessionShake = false
+    
     //OUTLETS
     //Outlet button option buat choice alur
     @IBOutlet weak var outletButtonOption1: UIButton!
@@ -50,9 +52,17 @@ class ChronologyViewController: UIViewController {
     }
     
     override func viewDidLoad() {
+        cleanApp()
         masks()
         startChronology(index: 0)
         generateChronology(index: chronologyModel.idChronologyCheckpoint)
+    }
+    
+    func cleanApp()
+    {
+        if checkpointModel.cleanAll() {
+            UserDefaults.standard.removeObject(forKey: "UPDATE_CHRONOLOGY")
+        }
     }
 
     //FUNCTIONS
@@ -231,6 +241,10 @@ class ChronologyViewController: UIViewController {
                         faceDetect()
                         break
                     
+                    case "shake":
+                        sessionShake = true
+                        break
+                    
                     default:
                         print("do something in interaction")
                         break
@@ -244,6 +258,19 @@ class ChronologyViewController: UIViewController {
         
         } else {
             relaunch()
+        }
+    }
+    
+    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+        if sessionShake {
+            if event?.subtype == UIEventSubtype.motionShake {
+                sessionShake = false
+                indexChronology = indexChronology + 1
+                generateChronology(index: indexChronology)
+                print("shake ok")
+            } else {
+                print("shake not ok")
+            }
         }
     }
     

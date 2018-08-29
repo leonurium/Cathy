@@ -14,8 +14,6 @@ import CoreImage
 class FaceDetectViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
     
     var permissionGranted = false
-
-    @IBOutlet weak var outletImageViewPreviewCamera: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,9 +42,6 @@ class FaceDetectViewController: UIViewController, AVCaptureVideoDataOutputSample
 //        connect.videoOrientation = .portrait
         
         // Do any additional setup after loading the view.
-    }
-    
-    @IBAction func actionButtonFlipCamera(_ sender: UIButton) {
     }
     
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
