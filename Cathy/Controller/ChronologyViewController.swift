@@ -109,7 +109,8 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
     func relaunch() {
         let controller: UIWindow = ((UIApplication.shared.delegate?.window)!)!
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        controller.rootViewController = storyboard.instantiateInitialViewController()
+//        controller.rootViewController = storyboard.instantiateInitialViewController() as! ChronologyViewController
+        controller.rootViewController = storyboard.instantiateViewController(withIdentifier: "Main") as! ChronologyViewController
     }
     
     func startChronology(index : Int) {
@@ -196,13 +197,8 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
             //filter type chronology
             switch nowChronology.type {
             case "text":
-                var gambarCharacter: String = " "
-                var ekspresiCharacter: String = " "
-                ekspresiCharacter = nowChronology.expression!
-                gambarCharacter = nowChronology.subject!
-                
                 hiddenAll()
-                outletImageViewChar2.image = UIImage(named: "\(nowChronology.expression)\(nowChronology.subject)")
+                outletImageViewChar2.image = UIImage(named: "\(String(describing: nowChronology.expression))\(String(describing: nowChronology.subject))")
                 outletLabelSubject.isHidden = false
                 outletLabelText.isHidden = false
                 outletLabelSubject.text = nowChronology.subject
@@ -376,7 +372,7 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
             
             if resultFaceDetect {
                 stopCaptureSession()
-                generateChronology(index: indexChronology + 1)
+                generateChronology(index: Int(indexChronology + 1))
                 resultFaceDetect = false
                 sessionFaceDetect = false
             }

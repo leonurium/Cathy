@@ -47,6 +47,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func actionOption(_ sender: Any) {
+        let controller = ChronologyViewController()
+        controller.cleanApp()
         print("ok")
     }
     

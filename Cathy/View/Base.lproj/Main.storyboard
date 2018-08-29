@@ -102,7 +102,7 @@
         <!--Chronology View Controller-->
         <scene sceneID="WPd-G2-DfW">
             <objects>
-                <viewController id="Vvb-Xs-rwZ" customClass="ChronologyViewController" customModule="Cathy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Main" id="Vvb-Xs-rwZ" customClass="ChronologyViewController" customModule="Cathy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vsU-Ps-ahl">
                         <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
