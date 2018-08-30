@@ -27,25 +27,33 @@ class connectApiClass {
                 switch response.statusCode {
                 case 200:
                     guard let data = data, err == nil else {return}
-                    if data.count > 0 {
-                        do {
-                            let jsonResponse = try JSONDecoder().decode(Chronologies.self, from: data)
-                            if self.saveToDisk(chronologies: jsonResponse, id: id) {
-                                self.getData(id: id+1)
-                                return
+                    
+//                    DispatchQueue.main.async { // Correct
+                        print("\(data.count) bytes downloaded")
+                        
+                        if data.count > 0 {
+                            do {
+                                let jsonResponse = try JSONDecoder().decode(Chronologies.self, from: data)
+                                if self.saveToDisk(chronologies: jsonResponse, id: id) {
+                                    self.getData(id: id+1)
+                                    return
+                                
+                                } else {
+                                    self.getData(id: id)
+                                    return
+                                }
+                                
+                            } catch let e {
+                                print("Error", e)
                             }
-                            
-                        } catch let e {
-                            print("Error", e)
                         }
-                    }
+//                    }
                     break
                     
                 case 404:
                     self.superClassUserDefault.set(Int(id+1), forKey: "UPDATE_CHRONOLOGY")
                     print(404, "not found data")
                     return
-                    break
                     
                 default:
                     print("response code:", response.statusCode)
@@ -98,5 +106,24 @@ class connectApiClass {
             print("Error", e)
             return error
         }
+    }
+    
+    func saveDataToUserDefault(chronologies: Chronologies, id: Int) {
+        let model = ChronologyModel()
+        model.chronologies.append(chronologies)
+        
+        let encodeData: Data = NSKeyedArchiver.archivedData(withRootObject: model.chronologies)
+        
+        superClassUserDefault.set(encodeData, forKey: "chronologies_\(id)")
+    }
+    
+    func getFromUserDefault(id: Int) -> [Chronologies] {
+        let error = [Chronologies]()
+        
+        guard let data = superClassUserDefault.object(forKey: "chronologies_\(id)") as? Data else {return error}
+        
+        guard let decodeData = NSKeyedUnarchiver.unarchiveObject(with: data) as? [Chronologies] else {return error}
+        
+        return decodeData
     }
 }
