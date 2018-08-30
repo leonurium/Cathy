@@ -23,6 +23,7 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
     var previewFaceDetect: CALayer!
     var permissionCameraGranted = false
     var resultFaceDetect = false
+    //var backgroundMusic = backgroundSound()
     
     var data = [iconData(iconImage: UIImage(named: "mapsMenu")), iconData(iconImage: UIImage(named: "aboutMenu")), iconData(iconImage: UIImage(named: "galleryMenu")), iconData(iconImage: UIImage(named: "miniGamesMenu")), iconData(iconImage: UIImage(named: "settingsMenu")), iconData(iconImage: UIImage(named: "exitMenu"))]
     
@@ -87,6 +88,7 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
     
     override func viewDidLoad() {
 //        cleanApp()
+        //backgroundMusic.playSound()
         masks()
         startChronology(index: 0)
         generateChronology(index: chronologyModel.idChronologyCheckpoint)
@@ -202,9 +204,10 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
                 gambarCharacter = nowChronology.subject!
                 
                 hiddenAll()
-                outletImageViewChar2.image = UIImage(named: "\(nowChronology.expression)\(nowChronology.subject)")
+                outletImageViewChar2.image = UIImage(named: "\(ekspresiCharacter)\(gambarCharacter)")
                 outletLabelSubject.isHidden = false
                 outletLabelText.isHidden = false
+                outletImageViewChar2.isHidden = false
                 outletLabelSubject.text = nowChronology.subject
                 outletLabelText.text = nowChronology.text
                 indexChronology = nowChronology.target!

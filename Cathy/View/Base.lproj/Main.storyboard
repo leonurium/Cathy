@@ -26,8 +26,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bgMenuBlur" translatesAutoresizingMaskIntoConstraints="NO" id="G48-Fz-yNR">
+                                <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="tap anywhere to continue" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3aX-n5-9QN">
-                                <rect key="frame" x="292" y="209" width="229" height="30"/>
+                                <rect key="frame" x="292" y="209" width="229" height="54"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="PrimerPrint-Regular" family="Primer" pointSize="25"/>
                                 <nil key="textColor"/>
@@ -270,7 +274,7 @@
                                         </connections>
                                     </button>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="1q0-UH-6gn">
-                                        <rect key="frame" x="94" y="93" width="379" height="198"/>
+                                        <rect key="frame" x="94" y="87" width="379" height="198"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="52" minimumInteritemSpacing="10" id="826-la-xcA">
@@ -345,10 +349,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bgMenuBlur" width="812" height="375"/>
         <image name="gridBackground" width="657" height="292"/>
         <image name="normalGabriel" width="205" height="247"/>
         <image name="normalTerre" width="205" height="247"/>
-        <image name="textBox" width="220" height="46"/>
+        <image name="textBox" width="220" height="53"/>
         <image name="title" width="166" height="66"/>
     </resources>
 </document>

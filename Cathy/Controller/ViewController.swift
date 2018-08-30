@@ -14,6 +14,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var outOption: UIButton!
     @IBOutlet weak var tapAnywhere: UILabel!
     @IBOutlet weak var cathy: UIImageView!
+    
+    var backgroundMusic = backgroundSound()
 
     //animation awal
     @IBAction func tapScreen(_ sender: Any) {
@@ -51,16 +53,36 @@ class ViewController: UIViewController {
     }
     
     override func viewDidLoad() {
+        backgroundMusic.playSound()
         super.viewDidLoad()
         self.outNewGame.alpha = 0
         self.outOption.alpha = 0
+        
+        animateLabel(label: tapAnywhere)
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
      
         // Dispose of any resources that can be recreated.
     }
-
+    
+    func animateLabel(label: UILabel)
+    {
+        UIView.animate(withDuration: 1.0, animations: {
+            label.alpha = 0
+            
+        }, completion: {
+            (Completed : Bool) -> Void in
+            UIView.animate (withDuration: 1.0, delay:0, options: UIViewAnimationOptions.curveLinear, animations: {
+                label.alpha = 1
+                
+            }, completion: {
+                (Completed: Bool) -> Void in
+                self.animateLabel(label: label)
+             }
+            )
+        })
+    }
 
 }
 
