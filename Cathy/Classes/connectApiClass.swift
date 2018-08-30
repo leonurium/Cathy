@@ -27,27 +27,18 @@ class connectApiClass {
                 switch response.statusCode {
                 case 200:
                     guard let data = data, err == nil else {return}
-                    
-//                    DispatchQueue.main.async { // Correct
-                        print("\(data.count) bytes downloaded")
-                        
-                        if data.count > 0 {
-                            do {
-                                let jsonResponse = try JSONDecoder().decode(Chronologies.self, from: data)
-                                if self.saveToDisk(chronologies: jsonResponse, id: id) {
-                                    self.getData(id: id+1)
-                                    return
-                                
-                                } else {
-                                    self.getData(id: id)
-                                    return
-                                }
-                                
-                            } catch let e {
-                                print("Error", e)
+                    if data.count > 0 {
+                        do {
+                            let jsonResponse = try JSONDecoder().decode(Chronologies.self, from: data)
+                            if self.saveToDisk(chronologies: jsonResponse, id: id) {
+                                self.getData(id: id+1)
+                                return
                             }
+                            
+                        } catch let e {
+                            print("Error", e)
                         }
-//                    }
+                    }
                     break
                     
                 case 404:
