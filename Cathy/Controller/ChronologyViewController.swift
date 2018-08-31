@@ -42,7 +42,7 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
     
     //Outlet label nama (subject) sama text conversation nya
     @IBOutlet weak var outletLabelSubject: UILabel!
-    @IBOutlet weak var outletLabelText: UILabel!
+    @IBOutlet weak var outletLabelText: UITextView!
     
     //Outlet menu view pojok kanan atas
     @IBOutlet weak var outletMenuChapter: UILabel!
@@ -75,6 +75,7 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
         } else {
             
         }
+        outletLabelText.text = nil
     }
     
     @IBAction func actionButtonOption(_ sender: UIButton) {
@@ -111,7 +112,8 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
     func relaunch() {
         let controller: UIWindow = ((UIApplication.shared.delegate?.window)!)!
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        controller.rootViewController = storyboard.instantiateInitialViewController()
+//        controller.rootViewController = storyboard.instantiateInitialViewController()
+        controller.rootViewController = storyboard.instantiateViewController(withIdentifier: "Main") as! ChronologyViewController
     }
     
     func startChronology(index : Int) {
@@ -184,6 +186,8 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
         
         outletLabelSubject.isHidden = true
         outletLabelText.isHidden = true
+        
+        outletGridMenu.isHidden = true
     }
     
     func generateChronology(index : Int) -> Void {
@@ -198,18 +202,18 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
             //filter type chronology
             switch nowChronology.type {
             case "text":
-                var gambarCharacter: String = " "
-                var ekspresiCharacter: String = " "
-                ekspresiCharacter = nowChronology.expression!
-                gambarCharacter = nowChronology.subject!
-                
                 hiddenAll()
-                outletImageViewChar2.image = UIImage(named: "\(ekspresiCharacter)\(gambarCharacter)")
+                let expression = nowChronology.expression!
+                let subject = nowChronology.subject!
+                
+                outletImageViewChar2.image = UIImage(named: "\(expression)\(subject)")
                 outletLabelSubject.isHidden = false
                 outletLabelText.isHidden = false
                 outletImageViewChar2.isHidden = false
                 outletLabelSubject.text = nowChronology.subject
-                outletLabelText.text = nowChronology.text
+                //outletLabelText.text = nowChronology.text
+                //implement animation
+                typeOn(textView: outletLabelText, string: nowChronology.text!)
                 indexChronology = nowChronology.target!
                 endChronology(index: nowChronology.target!)
                 break
@@ -277,7 +281,9 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
                 
             case "narator" :
                 hiddenAll()
-                outletLabelText.text = nowChronology.text
+               // outletLabelText.text = nowChronology.text
+               // implement animation
+                typeOn(textView: outletLabelText, string: nowChronology.text!)
                 indexChronology = nowChronology.target!
                 endChronology(index: nowChronology.target!)
                 outletLabelText.isHidden = false
@@ -328,16 +334,24 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
         if sessionFaceDetect {
             checkPermission()
             do {
+                captureSession.startRunning()
                 guard let captureDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front) else {return}
                 
                 let captureDeviceIput = try AVCaptureDeviceInput(device: captureDevice)
                 
-                captureSession.addInput(captureDeviceIput)
+                if let inputs = captureSession.inputs as? [AVCaptureDeviceInput] {
+                    for input in inputs {
+                        captureSession.removeInput(input)
+                    }
+                }
+                
+                if captureSession.inputs.isEmpty {
+                    captureSession.addInput(captureDeviceIput)
+                }
                 
                 let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
                 self.previewFaceDetect = previewLayer
                 
-                captureSession.startRunning()
                 let dataOutput = AVCaptureVideoDataOutput()
                 
                 if captureSession.canAddOutput(dataOutput) {
@@ -379,7 +393,7 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
             
             if resultFaceDetect {
                 stopCaptureSession()
-                generateChronology(index: indexChronology + 1)
+                generateChronology(index: Int(indexChronology + 1))
                 resultFaceDetect = false
                 sessionFaceDetect = false
             }

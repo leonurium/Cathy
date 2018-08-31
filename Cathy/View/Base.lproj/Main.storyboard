@@ -235,21 +235,13 @@
                                         <rect key="frame" x="0.0" y="-8" width="660" height="140"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TOb-Mi-kzf" userLabel="textView">
-                                        <rect key="frame" x="50" y="32" width="559" height="75"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Hello!" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cdN-YA-WwU" userLabel="textView">
+                                        <rect key="frame" x="50" y="38" width="559" height="75"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <attributedString key="attributedText">
-                                            <fragment content="HEROES NEVER DIE">
-                                                <attributes>
-                                                    <font key="NSFont" size="24" name="PrimerPrint-Regular"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="charWrapping" baseWritingDirection="leftToRight" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                        </attributedString>
-                                        <nil key="highlightedColor"/>
-                                        <size key="shadowOffset" width="0.0" height="0.0"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gabriel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ima-81-k5K" userLabel="subject">
+                                        <fontDescription key="fontDescription" name="PrimerPrint-Regular" family="Primer" pointSize="24"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cathy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ima-81-k5K" userLabel="subject">
                                         <rect key="frame" x="40" y="22" width="579" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="PrimerPrint-Bold" family="Primer" pointSize="30"/>
@@ -330,7 +322,7 @@
                         <outlet property="outletImageViewChar2" destination="XBG-G9-uVK" id="TyM-Z3-EjE"/>
                         <outlet property="outletImageViewChar3" destination="eLX-fd-rcz" id="7PB-hi-RyJ"/>
                         <outlet property="outletLabelSubject" destination="Ima-81-k5K" id="nat-eY-ejr"/>
-                        <outlet property="outletLabelText" destination="TOb-Mi-kzf" id="PZF-kR-Elq"/>
+                        <outlet property="outletLabelText" destination="cdN-YA-WwU" id="Ybp-oh-RD0"/>
                         <outlet property="outletMenuChapter" destination="8Lv-Ro-rt6" id="GiH-EB-DIx"/>
                         <outlet property="outletMenuCollectionView" destination="1q0-UH-6gn" id="ljf-G8-cAe"/>
                         <outlet property="outletMenuDay" destination="ffD-lp-TIr" id="tSK-Hw-ek3"/>
