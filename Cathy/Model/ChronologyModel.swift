@@ -111,7 +111,8 @@ class Chronology: NSObject, NSCoding, Decodable, Encodable {
 class ChronologyModel {
     var chronologies = [Chronologies]()
     let checkpoint = CheckpointModel()
-    let api = connectApiClass()
+//    let api = connectApiClass()
+    let api = ApiHandle()
     var idCheckpoint: Int = 0
     var idChronologyCheckpoint: Int = 0
     //let playerName: String = deviceNameModel.current.name
