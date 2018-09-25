@@ -120,7 +120,7 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
         if chronologyModel.chronologies.count > 0 {
             outletImageViewBackgroud.image = UIImage(named: chronologyModel.chronologies[0].background)
         } else {
-            chronologyModel.api.autoUpdateData()
+            chronologyModel.api.autoUpdateData(view: view)
             relaunch()
         }
         
@@ -136,7 +136,7 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
                 print("Update checkpoint new chronology")
                 indexChronology = 0
                 
-                chronologyModel.api.autoUpdateData()
+                chronologyModel.api.autoUpdateData(view: view)
                 let newChronology = chronologyModel.api.getFromDisk(id: chronologyModel.idCheckpoint)
                 
                 if newChronology.count > 0 {
@@ -158,7 +158,7 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
                 print("Update checkpoint new Chapter")
                 indexChronology = 0
                 
-                chronologyModel.api.autoUpdateData()
+                chronologyModel.api.autoUpdateData(view: view)
                 let newChronology = chronologyModel.api.getFromDisk(id: chronologyModel.idCheckpoint)
                 
                 if newChronology.count > 0 {

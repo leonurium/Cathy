@@ -15,6 +15,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var tapAnywhere: UILabel!
     @IBOutlet weak var cathy: UIImageView!
     
+    let chronologyModel = ChronologyModel()
+    
     var backgroundMusic = backgroundSound()
 
     //animation awal
@@ -55,6 +57,8 @@ class ViewController: UIViewController {
     }
     
     override func viewDidLoad() {
+        startChronology(index: 0)
+        
         backgroundMusic.playSound()
         super.viewDidLoad()
         self.outNewGame.alpha = 0
@@ -62,6 +66,15 @@ class ViewController: UIViewController {
         
         animateLabel(label: tapAnywhere)
     }
+    
+    func startChronology(index : Int) {
+        if chronologyModel.chronologies.count > 0 {
+
+        } else {
+            chronologyModel.api.autoUpdateData(view: view)
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
      
