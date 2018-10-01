@@ -86,6 +86,20 @@ class ApiHandle {
         }
     }
     
+    func readDisk() {
+        let url = getDocumentsURL()
+        do {
+            try FileManager.default.createDirectory(atPath: url.relativePath, withIntermediateDirectories: true)
+            // Get the directory contents urls (including subfolders urls)
+            let directoryContents = try FileManager.default.contentsOfDirectory(at: url, includingPropertiesForKeys: nil, options: [])
+            
+            print(directoryContents)
+
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
     func saveToDisk(chronologies: Chronologies, id: Int) -> Bool {
         let url = getDocumentsURL().appendingPathComponent("chronologies_\(id).json")
         do {

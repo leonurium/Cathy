@@ -88,7 +88,6 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
     }
     
     override func viewDidLoad() {
-//        cleanApp()
         //backgroundMusic.playSound()
         masks()
         startChronology(index: 0)
