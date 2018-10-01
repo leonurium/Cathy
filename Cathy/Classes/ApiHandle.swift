@@ -24,14 +24,16 @@ class ApiHandle {
         
         guard let currentView = view else {return}
         
-        let progressX = ProgressX(frame: UIScreen.main.bounds, view: currentView)
+//        let progressX = ProgressX(frame: UIScreen.main.bounds, view: currentView)
         
-        task?.progressHandler = { [weak self] in
-            progressX.progressBar.progress = Float($0)
-            progressX.progressLabel.text = "\($0) Loading..."
-//            currentView.addSubview(progressX)
-//            view?.addSubview(progressX)
-            print("progress.. \($0)")
+        DispatchQueue.main.async {
+            self.task?.progressHandler = { [weak self] in
+//                progressX.progressBar.progress = Float($0)
+//                progressX.progressLabel.text = "\($0) Loading..."
+//                currentView.addSubview(progressX)
+//                view?.addSubview(progressX)
+                print("progress.. \($0)")
+            }
         }
         
         task?.completionHandler = { [weak self] in
@@ -50,8 +52,9 @@ class ApiHandle {
                         self?.GET(id: id, view: currentView)
                     }
                     
-//                    progressX.dismiss(view: view!)
-                    progressX.dismiss(view: currentView)
+//                    DispatchQueue.main.async {
+//                        progressX.dismiss(view: currentView)
+//                    }
                     print(result)
                     
                 } catch let e {
