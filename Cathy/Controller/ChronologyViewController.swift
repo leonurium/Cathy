@@ -12,6 +12,10 @@ import CoreImage
 
 class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
     
+    var animModel = animasiIdle()
+    var tempTypeOn: Int = 0
+    var tempBanyakCharacter: Int = 0
+    
     let chronologyModel = ChronologyModel()
     let checkpointModel = CheckpointModel()
     var indexChronology: Int = 0
@@ -61,13 +65,13 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
     @IBAction func actionButtonMenu(_ sender: Any) {
         if outletGridMenu.isHidden == true {
             outletGridMenu.isHidden = false
-            
         } else {
             outletGridMenu.isHidden = true
         }
     }
     
     //BUTTONS
+    
     //Button buat next ke chronology berikutnya, bisa di ganti pake all view screen
     @IBAction func tapAnywhere(_ sender: UIView) {
         if outletGridMenu.isHidden == true {
@@ -206,7 +210,6 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
                 let expression = nowChronology.expression!
                 let subject = nowChronology.subject!
                 
-                outletImageViewChar2.image = UIImage(named: "\(expression)\(subject)")
                 outletLabelSubject.isHidden = false
                 outletLabelText.isHidden = false
                 outletImageViewChar2.isHidden = false
@@ -216,6 +219,10 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
                 typeOn(textView: outletLabelText, string: nowChronology.text!)
                 indexChronology = nowChronology.target!
                 endChronology(index: nowChronology.target!)
+                tempTypeOn = typeOn(textView: outletLabelText, string: nowChronology.text!)
+                tempBanyakCharacter = nowChronology.text?.characterArray
+                
+                
                 break
                 
             case "option":
@@ -481,7 +488,8 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
     }
     
     var timer = Timer()
-    public func typeOn(textView: UITextView ,string: String) {
+    
+    public func typeOn(textView: UITextView ,string: String)-> Int {
         let characterArray = string.characterArray
         var characterIndex = 0
         timer = Timer.scheduledTimer(withTimeInterval: 0.05, repeats: true) { (timer) in
@@ -493,6 +501,7 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
                 timer.invalidate()
             }
         }
+        return characterIndex
     }
     
     override func didReceiveMemoryWarning() {
