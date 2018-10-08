@@ -118,7 +118,7 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
     func startChronology(index : Int) {
         DispatchQueue.main.async {
             if self.chronologyModel.chronologies.count > 0 {
-                self.outletImageViewBackgroud.image = UIImage(named: self.chronologyModel.chronologies[0].background)
+//                self.outletImageViewBackgroud.image = UIImage(named: self.chronologyModel.chronologies[0].background)
             } else {
                 self.chronologyModel.api.autoUpdateData(view: self.view)
                 self.relaunch()
@@ -207,6 +207,11 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
                 switch nowChronology.type {
                 case "text":
                     self.hiddenAll()
+                    
+                    if let backgroundImage = nowChronology.background {
+                        self.outletImageViewBackgroud.image = UIImage(named: backgroundImage)
+                    }
+                    
                     let expression = nowChronology.expression!
                     let subject = nowChronology.subject!
                     
@@ -224,6 +229,11 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
                     
                 case "option":
                     self.hiddenAll()
+                    
+                    if let backgroundImage = nowChronology.background {
+                        self.outletImageViewBackgroud.image = UIImage(named: backgroundImage)
+                    }
+                    
                     self.outletLabelSubject.isHidden = false
                     self.outletLabelSubject.text = nowChronology.subject
                     
@@ -285,6 +295,11 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
                     
                 case "narator" :
                     self.hiddenAll()
+                    
+                    if let backgroundImage = nowChronology.background {
+                        self.outletImageViewBackgroud.image = UIImage(named: backgroundImage)
+                    }
+                    
                     // outletLabelText.text = nowChronology.text
                     // implement animation
                     self.typeOn(textView: self.outletLabelText, string: nowChronology.text!)
@@ -294,6 +309,11 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
                     break
                     
                 case "interaction":
+                    
+                    if let backgroundImage = nowChronology.background {
+                        self.outletImageViewBackgroud.image = UIImage(named: backgroundImage)
+                    }
+                    
                     switch nowChronology.subtype {
                     case "face_detection":
                         self.sessionFaceDetect = true
@@ -329,6 +349,7 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
         switch segue.identifier {
         case "toMaps":
             if let controllerDestination = segue.destination as? MapsViewController {
+                controllerDestination.currentChapter = chronologyModel.idCheckpoint
                 print("controller OK")
             }
             
@@ -344,6 +365,34 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
                 case "unwindToChronology":
                     generateChronology(index: indexChronology + 1)
                     print(indexChronology + 1)
+                    break
+                
+                case "unwindToChapter":
+                    if let ctrl = segue.source as? MapsViewController {
+                        chronologyModel.idCheckpoint = ctrl.currentChapter
+                        chronologyModel.idChronologyCheckpoint = 0
+                        
+                        if checkpointModel.updateObject(id: chronologyModel.idCheckpoint, idChronology: 0) {
+                            print("Update checkpoint new chronology")
+                            indexChronology = 0
+                            
+                            chronologyModel.api.autoUpdateData(view: view)
+                            let newChronology = chronologyModel.api.getFromDisk(id: chronologyModel.idCheckpoint)
+                            
+                            if newChronology.count > 0 {
+                                chronologyModel.chronologies.removeAll()
+                                chronologyModel.chronologies = newChronology
+                                generateChronology(index: 0)
+                                print("END Chronology")
+                                
+                            } else {
+                                print("To be continued")
+                            }
+                        }
+                        
+                    } else {
+                        print("undefine maps controller")
+                    }
                     break
                 
                 default:
@@ -532,15 +581,21 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
     
     var timer = Timer()
     public func typeOn(textView: UITextView ,string: String) {
-        let characterArray = string.characterArray
-        var characterIndex = 0
-        timer = Timer.scheduledTimer(withTimeInterval: 0.05, repeats: true) { (timer) in
-            if characterIndex != characterArray.count{
-                textView.text.append(characterArray[characterIndex])
-                characterIndex += 1
-            }
-            else if characterIndex == characterArray.count {
-                timer.invalidate()
+        if textView.text == nil {
+            textView.text = string
+        } else {
+            let characterArray = string.characterArray
+            var characterIndex = 0
+            timer = Timer.scheduledTimer(withTimeInterval: 0.03, repeats: true) { (timer) in
+                if characterIndex != characterArray.count{
+                    textView.text.append(characterArray[characterIndex])
+                    characterIndex += 1
+                    self.view.isUserInteractionEnabled = false
+                }
+                else if characterIndex == characterArray.count {
+                    timer.invalidate()
+                    self.view.isUserInteractionEnabled = true
+                }
             }
         }
     }
