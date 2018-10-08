@@ -106,7 +106,7 @@ extension URLSessionWrapper: URLSessionDataDelegate {
         
         task.buffer.append(data)
         let percent = Double(task.buffer.count) / Double(task.expectedContentLength)
-        DispatchQueue.main.async {
+        DispatchQueue.global().async {
             task.progressHandler?(percent)
         }
     }
@@ -116,7 +116,7 @@ extension URLSessionWrapper: URLSessionDataDelegate {
         
         let task = sessionTasks.remove(at: index)
         
-        DispatchQueue.main.async {
+        DispatchQueue.global().async {
             if let e = error {
                 task.completionHandler?(.failure(e))
                 

@@ -92,7 +92,6 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
     }
     
     override func viewDidLoad() {
-//        cleanApp()
         //backgroundMusic.playSound()
         masks()
         startChronology(index: 0)
@@ -121,14 +120,16 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
     }
     
     func startChronology(index : Int) {
-        if chronologyModel.chronologies.count > 0 {
-            outletImageViewBackgroud.image = UIImage(named: chronologyModel.chronologies[0].background)
-        } else {
-            chronologyModel.api.autoUpdateData(view: view)
-            relaunch()
+        DispatchQueue.main.async {
+            if self.chronologyModel.chronologies.count > 0 {
+//                self.outletImageViewBackgroud.image = UIImage(named: self.chronologyModel.chronologies[0].background)
+            } else {
+                self.chronologyModel.api.autoUpdateData(view: self.view)
+                self.relaunch()
+            }
+            
+            self.hiddenAll()
         }
-        
-        hiddenAll()
     }
     
     func endChronology(index: Int) {
@@ -200,81 +201,92 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
             
             if checkpointModel.updateObject(id: chronologyModel.idCheckpoint, idChronology: index) {
                 print("checkpoint updated")
+                print("id : \(chronologyModel.idCheckpoint)")
+                print("id_chronology : \(index)")
             }
             let nowChronology = chronologyModel.chronologies[0].chronology[index]
         
             //filter type chronology
-            switch nowChronology.type {
-            case "text":
-                hiddenAll()
-                let expression = nowChronology.expression!
-                let subject = nowChronology.subject!
-                
-                outletLabelSubject.isHidden = false
-                outletLabelText.isHidden = false
-                outletImageViewChar2.isHidden = false
-                outletLabelSubject.text = nowChronology.subject
-                //outletLabelText.text = nowChronology.text
-                //implement animation
-                typeOn(textView: outletLabelText, string: nowChronology.text!)
-                indexChronology = nowChronology.target!
-                endChronology(index: nowChronology.target!)
-                tempTypeOn = typeOn(textView: outletLabelText, string: nowChronology.text!)
-                tempBanyakCharacter = nowChronology.text?.characterArray
-                
-                
-                break
-                
-            case "option":
-                hiddenAll()
-                outletLabelSubject.isHidden = false
-                outletLabelSubject.text = nowChronology.subject
-                
-                let optionText = nowChronology.optionText!
-                let optionTarget = nowChronology.optionTarget!
-                
-                var optionTextUsed : [String] = []
-                
-                for i in optionText {
-                    if (optionTextUsed.contains(i)) {
-                        //do nothing
-                    } else {
-                        outletButtonOption1.setTitle(i, for: .normal)
-                        outletButtonOption1.isHidden = false
-                        outletButtonOption1.tag = optionTarget[0]
-                        endChronology(index: optionTarget[0])
-                        optionTextUsed.append(i)
-                        
-                        for j in optionText {
-                            if optionTextUsed.contains(j) {
-                                //do nothing
-                            } else {
-                                outletButtonOption2.setTitle(j, for: .normal)
-                                outletButtonOption2.isHidden = false
-                                outletButtonOption2.tag = optionTarget[1]
-                                endChronology(index: optionTarget[1])
-                                optionTextUsed.append(j)
-                                
-                                for k in optionText {
-                                    if optionTextUsed.contains(k) {
-                                        //do nothing
-                                    } else {
-                                        outletButtonOption3.setTitle(k, for: .normal)
-                                        outletButtonOption3.isHidden = false
-                                        outletButtonOption3.tag = optionTarget[2]
-                                        endChronology(index: optionTarget[2])
-                                        optionTextUsed.append(k)
-                                        
-                                        for l in optionText {
-                                            if optionTextUsed.contains(l) {
-                                                //do nothing
-                                            } else {
-                                                outletButtonOption4.setTitle(l, for: .normal)
-                                                outletButtonOption4.isHidden = false
-                                                outletButtonOption4.tag = optionTarget[3]
-                                                endChronology(index: optionTarget[3])
-                                                optionTextUsed.append(l)
-                                                break
+            DispatchQueue.main.async {
+                switch nowChronology.type {
+                case "text":
+                    self.hiddenAll()
+                    
+                    if let backgroundImage = nowChronology.background {
+                        self.outletImageViewBackgroud.image = UIImage(named: backgroundImage)
+                    }
+                    
+                    let expression = nowChronology.expression!
+                    let subject = nowChronology.subject!
+                    
+                    self.outletImageViewChar2.image = UIImage(named: "\(expression)\(subject)")
+                    self.outletLabelSubject.isHidden = false
+                    self.outletLabelText.isHidden = false
+                    self.outletImageViewChar2.isHidden = false
+                    self.outletLabelSubject.text = nowChronology.subject
+                    //outletLabelText.text = nowChronology.text
+                    //implement animation
+                    self.typeOn(textView: self.outletLabelText, string: nowChronology.text!)
+                    self.indexChronology = nowChronology.target!
+                    self.endChronology(index: nowChronology.target!)
+                    break
+                    
+                case "option":
+                    self.hiddenAll()
+                    
+                    if let backgroundImage = nowChronology.background {
+                        self.outletImageViewBackgroud.image = UIImage(named: backgroundImage)
+                    }
+                    
+                    self.outletLabelSubject.isHidden = false
+                    self.outletLabelSubject.text = nowChronology.subject
+                    
+                    let optionText = nowChronology.optionText!
+                    let optionTarget = nowChronology.optionTarget!
+                    
+                    var optionTextUsed : [String] = []
+                    
+                    for i in optionText {
+                        if (optionTextUsed.contains(i)) {
+                            //do nothing
+                        } else {
+                            self.outletButtonOption1.setTitle(i, for: .normal)
+                            self.outletButtonOption1.isHidden = false
+                            self.outletButtonOption1.tag = optionTarget[0]
+                            self.endChronology(index: optionTarget[0])
+                            optionTextUsed.append(i)
+                            
+                            for j in optionText {
+                                if optionTextUsed.contains(j) {
+                                    //do nothing
+                                } else {
+                                    self.outletButtonOption2.setTitle(j, for: .normal)
+                                    self.outletButtonOption2.isHidden = false
+                                    self.outletButtonOption2.tag = optionTarget[1]
+                                    self.endChronology(index: optionTarget[1])
+                                    optionTextUsed.append(j)
+                                    
+                                    for k in optionText {
+                                        if optionTextUsed.contains(k) {
+                                            //do nothing
+                                        } else {
+                                            self.outletButtonOption3.setTitle(k, for: .normal)
+                                            self.outletButtonOption3.isHidden = false
+                                            self.outletButtonOption3.tag = optionTarget[2]
+                                            self.endChronology(index: optionTarget[2])
+                                            optionTextUsed.append(k)
+                                            
+                                            for l in optionText {
+                                                if optionTextUsed.contains(l) {
+                                                    //do nothing
+                                                } else {
+                                                    self.outletButtonOption4.setTitle(l, for: .normal)
+                                                    self.outletButtonOption4.isHidden = false
+                                                    self.outletButtonOption4.tag = optionTarget[3]
+                                                    self.endChronology(index: optionTarget[3])
+                                                    optionTextUsed.append(l)
+                                                    break
+                                                }
                                             }
                                         }
                                     }
@@ -282,47 +294,130 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
                             }
                         }
                     }
-                }
-                
-                break
-                
-            case "narator" :
-                hiddenAll()
-               // outletLabelText.text = nowChronology.text
-               // implement animation
-                typeOn(textView: outletLabelText, string: nowChronology.text!)
-                indexChronology = nowChronology.target!
-                endChronology(index: nowChronology.target!)
-                outletLabelText.isHidden = false
-                break
-                
-            case "interaction":
-                switch nowChronology.subtype {
+                    
+                    break
+                    
+                case "narator" :
+                    self.hiddenAll()
+                    
+                    if let backgroundImage = nowChronology.background {
+                        self.outletImageViewBackgroud.image = UIImage(named: backgroundImage)
+                    }
+                    
+                    // outletLabelText.text = nowChronology.text
+                    // implement animation
+                    self.typeOn(textView: self.outletLabelText, string: nowChronology.text!)
+                    self.indexChronology = nowChronology.target!
+                    self.endChronology(index: nowChronology.target!)
+                    self.outletLabelText.isHidden = false
+                    break
+                    
+                case "interaction":
+                    
+                    if let backgroundImage = nowChronology.background {
+                        self.outletImageViewBackgroud.image = UIImage(named: backgroundImage)
+                    }
+                    
+                    switch nowChronology.subtype {
                     case "face_detection":
-                        sessionFaceDetect = true
-                        runFaceDetect()
+                        self.sessionFaceDetect = true
+                        self.runFaceDetect()
                         break
-                    
+                        
                     case "shake":
-                        sessionShake = true
+                        self.sessionShake = true
                         break
-                    
+                        
+                    case "maps":
+                        self.toMaps()
+                        break
+                        
                     default:
                         print("do something in interaction")
                         break
+                    }
+                    break
+                    
+                default:
+                    print("something wrong with type chronology : \(nowChronology.type)")
+                    break
                 }
-                break
-                
-            default:
-                print("something wrong with type chronology")
-                break
             }
-        
+            
         } else {
             relaunch()
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "toMaps":
+            if let controllerDestination = segue.destination as? MapsViewController {
+                controllerDestination.currentChapter = chronologyModel.idCheckpoint
+                print("controller OK")
+            }
+            
+        default:
+            print("undefined identifier segue")
+        }
+    }
+    
+    @IBAction func unwindToChronology(segue: UIStoryboardSegue) {
+        if let identifierSegue = segue.identifier {
+            
+            switch identifierSegue {
+                case "unwindToChronology":
+                    generateChronology(index: indexChronology + 1)
+                    print(indexChronology + 1)
+                    break
+                
+                case "unwindToChapter":
+                    if let ctrl = segue.source as? MapsViewController {
+                        chronologyModel.idCheckpoint = ctrl.currentChapter
+                        chronologyModel.idChronologyCheckpoint = 0
+                        
+                        if checkpointModel.updateObject(id: chronologyModel.idCheckpoint, idChronology: 0) {
+                            print("Update checkpoint new chronology")
+                            indexChronology = 0
+                            
+                            chronologyModel.api.autoUpdateData(view: view)
+                            let newChronology = chronologyModel.api.getFromDisk(id: chronologyModel.idCheckpoint)
+                            
+                            if newChronology.count > 0 {
+                                chronologyModel.chronologies.removeAll()
+                                chronologyModel.chronologies = newChronology
+                                generateChronology(index: 0)
+                                print("END Chronology")
+                                
+                            } else {
+                                print("To be continued")
+                            }
+                        }
+                        
+                    } else {
+                        print("undefine maps controller")
+                    }
+                    break
+                
+                default:
+                    print("not define identifier unwind segue")
+                    break
+            }
+            print("\(identifierSegue)")
+        
+        } else {
+            print("not found unwind segue")
+        }
+    }
+    
+    //TO MAPS
+    func toMaps()
+    {
+        performSegue(withIdentifier: "toMaps", sender: self)
+    }
+    //END TO MAPS
+    
+    //HANDSHAKE
     override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
         if sessionShake {
             if event?.subtype == UIEventSubtype.motionShake {
@@ -335,6 +430,7 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
             }
         }
     }
+    //END HANDSHAKE
     
     //FACE DETECT
     func runFaceDetect() {
@@ -488,17 +584,22 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
     }
     
     var timer = Timer()
-    
-    public func typeOn(textView: UITextView ,string: String)-> Int {
-        let characterArray = string.characterArray
-        var characterIndex = 0
-        timer = Timer.scheduledTimer(withTimeInterval: 0.05, repeats: true) { (timer) in
-            if characterIndex != characterArray.count{
-                textView.text.append(characterArray[characterIndex])
-                characterIndex += 1
-            }
-            else if characterIndex == characterArray.count {
-                timer.invalidate()
+    public func typeOn(textView: UITextView ,string: String) {
+        if textView.text == nil {
+            textView.text = string
+        } else {
+            let characterArray = string.characterArray
+            var characterIndex = 0
+            timer = Timer.scheduledTimer(withTimeInterval: 0.03, repeats: true) { (timer) in
+                if characterIndex != characterArray.count{
+                    textView.text.append(characterArray[characterIndex])
+                    characterIndex += 1
+                    self.view.isUserInteractionEnabled = false
+                }
+                else if characterIndex == characterArray.count {
+                    timer.invalidate()
+                    self.view.isUserInteractionEnabled = true
+                }
             }
         }
         return characterIndex

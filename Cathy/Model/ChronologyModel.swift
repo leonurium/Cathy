@@ -11,30 +11,26 @@ import Foundation
 class Chronologies : NSObject, NSCoding, Decodable, Encodable {
     let id : Int
     let title : String
-    let background : String
     let chronology : [Chronology]
     
-    init(id: Int, title: String, background: String, chronology: [Chronology]) {
+    init(id: Int, title: String, chronology: [Chronology]) {
         self.id = id
         self.title = title
-        self.background = background
         self.chronology = chronology
     }
     
     func encode(with aCoder: NSCoder) {
         aCoder.encode(id, forKey: "id")
         aCoder.encode(title, forKey: "title")
-        aCoder.encode(background, forKey: "background")
         aCoder.encode(chronology, forKey: "chronology")
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
         let id = aDecoder.decodeObject(forKey: "id") as! Int
         let title = aDecoder.decodeObject(forKey: "title") as! String
-        let background = aDecoder.decodeObject(forKey: "background") as! String
         let chronology = aDecoder.decodeObject(forKey: "chronology") as! [Chronology]
         
-        self.init(id: id, title: title, background: background, chronology: chronology)
+        self.init(id: id, title: title, chronology: chronology)
     }
 }
 
@@ -51,6 +47,7 @@ class Chronology: NSObject, NSCoding, Decodable, Encodable {
     let optionTarget: [Int]?
     
     let subtype: String?
+    let background: String?
     
     init(type: String,
          subject: String?,
@@ -60,7 +57,8 @@ class Chronology: NSObject, NSCoding, Decodable, Encodable {
          optionText: [String]?,
          optionExpression: [String]?,
          optionTarget: [Int]?,
-         subtype: String?
+         subtype: String?,
+         background: String?
         ) {
         self.type = type
         self.subject = subject
@@ -73,6 +71,7 @@ class Chronology: NSObject, NSCoding, Decodable, Encodable {
         self.optionTarget = optionTarget
         
         self.subtype = subtype
+        self.background = background
     }
     
     func encode(with aCoder: NSCoder) {
@@ -87,6 +86,7 @@ class Chronology: NSObject, NSCoding, Decodable, Encodable {
         aCoder.encode(optionTarget, forKey: "optionTarget")
         
         aCoder.encode(subtype, forKey: "subtype")
+        aCoder.encode(background, forKey: "background")
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
@@ -102,8 +102,9 @@ class Chronology: NSObject, NSCoding, Decodable, Encodable {
         let optionTarget = aDecoder.decodeObject(forKey: "optionTarget") as? [Int]
         
         let subtype = aDecoder.decodeObject(forKey: "subtype") as? String
+        let background = aDecoder.decodeObject(forKey: "background") as? String
         
-        self.init(type: type, subject: subject, text: text, expression: expression, target: target, optionText: optionText, optionExpression: optionExpression, optionTarget: optionTarget, subtype: subtype)
+        self.init(type: type, subject: subject, text: text, expression: expression, target: target, optionText: optionText, optionExpression: optionExpression, optionTarget: optionTarget, subtype: subtype, background: background)
         
     }
 }

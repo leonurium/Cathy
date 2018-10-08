@@ -28,6 +28,8 @@
 		AA6CC07421590088009BDA8D /* URLSessionWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6CC07321590088009BDA8D /* URLSessionWrapper.swift */; };
 		AA6CC076215900BC009BDA8D /* ProgressX.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6CC075215900BC009BDA8D /* ProgressX.swift */; };
 		AA6CC078215900F1009BDA8D /* ApiHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6CC077215900F1009BDA8D /* ApiHandle.swift */; };
+		AA8824E92164BB7C001E8650 /* MapsChapterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8824E82164BB7C001E8650 /* MapsChapterTableViewCell.swift */; };
+		AA8F1E7C215B826D0081D2FF /* MapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8F1E7B215B826D0081D2FF /* MapsViewController.swift */; };
 		AA9D43A42134B6FF0010E736 /* Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA9D43A32134B6FF0010E736 /* Screen.storyboard */; };
 		AA9D43A821368CF20010E736 /* TransitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9D43A721368CF20010E736 /* TransitionViewController.swift */; };
 		AADA70F42122E4CF00F1B165 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADA70F32122E4CF00F1B165 /* AppDelegate.swift */; };
@@ -60,6 +62,8 @@
 		AA6CC07321590088009BDA8D /* URLSessionWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionWrapper.swift; sourceTree = "<group>"; };
 		AA6CC075215900BC009BDA8D /* ProgressX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressX.swift; sourceTree = "<group>"; };
 		AA6CC077215900F1009BDA8D /* ApiHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiHandle.swift; sourceTree = "<group>"; };
+		AA8824E82164BB7C001E8650 /* MapsChapterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsChapterTableViewCell.swift; sourceTree = "<group>"; };
+		AA8F1E7B215B826D0081D2FF /* MapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsViewController.swift; sourceTree = "<group>"; };
 		AA9D43A32134B6FF0010E736 /* Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Screen.storyboard; sourceTree = "<group>"; };
 		AA9D43A721368CF20010E736 /* TransitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionViewController.swift; sourceTree = "<group>"; };
 		AADA70F02122E4CF00F1B165 /* Cathy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cathy.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,6 +135,8 @@
 				AADA70F52122E4CF00F1B165 /* ViewController.swift */,
 				AA59DFD0212CFD8F0099C990 /* ChronologyViewController.swift */,
 				AA9D43A721368CF20010E736 /* TransitionViewController.swift */,
+				AA8F1E7B215B826D0081D2FF /* MapsViewController.swift */,
+				AA8824E82164BB7C001E8650 /* MapsChapterTableViewCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -290,7 +296,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA8F1E7C215B826D0081D2FF /* MapsViewController.swift in Sources */,
 				3023107A2136B67000BFC557 /* iconModel.swift in Sources */,
+				AA8824E92164BB7C001E8650 /* MapsChapterTableViewCell.swift in Sources */,
 				5D739C952136DB5A0069A909 /* soundModel.swift in Sources */,
 				AA6CC07421590088009BDA8D /* URLSessionWrapper.swift in Sources */,
 				5DD59B1B215A2CC20063FDB9 /* animationModel.swift in Sources */,
