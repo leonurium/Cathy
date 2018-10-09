@@ -13,6 +13,8 @@ import CoreImage
 class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
     
     var animModel = animasiIdle()
+    var indicator: [UIImage] = []
+    
     var tempTypeOn: Int = 0
     var tempBanyakCharacter: Int = 0
     
@@ -58,6 +60,10 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
     @IBOutlet weak var outletGridMenu: UIView!
     @IBOutlet weak var outletMenuCollectionView: UICollectionView!
     
+    //Outlet Indicator Interaction
+    @IBOutlet weak var outletIndicator: UIImageView!
+    
+    
     @IBAction func actionButtonCloseMenu(_ sender: Any) {
         outletGridMenu.isHidden = true
     }
@@ -98,7 +104,32 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
         generateChronology(index: chronologyModel.idChronologyCheckpoint)
         outletMenuCollectionView.delegate = self
         outletMenuCollectionView.dataSource = self
+        indicator = animModel.buatImageArray(total: 22, imagePrefix: "indicator")
     }
+    
+    // FUNGSI INDICATOR MEREDUP
+    func indicatorDimIn() {
+        UIView.animate(withDuration: 1.0, delay: 0.5, options: .curveEaseOut, animations: {
+            self.outletIndicator.alpha = 0.0
+        }, completion: nil)
+    }
+    
+    //FUNGSI INDICATOR MENYALA
+    func indicatorDimOut() {
+        UIView.animate(withDuration: 1.0, delay: 0.5, options: .curveEaseOut, animations: {
+            self.outletIndicator.alpha = 1.0
+        }, completion: nil)
+    }
+    
+    //FUNSI INDICATOR MATI NYALA
+    func indicatorDimming() {
+        if outletIndicator.alpha == 0.0 {
+            indicatorDimOut()
+        } else {
+            indicatorDimIn()
+        }
+    }
+    
     
     func cleanApp()
     {
@@ -193,6 +224,8 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
         outletLabelText.isHidden = true
         
         outletGridMenu.isHidden = true
+        outletIndicator.isHidden = true
+        
     }
     
     func generateChronology(index : Int) -> Void {
@@ -313,6 +346,9 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
                     break
                     
                 case "interaction":
+                    
+                    self.outletIndicator.isHidden = false
+                    self.animModel.animasi(imageView: self.outletIndicator, images: self.indicator)
                     
                     if let backgroundImage = nowChronology.background {
                         self.outletImageViewBackgroud.image = UIImage(named: backgroundImage)
@@ -602,7 +638,7 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
                 }
             }
         }
-        return characterIndex
+       // return characterIndex
     }
     
     override func didReceiveMemoryWarning() {
@@ -654,3 +690,20 @@ extension String {
     }
 }
 
+//extension UIView {
+//
+//    func dimIn(_ duration: TimeInterval = 1.0, delay: TimeInterval = 0.0, completion: @escaping ((Bool) -> Void) = {(finished: Bool) -> Void in}) {
+//        UIView.animate(withDuration: duration, delay: delay, options: .curveEaseIn, animations: {
+//            self.alpha = 1.0
+//            print("dimin")
+//            }, completion: completion)
+//    }
+//
+//    func dimOut(_ duration: TimeInterval = 1.0, delay: TimeInterval = 1.0, completion: @escaping ((Bool) -> Void) = {(finished: Bool) -> Void in}) {
+//        UIView.animate(withDuration: duration, delay: delay, options: .curveEaseIn, animations: {
+//            self.alpha = 0.3
+//            print("dimout")
+//            }, completion: completion)
+//    }
+//
+//}
