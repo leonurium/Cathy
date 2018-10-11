@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oge-17-dCO">
-    <device id="retina5_9" orientation="landscape">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -23,7 +22,7 @@
             <objects>
                 <viewController id="oge-17-dCO" customClass="ViewController" customModule="Cathy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XiB-zY-btJ">
-                        <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bgMenuBlur" translatesAutoresizingMaskIntoConstraints="NO" id="G48-Fz-yNR">
@@ -88,12 +87,77 @@
             </objects>
             <point key="canvasLocation" x="-64.285714285714292" y="733.60000000000002"/>
         </scene>
+        <!--Before GameUI View Controller-->
+        <scene sceneID="y4U-9e-5bZ">
+            <objects>
+                <viewController storyboardIdentifier="game1" id="5g7-CA-Nj6" customClass="beforeGameUIViewController" customModule="Cathy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HQL-6d-nvF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Vt-m2-WBU">
+                                <rect key="frame" x="16" y="44" width="343" height="445"/>
+                            </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="lMH-Bh-pbY">
+                                <rect key="frame" x="128" y="538" width="118" height="37"/>
+                                <color key="pageIndicatorTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="currentPageIndicatorTintColor" red="1" green="0.13876083880000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </pageControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VLa-px-JSn">
+                                <rect key="frame" x="164" y="620" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="BHV-RE-QSU" kind="show" id="bXC-Lg-4yJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="roA-cl-zCI" firstAttribute="trailing" secondItem="lMH-Bh-pbY" secondAttribute="trailing" constant="129" id="29c-lB-3OJ"/>
+                            <constraint firstItem="VLa-px-JSn" firstAttribute="top" secondItem="lMH-Bh-pbY" secondAttribute="bottom" constant="45" id="8aP-iW-AjL"/>
+                            <constraint firstItem="3Vt-m2-WBU" firstAttribute="leading" secondItem="roA-cl-zCI" secondAttribute="leading" constant="16" id="Bca-2L-T00"/>
+                            <constraint firstItem="lMH-Bh-pbY" firstAttribute="leading" secondItem="roA-cl-zCI" secondAttribute="leading" constant="128" id="OX1-7n-nlQ"/>
+                            <constraint firstItem="roA-cl-zCI" firstAttribute="bottom" secondItem="VLa-px-JSn" secondAttribute="bottom" constant="128" id="RL3-5g-BmT"/>
+                            <constraint firstItem="lMH-Bh-pbY" firstAttribute="top" secondItem="3Vt-m2-WBU" secondAttribute="bottom" constant="49" id="RUl-gP-Rao"/>
+                            <constraint firstItem="roA-cl-zCI" firstAttribute="trailing" secondItem="VLa-px-JSn" secondAttribute="trailing" constant="165" id="S5i-s0-4TL"/>
+                            <constraint firstItem="lMH-Bh-pbY" firstAttribute="top" secondItem="3Vt-m2-WBU" secondAttribute="bottom" constant="49" id="bgY-PQ-Ttu"/>
+                            <constraint firstItem="roA-cl-zCI" firstAttribute="trailing" secondItem="3Vt-m2-WBU" secondAttribute="trailing" constant="16" id="dLv-bA-Yzo"/>
+                            <constraint firstItem="VLa-px-JSn" firstAttribute="top" secondItem="lMH-Bh-pbY" secondAttribute="bottom" constant="45" id="e9o-Gd-GQL"/>
+                            <constraint firstItem="3Vt-m2-WBU" firstAttribute="top" secondItem="roA-cl-zCI" secondAttribute="top" id="qld-HT-qS9"/>
+                            <constraint firstItem="VLa-px-JSn" firstAttribute="leading" secondItem="roA-cl-zCI" secondAttribute="leading" constant="164" id="t7R-37-WZv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="roA-cl-zCI"/>
+                    </view>
+                    <connections>
+                        <outlet property="gameScrollViewController" destination="3Vt-m2-WBU" id="1em-Vz-qZX"/>
+                        <outlet property="gameTutorialPageControl" destination="lMH-Bh-pbY" id="VaI-JW-C4w"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Rq-l5-d0e" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="861.60000000000002" y="912.5615763546798"/>
+        </scene>
+        <!--Game View Controller-->
+        <scene sceneID="jiH-Al-rrG">
+            <objects>
+                <viewController storyboardIdentifier="game1real" id="BHV-RE-QSU" customClass="GameViewController" customModule="Cathy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7mq-i6-8bU" customClass="SKView">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="y5c-0F-hpn"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J7s-2D-PpA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1765.5999999999999" y="909.60591133004925"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="WEB-bt-pYj">
             <objects>
                 <viewController id="wTK-VO-vi4" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ASA-b5-yQN">
-                        <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="EFu-4H-PJr">
@@ -136,7 +200,7 @@
             <objects>
                 <viewController id="Dwq-ba-FnL" customClass="MapsViewController" customModule="Cathy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3VA-rL-jM7">
-                        <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S6I-Nn-44y">
@@ -215,7 +279,7 @@
             <objects>
                 <viewController storyboardIdentifier="Main" id="Vvb-Xs-rwZ" customClass="ChronologyViewController" customModule="Cathy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vsU-Ps-ahl">
-                        <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vkY-kw-yQX" userLabel="bgImg">
@@ -441,6 +505,7 @@
                         <outlet property="outletMenuNoon" destination="CVb-Lu-wc1" id="j8p-Wl-MS6"/>
                         <outlet property="outletMenuPause" destination="q5n-0b-je3" id="faV-X7-FgQ"/>
                         <segue destination="Dwq-ba-FnL" kind="show" identifier="toMaps" id="zCy-na-qQV"/>
+                        <segue destination="5g7-CA-Nj6" kind="show" identifier="game1" id="0G4-9j-SyK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6IL-LG-HsC" userLabel="First Responder" sceneMemberID="firstResponder"/>

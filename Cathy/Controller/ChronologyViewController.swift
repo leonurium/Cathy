@@ -368,6 +368,9 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
                         self.toMaps()
                         break
                         
+                    case "game1":
+                       self.performSegue(withIdentifier: "game1", sender: nil)
+                        
                     default:
                         print("do something in interaction")
                         break
