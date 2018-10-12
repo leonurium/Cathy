@@ -346,7 +346,7 @@
                                         <rect key="frame" x="0.0" y="-8" width="660" height="140"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Hello!" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cdN-YA-WwU" userLabel="textView">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cdN-YA-WwU" userLabel="textView">
                                         <rect key="frame" x="50" y="38" width="559" height="75"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="PrimerPrint-Regular" family="Primer" pointSize="24"/>
@@ -454,11 +454,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bgMenuBlur" width="812" height="375"/>
-        <image name="gridBackground" width="657" height="292"/>
+        <image name="bgMenuBlur" width="2436" height="1125"/>
+        <image name="gridBackground" width="473.27999877929688" height="210.24000549316406"/>
         <image name="normalGabriel" width="205" height="247"/>
         <image name="normalTerre" width="205" height="247"/>
-        <image name="textBox" width="220" height="53"/>
-        <image name="title" width="166" height="66"/>
+        <image name="textBox" width="158.39999389648438" height="38.400001525878906"/>
+        <image name="title" width="120" height="48"/>
     </resources>
 </document>
