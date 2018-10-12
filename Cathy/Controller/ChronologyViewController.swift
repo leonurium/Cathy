@@ -221,6 +221,7 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
         outletImageViewChar3.isHidden = true
         
         outletLabelSubject.isHidden = true
+        outletLabelText.text = ""
         outletLabelText.isHidden = true
         
         outletGridMenu.isHidden = true
@@ -241,27 +242,60 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
         
             //filter type chronology
             DispatchQueue.main.async {
+                
                 switch nowChronology.type {
-                case "text":
-                    self.hiddenAll()
-                    
-                    if let backgroundImage = nowChronology.background {
-                        self.outletImageViewBackgroud.image = UIImage(named: backgroundImage)
-                    }
-                    
-                    let expression = nowChronology.expression!
-                    let subject = nowChronology.subject!
-                    
-                    self.outletImageViewChar2.image = UIImage(named: "\(expression)\(subject)")
-                    self.outletLabelSubject.isHidden = false
-                    self.outletLabelText.isHidden = false
-                    self.outletImageViewChar2.isHidden = false
-                    self.outletLabelSubject.text = nowChronology.subject
-                    //outletLabelText.text = nowChronology.text
-                    //implement animation
-                    self.typeOn(textView: self.outletLabelText, string: nowChronology.text!)
-                    self.indexChronology = nowChronology.target!
-                    self.endChronology(index: nowChronology.target!)
+                    case "text":
+                        self.hiddenAll()
+                        
+                        if let backgroundImage = nowChronology.background {
+                            self.outletImageViewBackgroud.image = UIImage(named: backgroundImage)
+                            
+                        }
+                        
+                        if let subject = nowChronology.subject {
+                            self.outletLabelSubject.isHidden = false
+                            self.outletLabelSubject.text = subject
+                        }
+                        
+                        if let textConversation = nowChronology.text {
+                            self.outletLabelText.isHidden = false
+                            self.typeOn(textView: self.outletLabelText, string: textConversation)
+                        }
+                        
+                        if let subjectChronology = nowChronology.subjectChronology {
+                            
+                            if subjectChronology.indices.contains(0) {
+                                if let subject = subjectChronology[0].subject,
+                                    let expression = subjectChronology[0].expression
+                                {
+                                    self.outletImageViewChar2.isHidden = false
+                                    self.outletImageViewChar2.image = UIImage(named: "\(expression)\(subject)")
+                                }
+                            }
+                            
+                            if subjectChronology.indices.contains(1) {
+                                if let subject = subjectChronology[1].subject,
+                                    let expression = subjectChronology[1].expression
+                                {
+                                    self.outletImageViewChar1.isHidden = false
+                                    self.outletImageViewChar1.image = UIImage(named: "\(expression)\(subject)")
+                                }
+                            }
+                            
+                            if subjectChronology.indices.contains(2) {
+                                if let subject = subjectChronology[2].subject,
+                                    let expression = subjectChronology[2].expression
+                                {
+                                    self.outletImageViewChar3.isHidden = false
+                                    self.outletImageViewChar3.image = UIImage(named: "\(expression)\(subject)")
+                                }
+                            }
+                        }
+                        
+                        if let target = nowChronology.target {
+                            self.indexChronology = target
+                            self.endChronology(index: target)
+                        }
                     break
                     
                 case "option":
@@ -269,10 +303,48 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
                     
                     if let backgroundImage = nowChronology.background {
                         self.outletImageViewBackgroud.image = UIImage(named: backgroundImage)
+                        
                     }
                     
-                    self.outletLabelSubject.isHidden = false
-                    self.outletLabelSubject.text = nowChronology.subject
+                    if let subject = nowChronology.subject {
+                        self.outletLabelSubject.isHidden = false
+                        self.outletLabelSubject.text = subject
+                    }
+                    
+                    if let textConversation = nowChronology.text {
+                        self.outletLabelText.isHidden = false
+                        self.typeOn(textView: self.outletLabelText, string: textConversation)
+                    }
+                    
+                    if let subjectChronology = nowChronology.subjectChronology {
+
+                        if subjectChronology.indices.contains(0) {
+                            if let subject = subjectChronology[0].subject,
+                                let expression = subjectChronology[0].expression
+                            {
+                                self.outletImageViewChar2.isHidden = false
+                                self.outletImageViewChar2.image = UIImage(named: "\(expression)\(subject)")
+                            }
+                        }
+                        
+                        if subjectChronology.indices.contains(1) {
+                            if let subject = subjectChronology[1].subject,
+                                let expression = subjectChronology[1].expression
+                            {
+                                self.outletImageViewChar1.isHidden = false
+                                self.outletImageViewChar1.image = UIImage(named: "\(expression)\(subject)")
+                            }
+                        }
+                        
+                        if subjectChronology.indices.contains(0) {
+                            if let subject = subjectChronology[2].subject,
+                                let expression = subjectChronology[2].expression
+                            {
+                                self.outletImageViewChar3.isHidden = false
+                                self.outletImageViewChar3.image = UIImage(named: "\(expression)\(subject)")
+                            }
+                        }
+                    }
                     
                     let optionText = nowChronology.optionText!
                     let optionTarget = nowChronology.optionTarget!
@@ -328,8 +400,6 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
                         }
                     }
                     
-                    break
-                    
                 case "narator" :
                     self.hiddenAll()
                     
@@ -337,21 +407,29 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
                         self.outletImageViewBackgroud.image = UIImage(named: backgroundImage)
                     }
                     
-                    // outletLabelText.text = nowChronology.text
-                    // implement animation
-                    self.typeOn(textView: self.outletLabelText, string: nowChronology.text!)
+                    if let textConversation = nowChronology.text {
+                        self.outletLabelText.isHidden = false
+                        self.typeOn(textView: self.outletLabelText, string: textConversation)
+                    }
+                    
                     self.indexChronology = nowChronology.target!
                     self.endChronology(index: nowChronology.target!)
-                    self.outletLabelText.isHidden = false
                     break
                     
                 case "interaction":
-                    
-                    self.outletIndicator.isHidden = false
-                    self.animModel.animasi(imageView: self.outletIndicator, images: self.indicator)
-                    
+                    self.hiddenAll()
                     if let backgroundImage = nowChronology.background {
                         self.outletImageViewBackgroud.image = UIImage(named: backgroundImage)
+                    }
+                    
+                    if let subject = nowChronology.subject {
+                        self.outletLabelSubject.isHidden = false
+                        self.outletLabelSubject.text = subject
+                    }
+                    
+                    if let textConversation = nowChronology.text {
+                        self.outletLabelText.isHidden = false
+                        self.typeOn(textView: self.outletLabelText, string: textConversation)
                     }
                     
                     switch nowChronology.subtype {
@@ -378,8 +456,7 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
                     break
                     
                 default:
-                    print("something wrong with type chronology : \(nowChronology.type)")
-                    break
+                    print("Error : not define type chronology \(nowChronology.type)")
                 }
             }
             

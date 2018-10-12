@@ -18,7 +18,7 @@ class ApiHandle {
     let hostNames = [nil, "google.com", "invalidhost"]
     
     func GET(id: Int, view: UIView?) {
-        startHost(at: 0)
+//        startHost(at: 0)
         let url = URL(string: "\(endpoint)chronology_\(id).php")!
         var request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 30)
         request.httpMethod = "GET"
