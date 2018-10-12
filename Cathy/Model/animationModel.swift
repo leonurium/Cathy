@@ -16,9 +16,13 @@ public class animasiIdle: UIViewController {
     func buatImageArray(total: Int, imagePrefix: String) -> [UIImage] {
         var arrayImage: [UIImage] = []
         for imageCount in 0..<total{
-            let namaImage = "\(imagePrefix)\(imageCount).png"
-            let image = UIImage(named: namaImage)!
-            arrayImage.append(image)
+            let namaImage = "\(imagePrefix)\(imageCount)"
+            if let image = UIImage(named: namaImage) {
+                arrayImage.append(image)
+            
+            } else {
+                print("undefine image name : \(namaImage)")
+            }
         }
         return arrayImage
     }

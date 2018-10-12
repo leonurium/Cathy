@@ -104,7 +104,7 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
         generateChronology(index: chronologyModel.idChronologyCheckpoint)
         outletMenuCollectionView.delegate = self
         outletMenuCollectionView.dataSource = self
-        indicator = animModel.buatImageArray(total: 22, imagePrefix: "indicator")
+        //indicator = animModel.buatImageArray(total: 22, imagePrefix: "indicator")
     }
     
     // FUNGSI INDICATOR MEREDUP
@@ -447,7 +447,7 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
                         break
                         
                     case "game1":
-                       self.performSegue(withIdentifier: "game1", sender: nil)
+                       self.performSegue(withIdentifier: "toGame1", sender: nil)
                         
                     default:
                         print("do something in interaction")
@@ -470,7 +470,13 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
         case "toMaps":
             if let controllerDestination = segue.destination as? MapsViewController {
                 controllerDestination.currentChapter = chronologyModel.idCheckpoint
-                print("controller OK")
+                print("to Maps OK")
+            }
+            
+        case "toGame1":
+            if let controllerDestination = segue.destination as? beforeGameUIViewController {
+                controllerDestination.currentIndexChronology = chronologyModel.idCheckpoint
+                print("to Game1 OK")
             }
             
         default:
@@ -514,6 +520,9 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
                         print("undefine maps controller")
                     }
                     break
+                
+                case "unwindToChronologyFromGame1":
+                    print("OK from game")
                 
                 default:
                     print("not define identifier unwind segue")

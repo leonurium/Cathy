@@ -59,22 +59,6 @@ class GameViewController: UIViewController {
         showEndGameScene()
     }
     
-    @IBAction func backToChronology(segue: UIStoryboardSegue) {
-        if let identifierSegue = segue.identifier{
-            
-            switch identifierSegue {
-            case "unwindToChronology":
-                toChronology.generateChronology(index: toChronology.indexChronology + 1)
-                print(toChronology.indexChronology + 1)
-                break
-                
-            default :
-                print("back to chronology error")
-                break
-            }
-        }
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")

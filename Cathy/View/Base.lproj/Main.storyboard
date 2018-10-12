@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5g7-CA-Nj6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oge-17-dCO">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -107,7 +107,7 @@
                                 <rect key="frame" x="164" y="620" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <segue destination="BHV-RE-QSU" kind="show" id="bXC-Lg-4yJ"/>
+                                    <segue destination="BHV-RE-QSU" kind="show" id="kR0-fP-bZY"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -149,8 +149,7 @@
                                 <rect key="frame" x="121" y="641" width="133" height="30"/>
                                 <state key="normal" title="End Game"/>
                                 <connections>
-                                    <action selector="backToChronology:" destination="BHV-RE-QSU" eventType="touchUpInside" id="Nu4-WI-p4T"/>
-                                    <segue destination="D6c-F9-0bo" kind="unwind" identifier="unwindToChronology" unwindAction="unwindToChronologyWithSegue:" id="uKq-5b-7pb"/>
+                                    <segue destination="D6c-F9-0bo" kind="unwind" identifier="unwindToChronologyFromGame1" unwindAction="unwindToChronologyWithSegue:" id="8CS-XA-G5x"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -163,9 +162,6 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="y5c-0F-hpn"/>
                     </view>
-                    <connections>
-                        <outlet property="outletEndGameButton" destination="wyg-gg-EHH" id="xwG-c5-qRn"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J7s-2D-PpA" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="D6c-F9-0bo" userLabel="Exit" sceneMemberID="exit"/>
@@ -525,7 +521,7 @@
                         <outlet property="outletMenuNoon" destination="CVb-Lu-wc1" id="j8p-Wl-MS6"/>
                         <outlet property="outletMenuPause" destination="q5n-0b-je3" id="faV-X7-FgQ"/>
                         <segue destination="Dwq-ba-FnL" kind="show" identifier="toMaps" id="zCy-na-qQV"/>
-                        <segue destination="5g7-CA-Nj6" kind="show" identifier="game1" id="0G4-9j-SyK"/>
+                        <segue destination="5g7-CA-Nj6" kind="show" identifier="toGame1" id="0G4-9j-SyK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6IL-LG-HsC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -539,11 +535,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bgMenuBlur" width="2436" height="1125"/>
-        <image name="gridBackground" width="473.27999877929688" height="210.24000549316406"/>
+        <image name="bgMenuBlur" width="812" height="375"/>
+        <image name="gridBackground" width="657" height="292"/>
         <image name="normalGabriel" width="205" height="247"/>
         <image name="normalTerre" width="205" height="247"/>
-        <image name="textBox" width="158.39999389648438" height="38.400001525878906"/>
-        <image name="title" width="120" height="48"/>
+        <image name="textBox" width="220" height="53"/>
+        <image name="title" width="166" height="66"/>
     </resources>
 </document>
