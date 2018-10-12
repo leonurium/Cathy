@@ -44,8 +44,8 @@ class GameScene: SKScene {
         }
         
         DispatchQueue.main.async {
-            let gameTimer = Timer.scheduledTimer(timeInterval: 0.75, target: self, selector: #selector(self.addGoodThing), userInfo: nil, repeats: true)
-            let gameTimerBad = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.addBadThing), userInfo: nil, repeats: true)
+            _ = Timer.scheduledTimer(timeInterval: 0.75, target: self, selector: #selector(self.addGoodThing), userInfo: nil, repeats: true)
+            _ = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.addBadThing), userInfo: nil, repeats: true)
             self.motionManager.accelerometerUpdateInterval = 0.2
             self.motionManager.startAccelerometerUpdates(to: OperationQueue.current!) { (data: CMAccelerometerData?, error: Error?) in
                 if let accelerometerData = data {
@@ -132,15 +132,6 @@ class GameScene: SKScene {
         baddies.removeFromParent()
     }
     
-    //    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-    //        for touch in touches {
-    //            DispatchQueue.global().async {
-    //                let location = touch.location(in: self.player)
-    //                self.player.position.x = location.x
-    //                self.player.position.y = self.player.position.y
-    //            }
-    //        }
-    //    }
     
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered

@@ -71,7 +71,6 @@
 		5DEA96F1216F5D8D00F928B9 /* loli26.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DEA96BC216F5D8900F928B9 /* loli26.png */; };
 		5DEA96F2216F5D8D00F928B9 /* loli47.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DEA96BD216F5D8900F928B9 /* loli47.png */; };
 		5DEA96F3216F5D8D00F928B9 /* loli37.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DEA96BE216F5D8900F928B9 /* loli37.png */; };
-		5DEA96F4216F5D8D00F928B9 /* loli1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DEA96BF216F5D8A00F928B9 /* loli1.png */; };
 		5DEA96F5216F5D8D00F928B9 /* loli35.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DEA96C0216F5D8A00F928B9 /* loli35.png */; };
 		5DEA96F6216F5D8D00F928B9 /* loli3.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DEA96C1216F5D8A00F928B9 /* loli3.png */; };
 		5DEA96F7216F5D8D00F928B9 /* loli20.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DEA96C2216F5D8A00F928B9 /* loli20.png */; };
@@ -85,18 +84,18 @@
 		5DEA96FF216F5D8D00F928B9 /* loli2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DEA96CA216F5D8B00F928B9 /* loli2.png */; };
 		5DEA9700216F5D8D00F928B9 /* loli40.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DEA96CB216F5D8B00F928B9 /* loli40.png */; };
 		5DEA9701216F5D8D00F928B9 /* loli25.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DEA96CC216F5D8B00F928B9 /* loli25.png */; };
-		5DEA9702216F5D8D00F928B9 /* loli31.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DEA96CD216F5D8C00F928B9 /* loli31.png */; };
 		5DEA9703216F5D8D00F928B9 /* loli11.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DEA96CE216F5D8C00F928B9 /* loli11.png */; };
 		5DEA9704216F5D8D00F928B9 /* loli0.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DEA96CF216F5D8C00F928B9 /* loli0.png */; };
 		5DEA9705216F5D8D00F928B9 /* loli45.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DEA96D0216F5D8C00F928B9 /* loli45.png */; };
 		5DEA9706216F5D8D00F928B9 /* loli42.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DEA96D1216F5D8C00F928B9 /* loli42.png */; };
 		5DEA9707216F5D8D00F928B9 /* loli41.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DEA96D2216F5D8C00F928B9 /* loli41.png */; };
-		5DEA9708216F5D8D00F928B9 /* loli38.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DEA96D3216F5D8C00F928B9 /* loli38.png */; };
 		5DEA9709216F5D8D00F928B9 /* loli9.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DEA96D4216F5D8D00F928B9 /* loli9.png */; };
 		5DEA970A216F5D8D00F928B9 /* loli43.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DEA96D5216F5D8D00F928B9 /* loli43.png */; };
 		5DEA970B216F5D8D00F928B9 /* loli23.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DEA96D6216F5D8D00F928B9 /* loli23.png */; };
-		5DEA970C216F5D8D00F928B9 /* loli13.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DEA96D7216F5D8D00F928B9 /* loli13.png */; };
 		5DEA970E216F5DFC00F928B9 /* AnimasiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DEA970D216F5DFC00F928B9 /* AnimasiViewController.swift */; };
+		5DEA97102170797700F928B9 /* backgroundMusic1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5DEA970F2170797700F928B9 /* backgroundMusic1.mp3 */; };
+		5DEA971221707A3600F928B9 /* endGameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5DEA971121707A3600F928B9 /* endGameScene.sks */; };
+		5DEA971421707B8200F928B9 /* endGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DEA971321707B8200F928B9 /* endGameScene.swift */; };
 		5DFE9EB1212ED7BE00CB7CAC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DFE9EAF212ED7BE00CB7CAC /* Main.storyboard */; };
 		AA59DFD1212CFD8F0099C990 /* ChronologyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA59DFD0212CFD8F0099C990 /* ChronologyViewController.swift */; };
 		AA59DFD3212CFDD60099C990 /* ChronologyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA59DFD2212CFDD60099C990 /* ChronologyModel.swift */; };
@@ -109,7 +108,6 @@
 		AA9D43A42134B6FF0010E736 /* Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA9D43A32134B6FF0010E736 /* Screen.storyboard */; };
 		AA9D43A821368CF20010E736 /* TransitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9D43A721368CF20010E736 /* TransitionViewController.swift */; };
 		AACF564D216E102400BAC04A /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACF564C216E102400BAC04A /* Reachability.swift */; };
-		AACF564F216E165200BAC04A /* backgroundMusic1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AACF564E216E165200BAC04A /* backgroundMusic1.mp3 */; };
 		AADA70F42122E4CF00F1B165 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADA70F32122E4CF00F1B165 /* AppDelegate.swift */; };
 		AADA70F62122E4CF00F1B165 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADA70F52122E4CF00F1B165 /* ViewController.swift */; };
 		AADA70FC2122E4CF00F1B165 /* Cathy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AADA70FA2122E4CF00F1B165 /* Cathy.xcdatamodeld */; };
@@ -209,6 +207,9 @@
 		5DEA96D6216F5D8D00F928B9 /* loli23.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loli23.png; sourceTree = "<group>"; };
 		5DEA96D7216F5D8D00F928B9 /* loli13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loli13.png; sourceTree = "<group>"; };
 		5DEA970D216F5DFC00F928B9 /* AnimasiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AnimasiViewController.swift; path = "Cathy/Punya Terre/AnimasiViewController.swift"; sourceTree = SOURCE_ROOT; };
+		5DEA970F2170797700F928B9 /* backgroundMusic1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = backgroundMusic1.mp3; sourceTree = "<group>"; };
+		5DEA971121707A3600F928B9 /* endGameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = endGameScene.sks; sourceTree = "<group>"; };
+		5DEA971321707B8200F928B9 /* endGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = endGameScene.swift; sourceTree = "<group>"; };
 		5DFE9EB0212ED7BE00CB7CAC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AA59DFD0212CFD8F0099C990 /* ChronologyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChronologyViewController.swift; sourceTree = "<group>"; };
 		AA59DFD2212CFDD60099C990 /* ChronologyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChronologyModel.swift; sourceTree = "<group>"; };
@@ -221,7 +222,6 @@
 		AA9D43A32134B6FF0010E736 /* Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Screen.storyboard; sourceTree = "<group>"; };
 		AA9D43A721368CF20010E736 /* TransitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionViewController.swift; sourceTree = "<group>"; };
 		AACF564C216E102400BAC04A /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
-		AACF564E216E165200BAC04A /* backgroundMusic1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = backgroundMusic1.mp3; sourceTree = "<group>"; };
 		AADA70F02122E4CF00F1B165 /* Cathy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cathy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AADA70F32122E4CF00F1B165 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AADA70F52122E4CF00F1B165 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -311,6 +311,8 @@
 				5DEA962B216DE72D00F928B9 /* beforeGameViewController.swift */,
 				5DEA9631216F46CF00F928B9 /* startGameScene.swift */,
 				5DEA962D216F294B00F928B9 /* startGameScene.sks */,
+				5DEA971321707B8200F928B9 /* endGameScene.swift */,
+				5DEA971121707A3600F928B9 /* endGameScene.sks */,
 			);
 			path = game;
 			sourceTree = "<group>";
@@ -436,7 +438,7 @@
 		AAD33E052137A4060042DBA3 /* Sound */ = {
 			isa = PBXGroup;
 			children = (
-				AACF564E216E165200BAC04A /* backgroundMusic1.mp3 */,
+				5DEA970F2170797700F928B9 /* backgroundMusic1.mp3 */,
 			);
 			path = Sound;
 			sourceTree = "<group>";
@@ -537,12 +539,12 @@
 				5DEA9620216C995400F928B9 /* indicator8.png in Resources */,
 				5DEA9700216F5D8D00F928B9 /* loli40.png in Resources */,
 				5DEA96DA216F5D8D00F928B9 /* loli50.png in Resources */,
+				5DEA97102170797700F928B9 /* backgroundMusic1.mp3 in Resources */,
 				5DEA96EB216F5D8D00F928B9 /* loli24.png in Resources */,
 				5DEA9616216C995400F928B9 /* indicator17.png in Resources */,
 				5DEA96FD216F5D8D00F928B9 /* loli30.png in Resources */,
 				5DEA96E1216F5D8D00F928B9 /* loli29.png in Resources */,
 				5DEA961D216C995400F928B9 /* indicator5.png in Resources */,
-				5DD59B32215A356F0063FDB9 /* sprite3.png in Resources */,
 				5DEA96DF216F5D8D00F928B9 /* loli44.png in Resources */,
 				5DEA9612216C995400F928B9 /* indicator0.png in Resources */,
 				5DD59B38215A36A30063FDB9 /* debug.storyboard in Resources */,
@@ -556,7 +558,6 @@
 				5DEA9703216F5D8D00F928B9 /* loli11.png in Resources */,
 				5DEA9709216F5D8D00F928B9 /* loli9.png in Resources */,
 				5DEA962E216F294B00F928B9 /* startGameScene.sks in Resources */,
-				5DD59B36215A356F0063FDB9 /* sprite5.png in Resources */,
 				5DEA9704216F5D8D00F928B9 /* loli0.png in Resources */,
 				AA9D43A42134B6FF0010E736 /* Screen.storyboard in Resources */,
 				5DEA96F6216F5D8D00F928B9 /* loli3.png in Resources */,
@@ -573,6 +574,7 @@
 				5DEA9613216C995400F928B9 /* indicator16.png in Resources */,
 				5DEA96F5216F5D8D00F928B9 /* loli35.png in Resources */,
 				5DFE9EB1212ED7BE00CB7CAC /* Main.storyboard in Resources */,
+				5DEA971221707A3600F928B9 /* endGameScene.sks in Resources */,
 				5DEA9610216C995400F928B9 /* indicator14.png in Resources */,
 				5DEA9618216C995400F928B9 /* indicator12.png in Resources */,
 				5DEA96EA216F5D8D00F928B9 /* loli22.png in Resources */,
@@ -587,7 +589,6 @@
 				5DEA961F216C995400F928B9 /* indicator6.png in Resources */,
 				5DEA96FC216F5D8D00F928B9 /* loli18.png in Resources */,
 				5DEA96F9216F5D8D00F928B9 /* loli4.png in Resources */,
-				5D739CBD213CEA900069A909 /* backgroundMusic1.mp3 in Resources */,
 				5DEA96F0216F5D8D00F928B9 /* loli51.png in Resources */,
 				5DEA970B216F5D8D00F928B9 /* loli23.png in Resources */,
 				5DEA96E9216F5D8D00F928B9 /* loli8.png in Resources */,
@@ -602,8 +603,6 @@
 				5DEA96EC216F5D8D00F928B9 /* loli21.png in Resources */,
 				5DEA96DE216F5D8D00F928B9 /* loli48.png in Resources */,
 				5DEA96E0216F5D8D00F928B9 /* loli33.png in Resources */,
-				5DD59B33215A356F0063FDB9 /* sprite1.png in Resources */,
-				5DD59B31215A356F0063FDB9 /* sprite2.png in Resources */,
 				5DEA96F1216F5D8D00F928B9 /* loli26.png in Resources */,
 				5DEA9614216C995400F928B9 /* indicator2.png in Resources */,
 				5DEA9701216F5D8D00F928B9 /* loli25.png in Resources */,
@@ -625,6 +624,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DEA971421707B8200F928B9 /* endGameScene.swift in Sources */,
 				AA8F1E7C215B826D0081D2FF /* MapsViewController.swift in Sources */,
 				3023107A2136B67000BFC557 /* iconModel.swift in Sources */,
 				AACF564D216E102400BAC04A /* Reachability.swift in Sources */,
@@ -793,14 +793,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VC83XAQ3UM;
+				DEVELOPMENT_TEAM = W8T5R97US6;
 				INFOPLIST_FILE = Cathy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ranggaleo.Cathy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Terretino.Cathy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -812,14 +812,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VC83XAQ3UM;
+				DEVELOPMENT_TEAM = W8T5R97US6;
 				INFOPLIST_FILE = Cathy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ranggaleo.Cathy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Terretino.Cathy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

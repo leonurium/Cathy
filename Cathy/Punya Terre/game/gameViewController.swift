@@ -14,12 +14,17 @@ import GameplayKit
 class GameViewController: UIViewController {
     
     @IBOutlet weak var outletLabelWaktu: UILabel!
+    @IBOutlet weak var outletEndGameButton: UIButton!
     var timer = Timer()
+    var toChronology = ChronologyViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        outletEndGameButton.isHidden = true
         showCountdownScene()
-        let countdownTime = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(GameViewController.update), userInfo: nil, repeats: false)
+        _ = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(GameViewController.update), userInfo: nil, repeats: false)
+        _ = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(GameViewController.endGame), userInfo: nil, repeats: false)
     }
     
     
@@ -39,8 +44,35 @@ class GameViewController: UIViewController {
             skView.presentScene(scene)
     }
     
+    func showEndGameScene() {
+        let scene = GameScene(fileNamed: "endGameScene")
+        let skView = view as! SKView
+        skView.presentScene(scene)
+    }
+    
     @objc func update(){
         showGameScene()
+    }
+    
+    @objc func endGame() {
+        outletEndGameButton.isHidden = false
+        showEndGameScene()
+    }
+    
+    @IBAction func backToChronology(segue: UIStoryboardSegue) {
+        if let identifierSegue = segue.identifier{
+            
+            switch identifierSegue {
+            case "unwindToChronology":
+                toChronology.generateChronology(index: toChronology.indexChronology + 1)
+                print(toChronology.indexChronology + 1)
+                break
+                
+            default :
+                print("back to chronology error")
+                break
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

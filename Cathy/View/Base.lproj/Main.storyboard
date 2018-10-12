@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oge-17-dCO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5g7-CA-Nj6">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -144,11 +144,31 @@
                     <view key="view" contentMode="scaleToFill" id="7mq-i6-8bU" customClass="SKView">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wyg-gg-EHH">
+                                <rect key="frame" x="121" y="641" width="133" height="30"/>
+                                <state key="normal" title="End Game"/>
+                                <connections>
+                                    <action selector="backToChronology:" destination="BHV-RE-QSU" eventType="touchUpInside" id="Nu4-WI-p4T"/>
+                                    <segue destination="D6c-F9-0bo" kind="unwind" identifier="unwindToChronology" unwindAction="unwindToChronologyWithSegue:" id="uKq-5b-7pb"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="wyg-gg-EHH" firstAttribute="top" secondItem="y5c-0F-hpn" secondAttribute="top" constant="597" id="a8x-1l-bP6"/>
+                            <constraint firstItem="y5c-0F-hpn" firstAttribute="bottom" secondItem="wyg-gg-EHH" secondAttribute="bottom" constant="107" id="t5U-YI-1Qv"/>
+                            <constraint firstItem="wyg-gg-EHH" firstAttribute="leading" secondItem="y5c-0F-hpn" secondAttribute="leading" constant="164" id="v8n-sb-Xcr"/>
+                            <constraint firstItem="y5c-0F-hpn" firstAttribute="trailing" secondItem="wyg-gg-EHH" secondAttribute="trailing" constant="165" id="wF9-Gh-TFM"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="y5c-0F-hpn"/>
                     </view>
+                    <connections>
+                        <outlet property="outletEndGameButton" destination="wyg-gg-EHH" id="xwG-c5-qRn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J7s-2D-PpA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="D6c-F9-0bo" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1765.5999999999999" y="909.60591133004925"/>
         </scene>
