@@ -20,11 +20,12 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("play game")
         
         outletEndGameButton.isHidden = true
         showCountdownScene()
         _ = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(GameViewController.update), userInfo: nil, repeats: false)
-        _ = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(GameViewController.endGame), userInfo: nil, repeats: false)
+        _ = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(GameViewController.endGame), userInfo: nil, repeats: false)
     }
     
     

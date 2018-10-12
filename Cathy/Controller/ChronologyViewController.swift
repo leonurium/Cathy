@@ -474,10 +474,7 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
             }
             
         case "toGame1":
-            if let controllerDestination = segue.destination as? beforeGameUIViewController {
-                controllerDestination.currentIndexChronology = chronologyModel.idCheckpoint
-                print("to Game1 OK")
-            }
+            print("to Game1 OK")
             
         default:
             print("undefined identifier segue")
@@ -522,6 +519,8 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
                     break
                 
                 case "unwindToChronologyFromGame1":
+                    generateChronology(index: indexChronology + 1)
+                    print(indexChronology + 1)
                     print("OK from game")
                 
                 default:

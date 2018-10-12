@@ -107,7 +107,7 @@
                                 <rect key="frame" x="164" y="620" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <segue destination="BHV-RE-QSU" kind="show" id="kR0-fP-bZY"/>
+                                    <segue destination="BHV-RE-QSU" kind="show" identifier="toRealGame" id="kR0-fP-bZY"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -162,6 +162,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="y5c-0F-hpn"/>
                     </view>
+                    <connections>
+                        <outlet property="outletEndGameButton" destination="wyg-gg-EHH" id="moC-AQ-lrG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J7s-2D-PpA" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="D6c-F9-0bo" userLabel="Exit" sceneMemberID="exit"/>

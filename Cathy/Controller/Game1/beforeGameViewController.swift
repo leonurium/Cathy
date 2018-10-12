@@ -16,7 +16,6 @@ class beforeGameUIViewController: UIViewController, UIScrollViewDelegate {
     
     var images: [String] = ["game1Tutor0", "game1Tutor1", "game1Tutor2"]
     var frame = CGRect(x:0,y:0,width:0,height:0)
-    var currentIndexChronology: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
