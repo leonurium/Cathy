@@ -424,13 +424,10 @@
 				30D5D9A42174B81500DB79D2 /* bondanBingung-12.png in Resources */,
 				30D5D9D32174B86000DB79D2 /* bondanNormal-1.png in Resources */,
 				5DEA962E216F294B00F928B9 /* startGameScene.sks in Resources */,
-<<<<<<< HEAD
 				30D5D9A62174B81500DB79D2 /* bondanBingung-14.png in Resources */,
 				30D5D9CD2174B86000DB79D2 /* bondanNormal-5.png in Resources */,
 				30D5D9C92174B86000DB79D2 /* bondanNormal-13.png in Resources */,
-=======
 				5DEA972021746D6500F928B9 /* backButtonSFX.wav in Resources */,
->>>>>>> 757917732bbea9a00e8dc0fbee2c166f5aa0aa74
 				AA9D43A42134B6FF0010E736 /* Screen.storyboard in Resources */,
 				30D5D9AB2174B81500DB79D2 /* bondanBingung-10.png in Resources */,
 				30D5D9AF2174B81500DB79D2 /* bondanBingung-1.png in Resources */,
@@ -450,14 +447,11 @@
 				30D5D9AE2174B81500DB79D2 /* bondanBingung-5.png in Resources */,
 				30D5D9D12174B86000DB79D2 /* bondanNormal-4.png in Resources */,
 				30FBEEEC212568D5007BF14E /* primer print bold.ttf in Resources */,
-<<<<<<< HEAD
 				30D5D9CE2174B86000DB79D2 /* bondanNormal-11.png in Resources */,
 				30D5D9CC2174B86000DB79D2 /* bondanNormal-6.png in Resources */,
 				30D5D9C52174B86000DB79D2 /* bondanNormal-8.png in Resources */,
 				30D5D9CB2174B86000DB79D2 /* bondanNormal-10.png in Resources */,
-=======
 				5DEA9716217460C200F928B9 /* interactionOk.wav in Resources */,
->>>>>>> 757917732bbea9a00e8dc0fbee2c166f5aa0aa74
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
