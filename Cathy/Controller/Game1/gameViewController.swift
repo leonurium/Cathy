@@ -13,19 +13,19 @@ import GameplayKit
 
 class GameViewController: UIViewController {
     
-    @IBOutlet weak var outletLabelWaktu: UILabel!
     @IBOutlet weak var outletEndGameButton: UIButton!
     var timer = Timer()
     var toChronology = ChronologyViewController()
+    var score = 0
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print("play game")
-        
         outletEndGameButton.isHidden = true
         showCountdownScene()
         _ = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(GameViewController.update), userInfo: nil, repeats: false)
-        _ = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(GameViewController.endGame), userInfo: nil, repeats: false)
+        _ = Timer.scheduledTimer(timeInterval: 15, target: self, selector: #selector(GameViewController.endGame), userInfo: nil, repeats: false)
     }
     
     

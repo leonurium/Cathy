@@ -13,13 +13,19 @@ class beforeGameUIViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var gameTutorialPageControl: UIPageControl!
     @IBOutlet weak var gameScrollViewController: UIScrollView!
+    @IBOutlet weak var outletButtonToGame: UIButton!
     
-    var images: [String] = ["game1Tutor0", "game1Tutor1", "game1Tutor2"]
+    var images: [String] = ["tutor1", "tutor2", "tutor3","tutor4"]
+    
     var frame = CGRect(x:0,y:0,width:0,height:0)
+    var tempPageNumber = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        
         gameTutorialPageControl.numberOfPages = images.count
+        
         for i in 0..<images.count {
             frame.origin.x = gameScrollViewController.frame.size.width * CGFloat(i)
             frame.size = gameScrollViewController.frame.size
@@ -41,7 +47,9 @@ class beforeGameUIViewController: UIViewController, UIScrollViewDelegate {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let pageNumber = gameScrollViewController.contentOffset.x / gameScrollViewController .frame.size.width
         gameTutorialPageControl.currentPage = Int(pageNumber)
+        
     }
+    
     
     override var prefersStatusBarHidden: Bool {
         return true
