@@ -49,6 +49,8 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
     @IBOutlet weak var outletLabelSubject: UILabel!
     @IBOutlet weak var outletLabelText: UITextView!
     @IBOutlet weak var outletImageViewTextBox: UIImageView!
+    @IBOutlet weak var outletContinueButton: UIImageView!
+    
     
     //Outlet menu view pojok kanan atas
     @IBOutlet weak var outletMenuChapter: UILabel!
@@ -105,6 +107,7 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
         defineName()
         border()
         masks()
+        animateButtonContinue(img: outletContinueButton)
         startChronology(index: 0)
         generateChronology(index: chronologyModel.idChronologyCheckpoint)
         
@@ -789,6 +792,23 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
         })
     }
     
+    func animateButtonContinue(img: UIImageView)
+    {
+        UIView.animate(withDuration: 1.0, animations: {
+            img.center.y -= 15
+            
+        }, completion: {
+            (Completed : Bool) -> Void in
+            UIView.animate (withDuration: 0.75, delay:0, options: UIViewAnimationOptions.curveLinear, animations: {
+                img.center.y += 15
+            }, completion: {
+                (Completed: Bool) -> Void in
+                self.animateButtonContinue(img: img)
+            }
+            )
+        })
+    }
+    
     var timer = Timer()
     public func typeOn(textView: UITextView ,string: String) {
         if textView.text == nil {
@@ -801,10 +821,12 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
                     textView.text.append(characterArray[characterIndex])
                     characterIndex += 1
                     self.view.isUserInteractionEnabled = false
+                    self.outletContinueButton.isHidden = true
                 }
                 else if characterIndex == characterArray.count {
                     timer.invalidate()
                     self.view.isUserInteractionEnabled = true
+                    self.outletContinueButton.isHidden = false
                 }
             }
         }

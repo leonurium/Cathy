@@ -18,10 +18,17 @@ class MapsViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        outletViewContainerChapter.isHidden = true
         
         for i in 1...(currentChapter + 1) {
             chapter.append(i)
         }
+        chapter.append(2)
+        chapter.append(3)
+        chapter.append(4)
+        chapter.append(5)
+        chapter.append(6)
+        chapter.append(7)
         
         outletTableViewChapterMaps.delegate = self
         outletTableViewChapterMaps.dataSource = self
@@ -34,14 +41,22 @@ class MapsViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = outletTableViewChapterMaps.dequeueReusableCell(withIdentifier: "CellChapterMaps") as! MapsChapterTableViewCell
         
-        cell.outletButtonChapter.setTitle("\(chapter[indexPath.row])", for: .normal)
+        cell.outletButtonChapter.setTitle("Chapter \(chapter[indexPath.row])", for: .normal)
         cell.outletButtonChapter.tag = chapter[indexPath.row]
         
         return cell
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 75
+    }
+    
+    @IBAction func actionButtonExit(_ sender: Any) {
+        outletViewContainerChapter.isHidden = true
+    }
+    
     @IBAction func actionButtonListChronology(_ sender: UIButton) {
-        
+        outletViewContainerChapter.isHidden = false
     }
     
     @IBAction func actionButtonChooseChapter(_ sender: UIButton) {

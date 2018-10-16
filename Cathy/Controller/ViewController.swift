@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var outletOption: UIButton!
     @IBOutlet weak var outletChapterSelect: UIButton!
     @IBOutlet weak var outletContinue: UIButton!
+    @IBOutlet weak var outletImageBG: UIImageView!
     
     @IBOutlet weak var tapAnywhere: UILabel!
     @IBOutlet weak var outletLabelTitle: UILabel!
@@ -45,6 +46,8 @@ class ViewController: UIViewController {
                 self.outletChapterSelect.alpha = 1
                 self.outletContinue.alpha = 1
                 self.startChronology(index: 0)
+                self.outletImageBG.alpha = 1
+                
             }, completion:
                 {
                     (animate) in
@@ -74,6 +77,7 @@ class ViewController: UIViewController {
         self.outletChapterSelect.alpha = 0
         self.outletContinue.alpha = 0
         animateLabel(label: tapAnywhere)
+        
     }
     
     func startChronology(index : Int) {

@@ -28,7 +28,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G48-Fz-yNR">
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="kamarMalam" translatesAutoresizingMaskIntoConstraints="NO" id="G48-Fz-yNR">
                                 <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -103,6 +103,7 @@
                     <connections>
                         <outlet property="outletChapterSelect" destination="5Zw-lL-Sye" id="R8V-3g-6bE"/>
                         <outlet property="outletContinue" destination="HrA-mB-ltt" id="Ima-Vx-Nj6"/>
+                        <outlet property="outletImageBG" destination="G48-Fz-yNR" id="ODZ-gO-JTg"/>
                         <outlet property="outletLabelTitle" destination="IwG-qB-zjp" id="9ag-yt-aSI"/>
                         <outlet property="outletNewGame" destination="gaI-qQ-y3S" id="4aH-Zb-arC"/>
                         <outlet property="outletOption" destination="lZP-Qx-XDx" id="Dgo-Yu-zAh"/>
@@ -249,47 +250,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S6I-Nn-44y">
-                                <rect key="frame" x="64" y="243" width="133" height="30"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="kamarMalam" translatesAutoresizingMaskIntoConstraints="NO" id="tMN-Tm-I4G">
+                                <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Back to chronology"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S6I-Nn-44y">
+                                <rect key="frame" x="371" y="285" width="71" height="69"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Back to chronology" image="exit button"/>
                                 <connections>
                                     <segue destination="onh-Jo-oeW" kind="unwind" identifier="unwindToChronology" unwindAction="unwindToChronologyWithSegue:" id="NMV-Jj-YN6"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G9K-N5-cN1">
-                                <rect key="frame" x="64" y="205" width="108" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="List Chronology"/>
-                                <connections>
-                                    <action selector="actionButtonListChronology:" destination="Dwq-ba-FnL" eventType="touchUpInside" id="5S1-5L-mNB"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F3D-IM-JBg">
-                                <rect key="frame" x="226" y="20" width="522" height="334"/>
+                                <rect key="frame" x="169" y="46" width="474" height="283"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fg8-PU-RhB">
-                                        <rect key="frame" x="476" y="8" width="30" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Exit"/>
-                                    </button>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ncn-dw-qoW">
-                                        <rect key="frame" x="0.0" y="0.0" width="421" height="334"/>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ncn-dw-qoW">
+                                        <rect key="frame" x="8" y="24" width="458" height="251"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CellChapterMaps" id="sXj-ek-A1T" customClass="MapsChapterTableViewCell" customModule="Cathy" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28" width="421" height="44"/>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CellChapterMaps" rowHeight="75" id="sXj-ek-A1T" customClass="MapsChapterTableViewCell" customModule="Cathy" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="28" width="458" height="75"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sXj-ek-A1T" id="g38-hI-sVw">
-                                                    <rect key="frame" x="0.0" y="0.0" width="421" height="44"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="458" height="74.666666666666671"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5uL-gK-d6v">
-                                                            <rect key="frame" x="15" y="6" width="46" height="30"/>
+                                                            <rect key="frame" x="168" y="21" width="122" height="32"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <state key="normal" title="item"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                                            <state key="normal" title="Chapter 1">
+                                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </state>
                                                             <connections>
                                                                 <action selector="actionButtonChooseChapter:" destination="Dwq-ba-FnL" eventType="touchUpInside" id="3Wc-GB-a4T"/>
                                                                 <segue destination="onh-Jo-oeW" kind="unwind" identifier="unwindToChapter" unwindAction="unwindToChronologyWithSegue:" id="MYt-lm-AQd"/>
@@ -303,9 +298,25 @@
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fg8-PU-RhB">
+                                        <rect key="frame" x="449" y="0.0" width="25" height="26"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Exit" image="close"/>
+                                        <connections>
+                                            <action selector="actionButtonExit:" destination="Dwq-ba-FnL" eventType="touchUpInside" id="7Jg-id-4az"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G9K-N5-cN1">
+                                <rect key="frame" x="651" y="190" width="48" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="List Chronology" image="i button"/>
+                                <connections>
+                                    <action selector="actionButtonListChronology:" destination="Dwq-ba-FnL" eventType="touchUpInside" id="5S1-5L-mNB"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="mB3-lE-k0G"/>
@@ -334,15 +345,15 @@
                                 <gestureRecognizers/>
                             </imageView>
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b4d-mK-1JK" userLabel="leftChara">
-                                <rect key="frame" x="0.0" y="20" width="411" height="495"/>
+                                <rect key="frame" x="0.0" y="0.0" width="411" height="460"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XBG-G9-uVK" userLabel="midChara">
-                                <rect key="frame" x="200" y="20" width="411" height="495"/>
+                                <rect key="frame" x="200" y="0.0" width="411" height="460"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eLX-fd-rcz" userLabel="rightChara">
-                                <rect key="frame" x="387" y="20" width="411" height="495"/>
+                                <rect key="frame" x="387" y="0.0" width="411" height="460"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9eF-jy-SxX" userLabel="Menu UI">
@@ -363,7 +374,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Chapter Name" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CVb-Lu-wc1">
-                                        <rect key="frame" x="-18" y="31" width="120" height="25"/>
+                                        <rect key="frame" x="-72" y="31" width="174" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="PrimerPrint-Regular" family="Primer" pointSize="20"/>
                                         <nil key="textColor"/>
@@ -455,6 +466,10 @@
                                         <color key="textColor" red="0.90980392160000001" green="0.23137254900000001" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="continueButton" translatesAutoresizingMaskIntoConstraints="NO" id="7P6-7r-xet">
+                                        <rect key="frame" x="613" y="82" width="39" height="42"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6YZ-1e-EDd">
@@ -525,6 +540,7 @@
                         <outlet property="outletButtonOption2" destination="fe5-L7-8Rg" id="ihs-yg-GG7"/>
                         <outlet property="outletButtonOption3" destination="kPw-KS-dmJ" id="tiT-iB-Ev5"/>
                         <outlet property="outletButtonOption4" destination="dWX-i0-JuA" id="Gvw-aN-IaH"/>
+                        <outlet property="outletContinueButton" destination="7P6-7r-xet" id="SWt-4X-8cC"/>
                         <outlet property="outletExit" destination="IwS-hC-COs" id="dPM-Xz-gCH"/>
                         <outlet property="outletImageViewBackgroud" destination="vkY-kw-yQX" id="TPg-46-roX"/>
                         <outlet property="outletImageViewChar1" destination="b4d-mK-1JK" id="C7P-SH-yC2"/>
@@ -556,7 +572,11 @@
     </scenes>
     <resources>
         <image name="button menu" width="2252" height="606"/>
-        <image name="close" width="125" height="125"/>
-        <image name="textBoxDialogue" width="707" height="137"/>
+        <image name="close" width="376" height="376"/>
+        <image name="continueButton" width="1050" height="666"/>
+        <image name="exit button" width="454" height="454"/>
+        <image name="i button" width="454" height="454"/>
+        <image name="kamarMalam" width="2436" height="1125"/>
+        <image name="textBoxDialogue" width="2122" height="411"/>
     </resources>
 </document>
