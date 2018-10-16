@@ -21,31 +21,63 @@ class GameScene: SKScene {
         static let badThing : UInt32 = 0b101
     }
     
-    
+    var background: SKSpriteNode!
     let motionManager = CMMotionManager()
     let gameTimerCount = Timer()
     var accelerateX: CGFloat = 0
     var player: SKSpriteNode!
-    var goodThing = ["goodthing1", "goodthing2"]
+    var goodThing = ["goodThing0", "goodThing1", "goodThing2"]
     var badThing: SKSpriteNode!
+    var scoreLabel: SKLabelNode!
+    var gameCountdownLabel: SKLabelNode!
+    var gameTime: Int = 45 {
+        didSet {
+            gameCountdownLabel.text = "\(gameTime)"
+        }
+    }
+    var score: Int = 0 {
+        didSet {
+            scoreLabel.text = "Score: \(score)"
+        }
+    }
     
     override func didMove(to view: SKView) {
         player = SKSpriteNode(imageNamed: "player")
+        background = SKSpriteNode(imageNamed: "CTTBackground")
+        scoreLabel = SKLabelNode(text: "Score: 0")
+        gameCountdownLabel = SKLabelNode(text: "\(gameTime)")
+        
         player.position = CGPoint(x: self.frame.size.width/2, y: player.size.height/2 + 50)
         player.physicsBody = SKPhysicsBody(rectangleOf: player.size)
         player.physicsBody?.isDynamic = true
         player.physicsBody?.categoryBitMask = physic.player
         player.physicsBody?.contactTestBitMask = physic.goodThing
+        
+        background.position = CGPoint(x: self.frame.size.width/2, y: frame.size.height/2)
+        
+        scoreLabel.position = CGPoint(x: 100, y: self.frame.size.height - 65)
+        scoreLabel.fontName = "AmericanTypewriter-Bold"
+        scoreLabel.fontColor = UIColor.black
+        
+        gameCountdownLabel.position = CGPoint(x: 325, y: self.frame.size.height - 65)
+        gameCountdownLabel.fontName = "AmericanTypewriter-Bold"
+        gameCountdownLabel.fontColor = UIColor.black
+        
         self.physicsWorld.gravity = CGVector(dx: 0, dy: 0)
         self.physicsWorld.contactDelegate = self
+        
+        addChild(background)
         addChild(player)
+        addChild(gameCountdownLabel)
+        
         DispatchQueue.main.async {
             self.addGoodThing()
         }
         
         DispatchQueue.main.async {
             _ = Timer.scheduledTimer(timeInterval: 0.75, target: self, selector: #selector(self.addGoodThing), userInfo: nil, repeats: true)
-            _ = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.addBadThing), userInfo: nil, repeats: true)
+            _ = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(self.addBadThing), userInfo: nil, repeats: true)
+            _ = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.countdown), userInfo: nil, repeats: true)
             self.motionManager.accelerometerUpdateInterval = 0.2
             self.motionManager.startAccelerometerUpdates(to: OperationQueue.current!) { (data: CMAccelerometerData?, error: Error?) in
                 if let accelerometerData = data {
@@ -54,7 +86,10 @@ class GameScene: SKScene {
                 }
             }
         }
+        addChild(scoreLabel)
     }
+    
+    //fungsi tambahin bad thing
     
     @objc func addBadThing() {
         badThing = SKSpriteNode(imageNamed: "badThing")
@@ -82,6 +117,8 @@ class GameScene: SKScene {
         
     }
     
+    //fungsi tambahin random good thing
+    
     @objc func addGoodThing() {
         goodThing = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: goodThing) as! [String]
         
@@ -107,7 +144,17 @@ class GameScene: SKScene {
             actionArray.append(SKAction.removeFromParent())
             goodiesNode.run(SKAction.sequence(actionArray))
         }
-        
+    }
+    
+    // fungsi countdown waktu
+    
+    @objc func countdown(){
+        if gameTime >= 0 {
+            gameTime -= 1
+            print(gameTime)
+        } else {
+            gameTimerCount.invalidate()
+        }
     }
     
     //movementnya pake di tilt
@@ -122,13 +169,47 @@ class GameScene: SKScene {
         }
     }
     
+    // fungsi animasi player nangkep barang
+    
+    func catchAnimation(node: SKSpriteNode){
+        let animationDuration = 0.5
+        var actionArray = [SKAction]()
+        actionArray.append(SKAction.move(to: CGPoint(x: player.position.x, y: player.position.y + 20), duration: animationDuration))
+        actionArray.append(SKAction.removeFromParent())
+        node.run(SKAction.sequence(actionArray))
+    }
+    
+    // fungsi kalo player catch good
+    
     func playerCatchGood(goodies: SKSpriteNode, player: SKSpriteNode) {
+        DispatchQueue.main.async {
+            self.run(SKAction.playSoundFileNamed("interactionOk", waitForCompletion: false))
+        }
+        let catchGoodThing = SKSpriteNode(imageNamed: "goodThingCatch")
+        DispatchQueue.main.async {
+            self.addChild(catchGoodThing)
+        }
+        catchAnimation(node: catchGoodThing)
+        catchGoodThing.position = CGPoint(x: player.position.x, y: player.position.y)
         print("Good!")
+        score += 10
         goodies.removeFromParent()
     }
     
+    // fungsi kalo player catch bad
+    
     func playerCatchBad(baddies: SKSpriteNode, player: SKSpriteNode) {
+        DispatchQueue.main.async {
+            self.run(SKAction.playSoundFileNamed("backButtonSFX", waitForCompletion: false))
+        }
+        let catchBadThing = SKSpriteNode(imageNamed: "badThingCatch")
+        DispatchQueue.main.async {
+            self.addChild(catchBadThing)
+        }
+        catchAnimation(node: catchBadThing)
+        catchBadThing.position = CGPoint(x: player.position.x, y: player.position.y)
         print("Bad!")
+        score -= 15
         baddies.removeFromParent()
     }
     
@@ -137,6 +218,8 @@ class GameScene: SKScene {
         // Called before each frame is rendered
     }
 }
+
+// extensi phsycic, buat nentuin apa nabrak apa
 
 extension GameScene: SKPhysicsContactDelegate {
     func didBegin(_ contact: SKPhysicsContact) {

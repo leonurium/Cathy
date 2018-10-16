@@ -33,8 +33,6 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
     var resultFaceDetect = false
     //var backgroundMusic = backgroundSound()
     
-    var data = [iconData(iconImage: UIImage(named: "mapsMenu")), iconData(iconImage: UIImage(named: "aboutMenu")), iconData(iconImage: UIImage(named: "galleryMenu")), iconData(iconImage: UIImage(named: "miniGamesMenu")), iconData(iconImage: UIImage(named: "settingsMenu")), iconData(iconImage: UIImage(named: "exitMenu"))]
-    
     //OUTLETS
     //Outlet button option buat choice alur
     @IBOutlet weak var outletButtonOption1: UIButton!
@@ -55,27 +53,29 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
     
     //Outlet menu view pojok kanan atas
     @IBOutlet weak var outletMenuChapter: UILabel!
-    @IBOutlet weak var outletMenuDay: UILabel!
     @IBOutlet weak var outletMenuNoon: UILabel!
     @IBOutlet weak var outletMenuPause: UIButton!
     
-    //Outlet Grid Menu
-    @IBOutlet weak var outletGridMenu: UIView!
-    @IBOutlet weak var outletMenuCollectionView: UICollectionView!
+    //Outlet Menu
+    @IBOutlet weak var outletMenu: UIView!
+    @IBOutlet weak var outletLog: UIButton!
+    @IBOutlet weak var outletSetting: UIButton!
+    @IBOutlet weak var outletExit: UIButton!
+    
     
     //Outlet Indicator Interaction
     @IBOutlet weak var outletIndicator: UIImageView!
     
     
     @IBAction func actionButtonCloseMenu(_ sender: Any) {
-        outletGridMenu.isHidden = true
+        outletMenu.isHidden = true
     }
     
     @IBAction func actionButtonMenu(_ sender: Any) {
-        if outletGridMenu.isHidden == true {
-            outletGridMenu.isHidden = false
+        if outletMenu.isHidden == true {
+            outletMenu.isHidden = false
         } else {
-            outletGridMenu.isHidden = true
+            outletMenu.isHidden = true
         }
     }
     
@@ -83,16 +83,16 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
     
     //Button buat next ke chronology berikutnya, bisa di ganti pake all view screen
     @IBAction func tapAnywhere(_ sender: UIView) {
-        if outletGridMenu.isHidden == true {
+        if outletMenu.isHidden == true {
             generateChronology(index: indexChronology)
         } else {
             
         }
-        outletLabelText.text = nil
+        // outletLabelText.text = nil
     }
     
     @IBAction func actionButtonOption(_ sender: UIButton) {
-        if outletGridMenu.isHidden == true {
+        if outletMenu.isHidden == true {
             generateChronology(index: sender.tag)
             animateButtonOption(button: sender)
         } else {
@@ -103,41 +103,51 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
     override func viewDidLoad() {
         //backgroundMusic.playSound()
         defineName()
+        border()
         masks()
         startChronology(index: 0)
         generateChronology(index: chronologyModel.idChronologyCheckpoint)
-        outletMenuCollectionView.delegate = self
-        outletMenuCollectionView.dataSource = self
+        
         //indicator = animModel.buatImageArray(total: 22, imagePrefix: "indicator")
     }
     
-    func defineName() {
-        var name = self.playerName.replacingOccurrences(of: "’s iPhone", with: "")
-        name = name.replacingOccurrences(of: "iPhone", with: "")
-        print("name \(name)")
-        switch name.lowercased() {
-        case "":
-            self.playerName = "Eka"
-            break
-            
-        case "iphone x":
-            self.playerName = "Eka"
-            break
-            
-        default:
-            self.playerName = name
-            break
-        }
+    //function untuk border
+    func border(){
+        //menus
+        addBorderView(view: outletMenu)
+        addBorderButton(button: outletMenuPause)
+        addBorderButton(button: outletLog)
+        addBorderButton(button: outletSetting)
+        addBorderButton(button: outletExit)
+      
         
-        print("after define \(playerName)")
+        //button choices
+        addBorderButton(button: outletButtonOption1)
+        addBorderButton(button: outletButtonOption2)
+        addBorderButton(button: outletButtonOption3)
+        addBorderButton(button: outletButtonOption4)
+    }
+    func addBorderLabel(label : UILabel){
+        label.layer.borderWidth = 1
+        label.layer.borderColor = UIColor.black.cgColor
     }
     
+    func addBorderButton(button : UIButton){
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor.black.cgColor
+    }
+    
+    func addBorderView(view : UIView){
+        view.layer.borderWidth = 1
+        view.layer.borderColor = UIColor.black.cgColor
+    }
     // FUNGSI INDICATOR MEREDUP
     func indicatorDimIn() {
         UIView.animate(withDuration: 1.0, delay: 0.5, options: .curveEaseOut, animations: {
             self.outletIndicator.alpha = 0.0
         }, completion: nil)
     }
+    
     
     //FUNGSI INDICATOR MENYALA
     func indicatorDimOut() {
@@ -166,12 +176,12 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
             resultFaceDetect = false
         }
     }
-
+    
     //FUNCTIONS
     func relaunch() {
         let controller: UIWindow = ((UIApplication.shared.delegate?.window)!)!
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        controller.rootViewController = storyboard.instantiateInitialViewController()
+        //        controller.rootViewController = storyboard.instantiateInitialViewController()
         controller.rootViewController = storyboard.instantiateViewController(withIdentifier: "Main") as! ChronologyViewController
     }
     
@@ -253,7 +263,7 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
         outletLabelText.text = ""
         outletLabelText.isHidden = true
         
-        outletGridMenu.isHidden = true
+        outletMenu.isHidden = true
         outletIndicator.isHidden = true
         
         //TO default
@@ -350,7 +360,7 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
                     }
                     
                     if let subjectChronology = nowChronology.subjectChronology {
-
+                        
                         if subjectChronology.indices.contains(0) {
                             if let subject = subjectChronology[0].subject,
                                 let expression = subjectChronology[0].expression
@@ -483,7 +493,7 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
                         break
                         
                     case "game1":
-                       self.performSegue(withIdentifier: "toGame1", sender: nil)
+                        self.performSegue(withIdentifier: "toGame1", sender: nil)
                         
                     default:
                         print("do something in interaction")
@@ -521,50 +531,50 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
         if let identifierSegue = segue.identifier {
             
             switch identifierSegue {
-                case "unwindToChronology":
-                    generateChronology(index: indexChronology + 1)
-                    print(indexChronology + 1)
-                    break
+            case "unwindToChronology":
+                generateChronology(index: indexChronology + 1)
+                print(indexChronology + 1)
+                break
                 
-                case "unwindToChapter":
-                    if let ctrl = segue.source as? MapsViewController {
-                        chronologyModel.idCheckpoint = ctrl.currentChapter
-                        chronologyModel.idChronologyCheckpoint = 0
+            case "unwindToChapter":
+                if let ctrl = segue.source as? MapsViewController {
+                    chronologyModel.idCheckpoint = ctrl.currentChapter
+                    chronologyModel.idChronologyCheckpoint = 0
+                    
+                    if checkpointModel.updateObject(id: chronologyModel.idCheckpoint, idChronology: 0) {
+                        print("Update checkpoint new chronology")
+                        indexChronology = 0
                         
-                        if checkpointModel.updateObject(id: chronologyModel.idCheckpoint, idChronology: 0) {
-                            print("Update checkpoint new chronology")
-                            indexChronology = 0
+                        chronologyModel.api.autoUpdateData(view: view)
+                        let newChronology = chronologyModel.api.getFromDisk(id: chronologyModel.idCheckpoint)
+                        
+                        if newChronology.count > 0 {
+                            chronologyModel.chronologies.removeAll()
+                            chronologyModel.chronologies = newChronology
+                            generateChronology(index: 0)
+                            print("END Chronology")
                             
-                            chronologyModel.api.autoUpdateData(view: view)
-                            let newChronology = chronologyModel.api.getFromDisk(id: chronologyModel.idCheckpoint)
-                            
-                            if newChronology.count > 0 {
-                                chronologyModel.chronologies.removeAll()
-                                chronologyModel.chronologies = newChronology
-                                generateChronology(index: 0)
-                                print("END Chronology")
-                                
-                            } else {
-                                print("To be continued")
-                            }
+                        } else {
+                            print("To be continued")
                         }
-                        
-                    } else {
-                        print("undefine maps controller")
                     }
-                    break
+                    
+                } else {
+                    print("undefine maps controller")
+                }
+                break
                 
-                case "unwindToChronologyFromGame1":
-                    generateChronology(index: indexChronology + 1)
-                    print(indexChronology + 1)
-                    print("OK from game")
+            case "unwindToChronologyFromGame1":
+                generateChronology(index: indexChronology + 1)
+                print(indexChronology + 1)
+                print("OK from game")
                 
-                default:
-                    print("not define identifier unwind segue")
-                    break
+            default:
+                print("not define identifier unwind segue")
+                break
             }
             print("\(identifierSegue)")
-        
+            
         } else {
             print("not found unwind segue")
         }
@@ -709,23 +719,33 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
         button.layer.masksToBounds = true
     }
     
+    func menuMask(button : UIButton){
+        button.layer.cornerRadius = 5
+        button.layer.masksToBounds = true
+    }
+    
     //MASKS
     func masks(){
         // MENU MASKS
         //Menu
         labelMask(label: outletMenuChapter)
         labelMask(label: outletMenuNoon)
-        labelMask(label: outletMenuDay)
-        outletMenuPause.layer.cornerRadius = 5
-        outletMenuPause.layer.masksToBounds = true
-    
         
         //CHOOSE BOX MASKS
         buttonMask(button: outletButtonOption1)
         buttonMask(button: outletButtonOption2)
         buttonMask(button: outletButtonOption3)
         buttonMask(button: outletButtonOption4)
-
+        
+        //outlet menu
+        menuMask(button: outletMenuPause)
+        menuMask(button: outletLog)
+        menuMask(button: outletSetting)
+        menuMask(button: outletExit)
+        outletMenu.layer.cornerRadius = 10
+        outletMenu.layer.masksToBounds = true
+        
+        
     }
     
     //ANIMATION
@@ -762,45 +782,11 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
                 }
             }
         }
-       // return characterIndex
+        // return characterIndex
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-    }
-}
-
-extension ChronologyViewController: UICollectionViewDataSource{
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
-    }
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "testMenu", for: indexPath) as! menuCollectionViewCell
-        cell.menuImageCell.image = data[indexPath.row].iconImage
-        return cell
-    }
-}
-
-extension ChronologyViewController: UICollectionViewDelegate{
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if(indexPath.row == 0){
-            performSegue(withIdentifier: "map", sender: self)
-        }else if(indexPath.row == 1){
-            performSegue(withIdentifier: "about", sender: self)
-        }else if(indexPath.row == 2){
-            performSegue(withIdentifier: "gallery", sender: self)
-        }else if(indexPath.row == 3){
-            performSegue(withIdentifier: "miniGames", sender: self)
-        }else if(indexPath.row == 4){
-            performSegue(withIdentifier: "option", sender: self)
-        }else if(indexPath.row == 5){
-            performSegue(withIdentifier: "exit", sender: self)
-        }
     }
 }
 

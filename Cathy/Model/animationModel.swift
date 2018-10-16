@@ -13,6 +13,7 @@ public class animasiIdle: UIViewController {
     //@IBOutlet weak var outletImage: UIImageView!
 
     //Fungsi masukin gambar animasinya ke array holder
+    
     func buatImageArray(total: Int, imagePrefix: String) -> [UIImage] {
         var arrayImage: [UIImage] = []
         for imageCount in 0..<total{
