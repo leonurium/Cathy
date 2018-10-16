@@ -11,18 +11,16 @@ import AVFoundation
 
 public class backgroundSound {
     
-    struct audioPlayer {
-        static var musicPlayer = AVAudioPlayer()
-    }
+    var musicPlayer = AVAudioPlayer()
     
-    func playSound() {
+    func playSound(namaMusic: String) {
         do {
-            audioPlayer.musicPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "backgroundMusic1", ofType: "mp3")!))
-            audioPlayer.musicPlayer.play()
+            musicPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: namaMusic, ofType: "wav")!))
+            musicPlayer.play()
         } catch {
             print("error")
         }
-        audioPlayer.musicPlayer.numberOfLoops = -1
+      musicPlayer.numberOfLoops = -1
     }
     
 }

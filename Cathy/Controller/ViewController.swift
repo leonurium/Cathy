@@ -47,7 +47,7 @@ class ViewController: UIViewController {
     
     //animation
     @IBAction func actionNewGame(_ sender: Any) {
-        
+        backgroundMusic.musicPlayer.stop()
     }
     
     @IBAction func actionOption(_ sender: Any) {
@@ -59,7 +59,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         startChronology(index: 0)
         
-        backgroundMusic.playSound()
+        backgroundMusic.playSound(namaMusic: "intense")
         super.viewDidLoad()
         self.outNewGame.alpha = 0
         self.outOption.alpha = 0

@@ -17,15 +17,17 @@ class GameViewController: UIViewController {
     var timer = Timer()
     var toChronology = ChronologyViewController()
     var score = 0
+    var backgroundMusic = backgroundSound()
   
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        backgroundMusic.playSound(namaMusic: "laguGame")
         print("play game")
         outletEndGameButton.isHidden = true
         showCountdownScene()
         _ = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(GameViewController.update), userInfo: nil, repeats: false)
-        _ = Timer.scheduledTimer(timeInterval: 15, target: self, selector: #selector(GameViewController.endGame), userInfo: nil, repeats: false)
+        _ = Timer.scheduledTimer(timeInterval: 48, target: self, selector: #selector(GameViewController.endGame), userInfo: nil, repeats: false)
     }
     
     
@@ -46,6 +48,7 @@ class GameViewController: UIViewController {
     }
     
     func showEndGameScene() {
+        backgroundMusic.musicPlayer.stop()
         let scene = GameScene(fileNamed: "endGameScene")
         let skView = view as! SKView
         skView.presentScene(scene)
