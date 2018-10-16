@@ -15,7 +15,6 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
     var playerName = UIDevice.current.name
     
     var animModel = animasiIdle()
-    var indicator: [UIImage] = []
     
     var tempTypeOn: Int = 0
     var tempBanyakCharacter: Int = 0
@@ -200,7 +199,7 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
     func relaunch() {
         let controller: UIWindow = ((UIApplication.shared.delegate?.window)!)!
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        //        controller.rootViewController = storyboard.instantiateInitialViewController()
+             // controller.rootViewController = storyboard.instantiateInitialViewController()
         controller.rootViewController = storyboard.instantiateViewController(withIdentifier: "Main") as! ChronologyViewController
     }
     
@@ -330,7 +329,9 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
                                     let expression = subjectChronology[0].expression
                                 {
                                     self.outletImageViewChar2.isHidden = false
-                                    self.outletImageViewChar2.image = UIImage(named: "\(expression)\(subject)")
+                                    
+                                    let animasiKarakter = self.animModel.buatImageArray(total: 15, imagePrefix: "\(expression)\(subject)-")
+                                    self.animModel.animasi(imageView: self.outletImageViewChar2, images: animasiKarakter)
                                 }
                             }
                             
@@ -339,7 +340,8 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
                                     let expression = subjectChronology[1].expression
                                 {
                                     self.outletImageViewChar1.isHidden = false
-                                    self.outletImageViewChar1.image = UIImage(named: "\(expression)\(subject)")
+                                    let animasiKarakter2 = self.animModel.buatImageArray(total: 15, imagePrefix: "\(expression)\(subject)-")
+                                    self.animModel.animasi(imageView: self.outletImageViewChar1, images: animasiKarakter2)
                                 }
                             }
                             
@@ -348,7 +350,8 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
                                     let expression = subjectChronology[2].expression
                                 {
                                     self.outletImageViewChar3.isHidden = false
-                                    self.outletImageViewChar3.image = UIImage(named: "\(expression)\(subject)")
+                                    let animasiKarakter3 = self.animModel.buatImageArray(total: 15, imagePrefix: "\(expression)\(subject)-")
+                                    self.animModel.animasi(imageView: self.outletImageViewChar3, images: animasiKarakter3)
                                 }
                             }
                         }
@@ -358,6 +361,7 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
                             self.endChronology(index: target)
                         }
                     break
+            
                     
                 case "option":
                     self.hiddenAll()
@@ -385,7 +389,8 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
                                 let expression = subjectChronology[0].expression
                             {
                                 self.outletImageViewChar2.isHidden = false
-                                self.outletImageViewChar2.image = UIImage(named: "\(expression)\(subject)")
+                                let animasiKarakter = self.animModel.buatImageArray(total: 15, imagePrefix: "\(expression)\(subject)-")
+                                self.animModel.animasi(imageView: self.outletImageViewChar2, images: animasiKarakter)
                             }
                         }
                         
@@ -394,7 +399,8 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
                                 let expression = subjectChronology[1].expression
                             {
                                 self.outletImageViewChar1.isHidden = false
-                                self.outletImageViewChar1.image = UIImage(named: "\(expression)\(subject)")
+                                let animasiKarakter2 = self.animModel.buatImageArray(total: 15, imagePrefix: "\(expression)\(subject)-")
+                                self.animModel.animasi(imageView: self.outletImageViewChar1, images: animasiKarakter2)
                             }
                         }
                         
@@ -403,7 +409,8 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
                                 let expression = subjectChronology[2].expression
                             {
                                 self.outletImageViewChar3.isHidden = false
-                                self.outletImageViewChar3.image = UIImage(named: "\(expression)\(subject)")
+                                let animasiKarakter3 = self.animModel.buatImageArray(total: 15, imagePrefix: "\(expression)\(subject)-")
+                                self.animModel.animasi(imageView: self.outletImageViewChar3, images: animasiKarakter3)
                             }
                         }
                     }

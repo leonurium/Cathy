@@ -31,7 +31,7 @@ public class animasiIdle: UIViewController {
     //Fungsi Animasi
     func animasi(imageView: UIImageView, images: [UIImage]) {
         imageView.animationImages = images
-        imageView.animationDuration = 1
+        imageView.animationDuration = 4
         imageView.startAnimating()
     }
     

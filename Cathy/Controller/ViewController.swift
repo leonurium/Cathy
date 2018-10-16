@@ -72,6 +72,7 @@ class ViewController: UIViewController {
         self.outletNewGame.alpha = 0
         self.outletOption.alpha = 0
         self.outletChapterSelect.alpha = 0
+        self.outletContinue.alpha = 0
         animateLabel(label: tapAnywhere)
     }
     
