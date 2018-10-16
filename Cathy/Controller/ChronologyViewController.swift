@@ -316,7 +316,8 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
                         
                         if let subject = nowChronology.subject {
                             self.outletLabelSubject.isHidden = false
-                            self.outletLabelSubject.text = subject
+                            let sbj = subject.replacingOccurrences(of: "(nama)", with: self.playerName)
+                            self.outletLabelSubject.text = sbj
                         }
                         
                         if let textConversation = nowChronology.text {
@@ -376,7 +377,8 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
                     
                     if let subject = nowChronology.subject {
                         self.outletLabelSubject.isHidden = false
-                        self.outletLabelSubject.text = subject
+                        let sbj = subject.replacingOccurrences(of: "(nama)", with: self.playerName)
+                        self.outletLabelSubject.text = sbj
                     }
                     
                     if let textConversation = nowChronology.text {
@@ -498,7 +500,8 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
                     
                     if let subject = nowChronology.subject {
                         self.outletLabelSubject.isHidden = false
-                        self.outletLabelSubject.text = subject
+                        let sbj = subject.replacingOccurrences(of: "(nama)", with: self.playerName)
+                        self.outletLabelSubject.text = sbj
                     }
                     
                     if let textConversation = nowChronology.text {
