@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oge-17-dCO">
-    <device id="retina5_9" orientation="portrait">
+    <device id="retina5_9" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -22,7 +22,7 @@
             <objects>
                 <viewController id="oge-17-dCO" customClass="ViewController" customModule="Cathy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XiB-zY-btJ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bgMenuBlur" translatesAutoresizingMaskIntoConstraints="NO" id="G48-Fz-yNR">
@@ -92,19 +92,19 @@
             <objects>
                 <viewController storyboardIdentifier="game1" id="5g7-CA-Nj6" customClass="beforeGameUIViewController" customModule="Cathy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HQL-6d-nvF">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Vt-m2-WBU">
-                                <rect key="frame" x="16" y="44" width="343" height="445"/>
+                                <rect key="frame" x="60" y="0.0" width="692" height="65"/>
                             </scrollView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="lMH-Bh-pbY">
-                                <rect key="frame" x="128" y="538" width="118" height="37"/>
+                                <rect key="frame" x="172" y="114" width="467" height="37"/>
                                 <color key="pageIndicatorTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="currentPageIndicatorTintColor" red="1" green="0.13876083880000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </pageControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VLa-px-JSn">
-                                <rect key="frame" x="164" y="620" width="46" height="30"/>
+                                <rect key="frame" x="208" y="196" width="395" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <segue destination="BHV-RE-QSU" kind="show" identifier="toRealGame" id="kR0-fP-bZY"/>
@@ -141,8 +141,8 @@
         <scene sceneID="jiH-Al-rrG">
             <objects>
                 <viewController storyboardIdentifier="game1real" id="BHV-RE-QSU" customClass="GameViewController" customModule="Cathy" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="7mq-i6-8bU" customClass="SKView">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="7mq-i6-8bU" customClass="SKView">
+                        <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wyg-gg-EHH">
@@ -176,7 +176,7 @@
             <objects>
                 <viewController id="wTK-VO-vi4" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ASA-b5-yQN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="EFu-4H-PJr">
@@ -219,7 +219,7 @@
             <objects>
                 <viewController id="Dwq-ba-FnL" customClass="MapsViewController" customModule="Cathy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3VA-rL-jM7">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S6I-Nn-44y">
@@ -298,7 +298,7 @@
             <objects>
                 <viewController storyboardIdentifier="Main" id="Vvb-Xs-rwZ" customClass="ChronologyViewController" customModule="Cathy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vsU-Ps-ahl">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vkY-kw-yQX" userLabel="bgImg">
@@ -515,6 +515,7 @@
                         <outlet property="outletImageViewChar1" destination="b4d-mK-1JK" id="C7P-SH-yC2"/>
                         <outlet property="outletImageViewChar2" destination="XBG-G9-uVK" id="TyM-Z3-EjE"/>
                         <outlet property="outletImageViewChar3" destination="eLX-fd-rcz" id="7PB-hi-RyJ"/>
+                        <outlet property="outletImageViewTextBox" destination="AWH-J8-v0C" id="Be0-Bu-1gA"/>
                         <outlet property="outletIndicator" destination="Z0g-bG-UkC" id="tXS-wB-Afg"/>
                         <outlet property="outletLabelSubject" destination="Ima-81-k5K" id="nat-eY-ejr"/>
                         <outlet property="outletLabelText" destination="cdN-YA-WwU" id="Ybp-oh-RD0"/>
@@ -538,11 +539,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bgMenuBlur" width="812" height="375"/>
-        <image name="gridBackground" width="657" height="292"/>
+        <image name="bgMenuBlur" width="2436" height="1125"/>
+        <image name="gridBackground" width="473.27999877929688" height="210.24000549316406"/>
         <image name="normalGabriel" width="205" height="247"/>
         <image name="normalTerre" width="205" height="247"/>
-        <image name="textBox" width="220" height="53"/>
-        <image name="title" width="166" height="66"/>
+        <image name="textBox" width="158.39999389648438" height="38.400001525878906"/>
+        <image name="title" width="120" height="48"/>
     </resources>
 </document>

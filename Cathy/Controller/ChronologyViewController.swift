@@ -12,6 +12,8 @@ import CoreImage
 
 class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
     
+    var playerName = UIDevice.current.name
+    
     var animModel = animasiIdle()
     var indicator: [UIImage] = []
     
@@ -49,6 +51,7 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
     //Outlet label nama (subject) sama text conversation nya
     @IBOutlet weak var outletLabelSubject: UILabel!
     @IBOutlet weak var outletLabelText: UITextView!
+    @IBOutlet weak var outletImageViewTextBox: UIImageView!
     
     //Outlet menu view pojok kanan atas
     @IBOutlet weak var outletMenuChapter: UILabel!
@@ -99,12 +102,34 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
     
     override func viewDidLoad() {
         //backgroundMusic.playSound()
+        defineName()
         masks()
         startChronology(index: 0)
         generateChronology(index: chronologyModel.idChronologyCheckpoint)
         outletMenuCollectionView.delegate = self
         outletMenuCollectionView.dataSource = self
         //indicator = animModel.buatImageArray(total: 22, imagePrefix: "indicator")
+    }
+    
+    func defineName() {
+        var name = self.playerName.replacingOccurrences(of: "’s iPhone", with: "")
+        name = name.replacingOccurrences(of: "iPhone", with: "")
+        print("name \(name)")
+        switch name.lowercased() {
+        case "":
+            self.playerName = "Eka"
+            break
+            
+        case "iphone x":
+            self.playerName = "Eka"
+            break
+            
+        default:
+            self.playerName = name
+            break
+        }
+        
+        print("after define \(playerName)")
     }
     
     // FUNGSI INDICATOR MEREDUP
@@ -153,6 +178,8 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
     func startChronology(index : Int) {
         DispatchQueue.main.async {
             if self.chronologyModel.chronologies.count > 0 {
+                self.outletMenuChapter.text = "Chapter \(self.chronologyModel.idCheckpoint + 1)"
+                self.outletMenuDay.text = "\(self.chronologyModel.chronologies[0].title)"
 //                self.outletImageViewBackgroud.image = UIImage(named: self.chronologyModel.chronologies[0].background)
             } else {
                 self.chronologyModel.api.autoUpdateData(view: self.view)
@@ -179,6 +206,8 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
                     chronologyModel.chronologies.removeAll()
                     chronologyModel.chronologies = newChronology
                     generateChronology(index: 0)
+                    outletMenuChapter.text = "Chapter \(chronologyModel.idCheckpoint + 1)"
+                    outletMenuDay.text = "\(chronologyModel.chronologies[0].title)"
                     print("END Chronology")
                     
                 } else {
@@ -227,6 +256,8 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
         outletGridMenu.isHidden = true
         outletIndicator.isHidden = true
         
+        //TO default
+        outletImageViewTextBox.image = UIImage(named: "textBox")
     }
     
     func generateChronology(index : Int) -> Void {
@@ -258,8 +289,9 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
                         }
                         
                         if let textConversation = nowChronology.text {
+                            let txtConversation = textConversation.replacingOccurrences(of: "(nama)", with: self.playerName)
                             self.outletLabelText.isHidden = false
-                            self.typeOn(textView: self.outletLabelText, string: textConversation)
+                            self.typeOn(textView: self.outletLabelText, string: txtConversation)
                         }
                         
                         if let subjectChronology = nowChronology.subjectChronology {
@@ -312,8 +344,9 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
                     }
                     
                     if let textConversation = nowChronology.text {
+                        let txtConversation = textConversation.replacingOccurrences(of: "(nama)", with: self.playerName)
                         self.outletLabelText.isHidden = false
-                        self.typeOn(textView: self.outletLabelText, string: textConversation)
+                        self.typeOn(textView: self.outletLabelText, string: txtConversation)
                     }
                     
                     if let subjectChronology = nowChronology.subjectChronology {
@@ -336,7 +369,7 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
                             }
                         }
                         
-                        if subjectChronology.indices.contains(0) {
+                        if subjectChronology.indices.contains(2) {
                             if let subject = subjectChronology[2].subject,
                                 let expression = subjectChronology[2].expression
                             {
@@ -402,14 +435,16 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
                     
                 case "narator" :
                     self.hiddenAll()
+                    self.outletImageViewTextBox.image = UIImage(named: "player")
                     
                     if let backgroundImage = nowChronology.background {
                         self.outletImageViewBackgroud.image = UIImage(named: backgroundImage)
                     }
                     
                     if let textConversation = nowChronology.text {
+                        let txtConversation = textConversation.replacingOccurrences(of: "(nama)", with: self.playerName)
                         self.outletLabelText.isHidden = false
-                        self.typeOn(textView: self.outletLabelText, string: textConversation)
+                        self.typeOn(textView: self.outletLabelText, string: txtConversation)
                     }
                     
                     self.indexChronology = nowChronology.target!
@@ -428,8 +463,9 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
                     }
                     
                     if let textConversation = nowChronology.text {
+                        let txtConversation = textConversation.replacingOccurrences(of: "(nama)", with: self.playerName)
                         self.outletLabelText.isHidden = false
-                        self.typeOn(textView: self.outletLabelText, string: textConversation)
+                        self.typeOn(textView: self.outletLabelText, string: txtConversation)
                     }
                     
                     switch nowChronology.subtype {
