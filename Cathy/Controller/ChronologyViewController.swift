@@ -109,8 +109,6 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
         animateButtonContinue(img: outletContinueButton)
         startChronology(index: 0)
         generateChronology(index: chronologyModel.idChronologyCheckpoint)
-        
-        //indicator = animModel.buatImageArray(total: 22, imagePrefix: "indicator")
     }
     
     func defineName() {
@@ -161,31 +159,7 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
         view.layer.borderWidth = 1
         view.layer.borderColor = UIColor.black.cgColor
     }
-    // FUNGSI INDICATOR MEREDUP
-    func indicatorDimIn() {
-        UIView.animate(withDuration: 1.0, delay: 0.5, options: .curveEaseOut, animations: {
-            self.outletIndicator.alpha = 0.0
-        }, completion: nil)
-    }
-    
-    
-    //FUNGSI INDICATOR MENYALA
-    func indicatorDimOut() {
-        UIView.animate(withDuration: 1.0, delay: 0.5, options: .curveEaseOut, animations: {
-            self.outletIndicator.alpha = 1.0
-        }, completion: nil)
-    }
-    
-    //FUNSI INDICATOR MATI NYALA
-    func indicatorDimming() {
-        if outletIndicator.alpha == 0.0 {
-            indicatorDimOut()
-        } else {
-            indicatorDimIn()
-        }
-    }
-    
-    
+ 
     func cleanApp()
     {
         if checkpointModel.cleanAll() {
@@ -210,7 +184,6 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
             if self.chronologyModel.chronologies.count > 0 {
                 self.outletMenuChapter.text = "Chapter \(self.chronologyModel.idCheckpoint + 1)"
                 self.outletMenuNoon.text = "\(self.chronologyModel.chronologies[0].title)"
-//                self.outletImageViewBackgroud.image = UIImage(named: self.chronologyModel.chronologies[0].background)
             } else {
                 self.chronologyModel.api.autoUpdateData(view: self.view)
                 self.relaunch()
@@ -545,11 +518,17 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
                     
                     switch nowChronology.subtype {
                     case "face_detection":
+                        self.outletIndicator.isHidden = false
+                        let shakeIndicator = self.animModel.buatImageArray(total: 10, imagePrefix: "indicatorSmile-")
+                        self.animModel.animasi(imageView: self.outletIndicator, images: shakeIndicator)
                         self.sessionFaceDetect = true
                         self.runFaceDetect()
                         break
                         
                     case "shake":
+                        self.outletIndicator.isHidden = false
+                        let shakeIndicator = self.animModel.buatImageArray(total: 10, imagePrefix: "indicator-")
+                        self.animModel.animasi(imageView: self.outletIndicator, images: shakeIndicator)
                         self.sessionShake = true
                         break
                         
