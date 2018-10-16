@@ -10,11 +10,7 @@
     },
     {
       "idiom" : "universal",
-<<<<<<< HEAD:Cathy/Support/Assets.xcassets/goodthing1.imageset/Contents.json
-      "filename" : "goodthing.png",
-=======
       "filename" : "tutor1.png",
->>>>>>> 757917732bbea9a00e8dc0fbee2c166f5aa0aa74:Cathy/Support/Assets.xcassets/tutor1.imageset/Contents.json
       "scale" : "3x"
     }
   ],
