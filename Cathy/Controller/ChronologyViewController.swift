@@ -103,7 +103,6 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
     
     override func viewDidLoad() {
         //backgroundMusic.playSound()
-        outletLabelText.textContainer.lineBreakMode = NSLineBreakMode.byWordWrapping
         defineName()
         border()
         masks()

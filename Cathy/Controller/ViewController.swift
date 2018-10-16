@@ -61,12 +61,13 @@ class ViewController: UIViewController {
     //animation
     @IBAction func actionNewGame(_ sender: Any) {
         backgroundMusic.musicPlayer.stop()
-    }
-    
-    @IBAction func actionOption(_ sender: Any) {
         let controller = ChronologyViewController()
         controller.cleanApp()
         print("ok")
+    }
+    
+    @IBAction func actionOption(_ sender: Any) {
+        
     }
     
     override func viewDidLoad() {

@@ -39,18 +39,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gaI-qQ-y3S">
-                                <rect key="frame" x="596" y="260" width="138" height="23"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="PrimerPrint-Regular" family="Primer" pointSize="30"/>
-                                <state key="normal" title="Mulai">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="actionNewGame:" destination="oge-17-dCO" eventType="touchUpInside" id="nId-j5-qsW"/>
-                                    <segue destination="Vvb-Xs-rwZ" kind="show" identifier="" id="mHZ-UU-jjN"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CeritaKu" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IwG-qB-zjp">
                                 <rect key="frame" x="234" y="128" width="344" height="137"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -90,6 +78,19 @@
                                 </state>
                                 <connections>
                                     <action selector="actionNewGame:" destination="oge-17-dCO" eventType="touchUpInside" id="4aF-qD-2MU"/>
+                                    <segue destination="Vvb-Xs-rwZ" kind="show" id="x0z-vC-Zsh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gaI-qQ-y3S">
+                                <rect key="frame" x="566" y="258" width="199" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="PrimerPrint-Regular" family="Primer" pointSize="30"/>
+                                <state key="normal" title="Permainan Baru">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="actionNewGame:" destination="oge-17-dCO" eventType="touchUpInside" id="nId-j5-qsW"/>
+                                    <segue destination="Vvb-Xs-rwZ" kind="show" identifier="" id="mHZ-UU-jjN"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -579,4 +580,7 @@
         <image name="kamarMalam" width="2436" height="1125"/>
         <image name="textBoxDialogue" width="2122" height="411"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="mHZ-UU-jjN"/>
+    </inferredMetricsTieBreakers>
 </document>
