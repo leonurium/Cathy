@@ -44,6 +44,7 @@ class ViewController: UIViewController {
                 self.outletOption.alpha = 1
                 self.outletChapterSelect.alpha = 1
                 self.outletContinue.alpha = 1
+                self.startChronology(index: 0)
             }, completion:
                 {
                     (animate) in
@@ -71,6 +72,7 @@ class ViewController: UIViewController {
         self.outletNewGame.alpha = 0
         self.outletOption.alpha = 0
         self.outletChapterSelect.alpha = 0
+        self.outletContinue.alpha = 0
         animateLabel(label: tapAnywhere)
     }
     
