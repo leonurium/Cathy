@@ -66,8 +66,6 @@ class ViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-        startChronology(index: 0)
-        
         backgroundMusic.playSound(namaMusic: "intense")
         super.viewDidLoad()
         self.outletNewGame.alpha = 0
@@ -78,7 +76,9 @@ class ViewController: UIViewController {
     
     func startChronology(index : Int) {
         if chronologyModel.chronologies.count > 0 {
-
+            if(chronologyModel.idCheckpoint > 0 || chronologyModel.idChronologyCheckpoint > 0) {
+                outletContinue.isHidden = false
+            }
         } else {
             chronologyModel.api.autoUpdateData(view: view)
         }
