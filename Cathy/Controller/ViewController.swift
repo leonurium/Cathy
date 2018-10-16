@@ -44,6 +44,7 @@ class ViewController: UIViewController {
                 self.outletOption.alpha = 1
                 self.outletChapterSelect.alpha = 1
                 self.outletContinue.alpha = 1
+                self.startChronology(index: 0)
             }, completion:
                 {
                     (animate) in
