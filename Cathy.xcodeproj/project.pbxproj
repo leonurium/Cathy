@@ -284,12 +284,6 @@
 			files = (
 				5DEA97102170797700F928B9 /* backgroundMusic1.mp3 in Resources */,
 				30D5D9902174A27000DB79D2 /* Halogen.ttf in Resources */,
-				30D5D9A32174B81500DB79D2 /* bondanBingung-11.png in Resources */,
-				30D5D9C72174B86000DB79D2 /* bondanNormal-9.png in Resources */,
-				30D5D9B02174B81500DB79D2 /* bondanBingung-8.png in Resources */,
-				30D5D9B42174B83500DB79D2 /* bondanHappy-0.png in Resources */,
-				30D5D9A42174B81500DB79D2 /* bondanBingung-12.png in Resources */,
-				30D5D9D32174B86000DB79D2 /* bondanNormal-1.png in Resources */,
 				5DEA972E21749FF600F928B9 /* intense.wav in Resources */,
 				5DEA962E216F294B00F928B9 /* startGameScene.sks in Resources */,
 				5DEA972021746D6500F928B9 /* backButtonSFX.wav in Resources */,
@@ -479,14 +473,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4475UJGNX2;
+				DEVELOPMENT_TEAM = W8T5R97US6;
 				INFOPLIST_FILE = Cathy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.victor.Cathy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Terretino.Cathy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -498,14 +492,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4475UJGNX2;
+				DEVELOPMENT_TEAM = W8T5R97US6;
 				INFOPLIST_FILE = Cathy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.victor.Cathy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Terretino.Cathy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
