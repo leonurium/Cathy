@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  Cathy
+//  outletLabelTitle
 //
 //  Created by Rangga Leo on 14/08/18.
 //  Copyright © 2018 Rangga Leo. All rights reserved.
@@ -10,10 +10,15 @@ import UIKit
  
 class ViewController: UIViewController {
     
-    @IBOutlet weak var outNewGame: UIButton!
-    @IBOutlet weak var outOption: UIButton!
+    @IBOutlet weak var outletNewGame: UIButton!
+    @IBOutlet weak var outletOption: UIButton!
+    @IBOutlet weak var outletChapterSelect: UIButton!
+    @IBOutlet weak var outletContinue: UIButton!
+    
     @IBOutlet weak var tapAnywhere: UILabel!
-    @IBOutlet weak var cathy: UIImageView!
+    @IBOutlet weak var outletLabelTitle: UILabel!
+    
+    
     
     let chronologyModel = ChronologyModel()
     
@@ -25,16 +30,20 @@ class ViewController: UIViewController {
             tapAnywhere.isHidden = true
             
             UIView.animate(withDuration: 2){
-                self.cathy.center.x -= 225
-                self.cathy.center.y -= 80
+                self.outletLabelTitle.center.x -= 225
+                self.outletLabelTitle.center.y -= 130
+                
             }
             
             UIView.animate(withDuration: 1, delay: 2, options: .beginFromCurrentState, animations: {
-                
-                self.outNewGame.center.y -= 30
-                self.outOption.center.y -= 30
-                self.outNewGame.alpha = 1
-                self.outOption.alpha = 1
+                self.outletNewGame.center.y -= 30
+                self.outletOption.center.y -= 30
+                self.outletChapterSelect.center.y -= 30
+                self.outletContinue.center.y -= 30
+                self.outletNewGame.alpha = 1
+                self.outletOption.alpha = 1
+                self.outletChapterSelect.alpha = 1
+                self.outletContinue.alpha = 1
             }, completion:
                 {
                     (animate) in
@@ -61,9 +70,9 @@ class ViewController: UIViewController {
         
         backgroundMusic.playSound(namaMusic: "intense")
         super.viewDidLoad()
-        self.outNewGame.alpha = 0
-        self.outOption.alpha = 0
-        
+        self.outletNewGame.alpha = 0
+        self.outletOption.alpha = 0
+        self.outletChapterSelect.alpha = 0
         animateLabel(label: tapAnywhere)
     }
     
