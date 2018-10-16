@@ -79,6 +79,9 @@ class ViewController: UIViewController {
         self.outletContinue.alpha = 0
         animateLabel(label: tapAnywhere)
         
+        //NO function
+        outletChapterSelect.isHidden = true
+        outletOption.isHidden = true
     }
     
     func startChronology(index : Int) {
@@ -113,6 +116,20 @@ class ViewController: UIViewController {
              }
             )
         })
+    }
+    
+    @IBAction func unwindToHome(segue: UIStoryboardSegue) {
+        if let identifierSegue = segue.identifier {
+            
+            switch identifierSegue {
+            case "unwindToHomeFromChronology":
+                print("OK \(identifierSegue)")
+                break
+                
+            default:
+                print("undefine identifier \(identifierSegue)")
+            }
+        }
     }
     
     override var shouldAutorotate: Bool {
