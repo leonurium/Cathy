@@ -284,8 +284,6 @@
 			files = (
 				5DEA97102170797700F928B9 /* backgroundMusic1.mp3 in Resources */,
 				30D5D9902174A27000DB79D2 /* Halogen.ttf in Resources */,
-<<<<<<< HEAD
-=======
 				30D5D9A32174B81500DB79D2 /* bondanBingung-11.png in Resources */,
 				30D5D9C72174B86000DB79D2 /* bondanNormal-9.png in Resources */,
 				30D5D9B02174B81500DB79D2 /* bondanBingung-8.png in Resources */,
@@ -293,7 +291,6 @@
 				30D5D9A42174B81500DB79D2 /* bondanBingung-12.png in Resources */,
 				30D5D9D32174B86000DB79D2 /* bondanNormal-1.png in Resources */,
 				5DEA972E21749FF600F928B9 /* intense.wav in Resources */,
->>>>>>> 79b7be249e68a7395f45357880ca99295dbef064
 				5DEA962E216F294B00F928B9 /* startGameScene.sks in Resources */,
 				5DEA972021746D6500F928B9 /* backButtonSFX.wav in Resources */,
 				5DEA97302174ACA900F928B9 /* laguGame.wav in Resources */,
