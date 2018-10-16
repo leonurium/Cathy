@@ -509,6 +509,40 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
                         self.typeOn(textView: self.outletLabelText, string: txtConversation)
                     }
                     
+                    if let subjectChronology = nowChronology.subjectChronology {
+                        
+                        if subjectChronology.indices.contains(0) {
+                            if let subject = subjectChronology[0].subject,
+                                let expression = subjectChronology[0].expression
+                            {
+                                self.outletImageViewChar2.isHidden = false
+                                
+                                let animasiKarakter = self.animModel.buatImageArray(total: 15, imagePrefix: "\(expression)\(subject)-")
+                                self.animModel.animasi(imageView: self.outletImageViewChar2, images: animasiKarakter)
+                            }
+                        }
+                        
+                        if subjectChronology.indices.contains(1) {
+                            if let subject = subjectChronology[1].subject,
+                                let expression = subjectChronology[1].expression
+                            {
+                                self.outletImageViewChar1.isHidden = false
+                                let animasiKarakter2 = self.animModel.buatImageArray(total: 15, imagePrefix: "\(expression)\(subject)-")
+                                self.animModel.animasi(imageView: self.outletImageViewChar1, images: animasiKarakter2)
+                            }
+                        }
+                        
+                        if subjectChronology.indices.contains(2) {
+                            if let subject = subjectChronology[2].subject,
+                                let expression = subjectChronology[2].expression
+                            {
+                                self.outletImageViewChar3.isHidden = false
+                                let animasiKarakter3 = self.animModel.buatImageArray(total: 15, imagePrefix: "\(expression)\(subject)-")
+                                self.animModel.animasi(imageView: self.outletImageViewChar3, images: animasiKarakter3)
+                            }
+                        }
+                    }
+                    
                     switch nowChronology.subtype {
                     case "face_detection":
                         self.sessionFaceDetect = true
