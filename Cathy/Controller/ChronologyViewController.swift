@@ -102,6 +102,7 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
     
     override func viewDidLoad() {
         //backgroundMusic.playSound()
+        outletLabelText.textContainer.lineBreakMode = NSLineBreakMode.byWordWrapping
         defineName()
         border()
         masks()
@@ -109,6 +110,24 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
         generateChronology(index: chronologyModel.idChronologyCheckpoint)
         
         //indicator = animModel.buatImageArray(total: 22, imagePrefix: "indicator")
+    }
+    
+    func defineName() {
+        var name = self.playerName.replacingOccurrences(of: "’s iPhone", with: "")
+        name = name.replacingOccurrences(of: "iPhone X", with: "")
+        name = name.replacingOccurrences(of: "iPhone", with: "")
+        print("name \(name)")
+        switch name.lowercased() {
+        case "":
+            self.playerName = "Eka"
+            break
+            
+        default:
+            self.playerName = name
+            break
+        }
+        
+        print("after define \(playerName)")
     }
     
     //function untuk border
@@ -189,7 +208,7 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
         DispatchQueue.main.async {
             if self.chronologyModel.chronologies.count > 0 {
                 self.outletMenuChapter.text = "Chapter \(self.chronologyModel.idCheckpoint + 1)"
-                self.outletMenuDay.text = "\(self.chronologyModel.chronologies[0].title)"
+                self.outletMenuNoon.text = "\(self.chronologyModel.chronologies[0].title)"
 //                self.outletImageViewBackgroud.image = UIImage(named: self.chronologyModel.chronologies[0].background)
             } else {
                 self.chronologyModel.api.autoUpdateData(view: self.view)
@@ -217,7 +236,7 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
                     chronologyModel.chronologies = newChronology
                     generateChronology(index: 0)
                     outletMenuChapter.text = "Chapter \(chronologyModel.idCheckpoint + 1)"
-                    outletMenuDay.text = "\(chronologyModel.chronologies[0].title)"
+                    outletMenuNoon.text = "\(chronologyModel.chronologies[0].title)"
                     print("END Chronology")
                     
                 } else {
@@ -267,7 +286,7 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
         outletIndicator.isHidden = true
         
         //TO default
-        outletImageViewTextBox.image = UIImage(named: "textBox")
+        outletImageViewTextBox.image = UIImage(named: "textBoxDialogue")
     }
     
     func generateChronology(index : Int) -> Void {
@@ -445,7 +464,7 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
                     
                 case "narator" :
                     self.hiddenAll()
-                    self.outletImageViewTextBox.image = UIImage(named: "player")
+                    self.outletImageViewTextBox.image = UIImage(named: "textBoxNarrator")
                     
                     if let backgroundImage = nowChronology.background {
                         self.outletImageViewBackgroud.image = UIImage(named: backgroundImage)

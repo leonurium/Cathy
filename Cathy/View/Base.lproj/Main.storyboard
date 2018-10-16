@@ -529,6 +529,7 @@
                         <outlet property="outletImageViewChar1" destination="b4d-mK-1JK" id="C7P-SH-yC2"/>
                         <outlet property="outletImageViewChar2" destination="XBG-G9-uVK" id="TyM-Z3-EjE"/>
                         <outlet property="outletImageViewChar3" destination="eLX-fd-rcz" id="7PB-hi-RyJ"/>
+                        <outlet property="outletImageViewTextBox" destination="AWH-J8-v0C" id="I9L-ll-onk"/>
                         <outlet property="outletIndicator" destination="Z0g-bG-UkC" id="tXS-wB-Afg"/>
                         <outlet property="outletLabelSubject" destination="Ima-81-k5K" id="nat-eY-ejr"/>
                         <outlet property="outletLabelText" destination="cdN-YA-WwU" id="Ybp-oh-RD0"/>
