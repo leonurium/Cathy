@@ -375,7 +375,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Chapter Name" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CVb-Lu-wc1">
-                                        <rect key="frame" x="-72" y="31" width="174" height="25"/>
+                                        <rect key="frame" x="-146" y="31" width="248" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="PrimerPrint-Regular" family="Primer" pointSize="20"/>
                                         <nil key="textColor"/>
@@ -502,6 +502,9 @@
                                         <color key="backgroundColor" red="0.51816314458847046" green="0.95749086141586304" blue="0.58425277471542358" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" name="PrimerPrint-Regular" family="Primer" pointSize="17"/>
                                         <state key="normal" title="Keluar"/>
+                                        <connections>
+                                            <segue destination="KdT-eR-7Nt" kind="unwind" identifier="unwindToHomeFromChronology" unwindAction="unwindToHomeWithSegue:" id="LTI-To-syO"/>
+                                        </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="close" translatesAutoresizingMaskIntoConstraints="NO" id="c7t-OB-dll">
                                         <rect key="frame" x="424" y="11" width="30" height="30"/>
@@ -562,6 +565,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6IL-LG-HsC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="KdT-eR-7Nt" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="BQO-PB-IlY" userLabel="tapAnywhere">
                     <connections>
                         <action selector="tapAnywhere:" destination="Vvb-Xs-rwZ" id="3La-Qy-D2u"/>
