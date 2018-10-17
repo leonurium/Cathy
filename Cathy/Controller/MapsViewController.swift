@@ -23,12 +23,6 @@ class MapsViewController: UIViewController, UITableViewDelegate, UITableViewData
         for i in 1...(currentChapter + 1) {
             chapter.append(i)
         }
-        chapter.append(2)
-        chapter.append(3)
-        chapter.append(4)
-        chapter.append(5)
-        chapter.append(6)
-        chapter.append(7)
         
         outletTableViewChapterMaps.delegate = self
         outletTableViewChapterMaps.dataSource = self

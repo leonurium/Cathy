@@ -23,7 +23,7 @@ class ViewController: UIViewController {
     
     let chronologyModel = ChronologyModel()
     
-    var backgroundMusic = backgroundSound()
+    var backgroundMusic = backgroundSound.shared
 
     //animation awal
     @IBAction func tapScreen(_ sender: Any) {
@@ -60,7 +60,7 @@ class ViewController: UIViewController {
     
     //animation
     @IBAction func actionNewGame(_ sender: Any) {
-        backgroundMusic.musicPlayer.stop()
+//        backgroundMusic.musicPlayer.stop()
         let controller = ChronologyViewController()
         controller.cleanApp()
         print("ok")
@@ -71,7 +71,7 @@ class ViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-        backgroundMusic.playSound(namaMusic: "intense")
+        backgroundMusic.playSound(namaMusic: "defaultMusic")
         super.viewDidLoad()
         self.outletNewGame.alpha = 0
         self.outletOption.alpha = 0

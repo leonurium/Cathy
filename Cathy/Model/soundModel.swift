@@ -11,7 +11,13 @@ import AVFoundation
 
 public class backgroundSound {
     
-    var musicPlayer = AVAudioPlayer()
+    static let shared = backgroundSound()
+    
+    var musicPlayer: AVAudioPlayer!
+    
+    init() {
+        self.musicPlayer = AVAudioPlayer()
+    }
     
     func playSound(namaMusic: String) {
         do {

@@ -35,5 +35,10 @@ public class animasiIdle: UIViewController {
         imageView.startAnimating()
     }
     
+    func animasiIndicator(imageView: UIImageView, images: [UIImage]) {
+        imageView.animationImages = images
+        imageView.animationDuration = 1
+        imageView.startAnimating()
+    }
 }
 

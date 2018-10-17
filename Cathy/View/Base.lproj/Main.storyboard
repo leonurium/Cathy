@@ -28,11 +28,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="kamarMalam" translatesAutoresizingMaskIntoConstraints="NO" id="G48-Fz-yNR">
-                                <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bgmainMenu" translatesAutoresizingMaskIntoConstraints="NO" id="G48-Fz-yNR">
+                                <rect key="frame" x="50" y="100" width="330" height="264"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="sentuh untuk lanjut" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3aX-n5-9QN">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="tekan untuk lanjut" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3aX-n5-9QN">
                                 <rect key="frame" x="272" y="211" width="269" height="54"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="PrimerPrint-Regular" family="Primer" pointSize="25"/>
@@ -47,7 +47,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Zw-lL-Sye">
-                                <rect key="frame" x="596" y="294" width="138" height="23"/>
+                                <rect key="frame" x="551" y="284" width="138" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="PrimerPrint-Regular" family="Primer" pointSize="30"/>
                                 <state key="normal" title="Pilih Bab">
@@ -58,7 +58,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lZP-Qx-XDx">
-                                <rect key="frame" x="596" y="316" width="138" height="48"/>
+                                <rect key="frame" x="551" y="306" width="138" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="PrimerPrint-Regular" family="Primer" pointSize="30"/>
                                 <state key="normal" title="Setelan">
@@ -70,7 +70,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HrA-mB-ltt">
-                                <rect key="frame" x="596" y="227" width="138" height="23"/>
+                                <rect key="frame" x="551" y="217" width="138" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="PrimerPrint-Regular" family="Primer" pointSize="30"/>
                                 <state key="normal" title="Lanjut">
@@ -82,7 +82,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gaI-qQ-y3S">
-                                <rect key="frame" x="566" y="258" width="199" height="23"/>
+                                <rect key="frame" x="521" y="248" width="199" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="PrimerPrint-Regular" family="Primer" pointSize="30"/>
                                 <state key="normal" title="Permainan Baru">
@@ -175,24 +175,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wyg-gg-EHH">
-                                <rect key="frame" x="121" y="641" width="133" height="30"/>
-                                <state key="normal" title="End Game"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wyg-gg-EHH">
+                                <rect key="frame" x="100" y="685" width="174" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.35686274509999999" green="0.78823529410000004" blue="0.67843137249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="End Game" image="button menu">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <segue destination="D6c-F9-0bo" kind="unwind" identifier="unwindToChronologyFromGame1" unwindAction="unwindToChronologyWithSegue:" id="8CS-XA-G5x"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="OK" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="84D-7a-qLM">
+                                <rect key="frame" x="174" y="694" width="26" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="wyg-gg-EHH" firstAttribute="top" secondItem="y5c-0F-hpn" secondAttribute="top" constant="641" id="nih-TD-2mF"/>
-                            <constraint firstItem="wyg-gg-EHH" firstAttribute="leading" secondItem="y5c-0F-hpn" secondAttribute="leading" constant="164" id="v8n-sb-Xcr"/>
-                            <constraint firstItem="y5c-0F-hpn" firstAttribute="trailing" secondItem="wyg-gg-EHH" secondAttribute="trailing" constant="165" id="wF9-Gh-TFM"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="y5c-0F-hpn"/>
                     </view>
                     <connections>
                         <outlet property="outletEndGameButton" destination="wyg-gg-EHH" id="moC-AQ-lrG"/>
+                        <outlet property="outletLabelOKButton" destination="84D-7a-qLM" id="dqg-KP-2Dw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J7s-2D-PpA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -528,8 +535,8 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z0g-bG-UkC" userLabel="indicatorInteraction">
-                                <rect key="frame" x="697" y="193" width="54" height="50"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z0g-bG-UkC" userLabel="indicatorInteraction">
+                                <rect key="frame" x="659" y="165" width="88" height="88"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -576,6 +583,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bgmainMenu" width="360" height="360"/>
         <image name="button menu" width="2252" height="606"/>
         <image name="close" width="376" height="376"/>
         <image name="continueButton" width="1050" height="666"/>

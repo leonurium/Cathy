@@ -15,6 +15,7 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
     var playerName = UIDevice.current.name
     
     var animModel = animasiIdle()
+    var backgroundMusic = backgroundSound.shared
     
     var tempTypeOn: Int = 0
     var tempBanyakCharacter: Int = 0
@@ -519,16 +520,16 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
                     switch nowChronology.subtype {
                     case "face_detection":
                         self.outletIndicator.isHidden = false
-                        let shakeIndicator = self.animModel.buatImageArray(total: 10, imagePrefix: "indicatorSmile-")
-                        self.animModel.animasi(imageView: self.outletIndicator, images: shakeIndicator)
+                        let shakeIndicator = self.animModel.buatImageArray(total: 2, imagePrefix: "indicatorSmile-")
+                        self.animModel.animasiIndicator(imageView: self.outletIndicator, images: shakeIndicator)
                         self.sessionFaceDetect = true
                         self.runFaceDetect()
                         break
                         
                     case "shake":
                         self.outletIndicator.isHidden = false
-                        let shakeIndicator = self.animModel.buatImageArray(total: 10, imagePrefix: "indicator-")
-                        self.animModel.animasi(imageView: self.outletIndicator, images: shakeIndicator)
+                        let shakeIndicator = self.animModel.buatImageArray(total: 2, imagePrefix: "indicator-")
+                        self.animModel.animasiIndicator(imageView: self.outletIndicator, images: shakeIndicator)
                         self.sessionShake = true
                         break
                         
@@ -537,6 +538,7 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
                         break
                         
                     case "game1":
+                        self.backgroundMusic.musicPlayer.stop()
                         self.performSegue(withIdentifier: "toGame1", sender: nil)
                         
                     default:
