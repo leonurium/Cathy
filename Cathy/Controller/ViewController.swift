@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CloudKit
  
 class ViewController: UIViewController {
     
@@ -45,7 +46,6 @@ class ViewController: UIViewController {
                 self.outletOption.alpha = 1
                 self.outletChapterSelect.alpha = 1
                 self.outletContinue.alpha = 1
-                self.startChronology(index: 0)
                 self.outletImageBG.alpha = 1
                 
             }, completion:
@@ -84,13 +84,44 @@ class ViewController: UIViewController {
         outletOption.isHidden = true
     }
     
-    func startChronology(index : Int) {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        UIDevice.current.setValue(UIInterfaceOrientation.landscapeLeft.rawValue, forKey: "orientation")
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.startChronology(_:)), name: Notification.Name(String(describing: ReachabilityWrapper.self)), object: nil)
+        ReachabilityWrapper().monitorReachabilityChanges()
+    }
+    
+    @objc func startChronology(_ notification: NSNotification) {
         if chronologyModel.chronologies.count > 0 {
             if(chronologyModel.idCheckpoint > 0 || chronologyModel.idChronologyCheckpoint > 0) {
                 outletContinue.isHidden = false
             }
         } else {
-            chronologyModel.api.autoUpdateData(view: view)
+            let status = ReachabilityWrapper().connectionStatus()
+            switch status {
+                
+            case .offline:
+                print("Offline")
+                break
+                
+            case .online(.wwan), .unknown:
+                print("koneksi kurang stable")
+                break
+                
+            case .online(.wiFi):
+                let progressCloud = CloudKitProgress(record: CKRecord(recordType: "ProgressCeritaku"))
+                
+                if let dataProgress = progressCloud.fetchObject() {
+                    if dataProgress.count > 0 {
+                        chronologyModel.checkpoint.updateObject(id: dataProgress[0].id, idChronology: dataProgress[0].id_chronology)
+                    }
+                }
+                
+                chronologyModel.api.autoUpdateData(view: view)
+                break
+            }
         }
     }
     
@@ -134,12 +165,6 @@ class ViewController: UIViewController {
     
     override var shouldAutorotate: Bool {
         return false
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        UIDevice.current.setValue(UIInterfaceOrientation.landscapeLeft.rawValue, forKey: "orientation")
     }
     
     override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation {

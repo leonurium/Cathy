@@ -44,6 +44,8 @@
 		AADA70F62122E4CF00F1B165 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADA70F52122E4CF00F1B165 /* ViewController.swift */; };
 		AADA70FC2122E4CF00F1B165 /* Cathy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AADA70FA2122E4CF00F1B165 /* Cathy.xcdatamodeld */; };
 		AADA71012122E4CF00F1B165 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AADA70FF2122E4CF00F1B165 /* LaunchScreen.storyboard */; };
+		AAF1800521805C4800FFB182 /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF1800421805C4800FFB182 /* CloudKitManager.swift */; };
+		AAF1800921807ECC00FFB182 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAF1800821807ECC00FFB182 /* CloudKit.framework */; };
 		AAFB72C121300FB700E57247 /* connectApiClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFB72C021300FB700E57247 /* connectApiClass.swift */; };
 /* End PBXBuildFile section */
 
@@ -87,6 +89,9 @@
 		AADA70FB2122E4CF00F1B165 /* Cathy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Cathy.xcdatamodel; sourceTree = "<group>"; };
 		AADA71002122E4CF00F1B165 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AADA71022122E4CF00F1B165 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AAF1800421805C4800FFB182 /* CloudKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
+		AAF1800621807EC800FFB182 /* Cathy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Cathy.entitlements; sourceTree = "<group>"; };
+		AAF1800821807ECC00FFB182 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		AAFB72C021300FB700E57247 /* connectApiClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = connectApiClass.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -95,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAF1800921807ECC00FFB182 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,6 +186,7 @@
 				AA6CC075215900BC009BDA8D /* ProgressX.swift */,
 				AA6CC077215900F1009BDA8D /* ApiHandle.swift */,
 				AACF564C216E102400BAC04A /* Reachability.swift */,
+				AAF1800421805C4800FFB182 /* CloudKitManager.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -202,6 +209,7 @@
 			children = (
 				AADA70F22122E4CF00F1B165 /* Cathy */,
 				AADA70F12122E4CF00F1B165 /* Products */,
+				AAF1800721807ECC00FFB182 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -216,6 +224,7 @@
 		AADA70F22122E4CF00F1B165 /* Cathy */ = {
 			isa = PBXGroup;
 			children = (
+				AAF1800621807EC800FFB182 /* Cathy.entitlements */,
 				AA59DFCB212CFA880099C990 /* Model */,
 				AACF26CC2123EE4600ABA4AF /* Classes */,
 				AACF26C92123E86100ABA4AF /* Controller */,
@@ -225,6 +234,14 @@
 				AADA70FA2122E4CF00F1B165 /* Cathy.xcdatamodeld */,
 			);
 			path = Cathy;
+			sourceTree = "<group>";
+		};
+		AAF1800721807ECC00FFB182 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AAF1800821807ECC00FFB182 /* CloudKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,6 +276,14 @@
 				TargetAttributes = {
 					AADA70EF2122E4CF00F1B165 = {
 						CreatedOnToolsVersion = 9.4.1;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -324,6 +349,7 @@
 				AADA70F42122E4CF00F1B165 /* AppDelegate.swift in Sources */,
 				AAFB72C121300FB700E57247 /* connectApiClass.swift in Sources */,
 				AA6CC076215900BC009BDA8D /* ProgressX.swift in Sources */,
+				AAF1800521805C4800FFB182 /* CloudKitManager.swift in Sources */,
 				AA59DFD1212CFD8F0099C990 /* ChronologyViewController.swift in Sources */,
 				5DEA9632216F46CF00F928B9 /* startGameScene.swift in Sources */,
 				AA9D43A821368CF20010E736 /* TransitionViewController.swift in Sources */,
@@ -476,6 +502,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Cathy/Cathy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VC83XAQ3UM;
 				INFOPLIST_FILE = Cathy/Info.plist;
@@ -484,7 +511,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Terretino.Cathy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ceritaku.Cathy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -495,6 +522,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Cathy/Cathy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VC83XAQ3UM;
 				INFOPLIST_FILE = Cathy/Info.plist;
@@ -503,7 +531,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Terretino.Cathy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ceritaku.Cathy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

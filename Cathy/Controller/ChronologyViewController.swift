@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 import CoreImage
+import CloudKit
 
 class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
     
@@ -22,6 +23,7 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
     
     let chronologyModel = ChronologyModel()
     let checkpointModel = CheckpointModel()
+    let progressCloud = CloudKitProgress(record: CKRecord(recordType: "ProgressCeritaku"))
     var indexChronology: Int = 0
     var sessionShake = false
     var sessionFaceDetect = false
@@ -269,6 +271,10 @@ class ChronologyViewController: UIViewController, AVCaptureVideoDataOutputSample
         if chronologyModel.chronologies.count > 0 {
             
             if checkpointModel.updateObject(id: chronologyModel.idCheckpoint, idChronology: index) {
+                DispatchQueue.global().async {
+                    self.progressCloud.updateObject(id: self.chronologyModel.idCheckpoint, idChronology: index)
+                }
+                
                 print("checkpoint updated")
                 print("id : \(chronologyModel.idCheckpoint)")
                 print("id_chronology : \(index)")
